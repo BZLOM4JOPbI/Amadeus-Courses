@@ -1,5 +1,34 @@
+{% extends 'main_pages/base.html' %}
+
 {% load static %}
 
+{% block title %}
+Авторизация
+{% endblock %}
+
+
+{% block content %}
+    <main class="mainWrap">
+        <div class="container">
+            <div class="inner blockForForm">
+                <h3 class="subtitle">Вход</h3>
+                <form action="файл-обработчик" class="form" >
+                    <label>Почта или Логин
+                        <input type="text" placeholder="login or email">
+                    </label>
+                    <label>Пароль
+                        <input type="password" placeholder="*********">
+                    </label>
+                    <input type="submit" value="Войти" class="Btn" disabled>
+                </form>
+                <h6 class="changePage">Нет аккаунта? <a href="regist.html">Регистрация</a></h6>
+            </div>
+        </div>
+    </main>
+{% endblock %}
+
+
+<!-- 
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -50,3 +79,4 @@
     <script src="{% static 'main_pages/js/script.js' %}"></script>
 </body>
 </html>
+-->

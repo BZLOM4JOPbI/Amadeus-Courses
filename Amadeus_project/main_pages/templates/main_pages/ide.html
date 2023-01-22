@@ -1,5 +1,29 @@
+{% extends 'main_pages/base.html' %}
+
 {% load static %}
 
+
+{% block title %}
+IDE
+{% endblock %}
+
+
+{% block content %}
+    <div class="editorContainer">
+        <div class="editorInner">
+            <div id="editor"></div>
+        </div>
+    </div>
+{% endblock %}
+
+
+{% block ide %}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.14.0/ace.js" type ="text/javascript" charset="utf-8"></script>
+    <script src="{% static 'main_pages/js/ide_script.js' %}"></script>
+{% endblock %}
+
+
+<!--  
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -40,3 +64,4 @@
     </div>
 </body>
 </html>
+ -->

@@ -1,5 +1,30 @@
+{% extends 'main_pages/base.html' %}
+
 {% load static %}
 
+
+{% block title %}
+Курсы Amadeus
+{% endblock %}
+
+
+{% block content %}
+    <main class="mainWrap">
+        <div class="container">
+            <div class="codeBG" style="background-image: url({% static 'main_pages/img/blackbg.png' %});">
+                <div class="blur">
+                    <div class="mainInner">
+                        <h1 class="mainTitle">Доступные курсы<br>по программированию с нуля</h1>
+                        <h4 class="mainSubtitle">Хобби может легко стать любимой работой</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+{% endblock %}
+
+
+<!--  
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -45,3 +70,4 @@
     <script src=" {% static 'main_pages/js/script.js' %}"></script>
 </body>
 </html>
+-->
