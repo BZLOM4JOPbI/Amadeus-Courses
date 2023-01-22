@@ -15,7 +15,7 @@
                 <h3 class="subtitle">Регистрация аккаунта</h3>
                 <form method="post" >
                 {% csrf_token %}
-                {{ form.as_p  }}
+                {{ form.as_p }}
                 <button type="submit">Save changes</button>
                 </form>
                 <h6 class="changePage">Есть аккаунт? <a href="{% url 'login' %}">Войти</a></h6>
