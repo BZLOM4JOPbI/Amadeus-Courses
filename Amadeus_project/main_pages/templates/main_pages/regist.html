@@ -13,13 +13,21 @@
         <div class="container">
             <div class="inner blockForForm">
                 <h3 class="subtitle">Регистрация аккаунта</h3>
-                <form method="post" >
+                <form method="post" class="form">
                     {% csrf_token %}
-                    {{ form.username }}
-                    {{ form.email }}
-                    {{ form.password }}
-                    {{ form.confirm_password }}
-                    <button type="submit">Регистрация</button>
+                    <label>Логин
+                        {{ form.username }}
+                    </label>
+                    <label>Почта
+                        {{ form.email }}
+                    </label>
+                    <label> Пароль
+                        {{ form.password }}
+                    </label>
+                    <label>Подтверждение пароля
+                        {{ form.confirm_password }}
+                    </label>
+                    <input type="submit" value="Регистрация" class="Btn">
                 </form>
                 <h6 class="changePage">Есть аккаунт? <a href="{% url  'login' %}">Войти</a></h6>
             </div>
