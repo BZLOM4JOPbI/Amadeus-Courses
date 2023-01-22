@@ -1,18 +1,42 @@
 from .models import CustomUser
-from django.contrib.auth.forms import UserChangeForm, UserCreationForm
+from django.forms import ModelForm, TextInput
 
 
-class CustomUserCreationForm(UserCreationForm):
-
-    class Meta:
-
-        model = CustomUser
-        fields = ['username', 'email']
-
-
-class CustomUserChangeForm(UserChangeForm):
+class CustomUserForm(ModelForm):
 
     class Meta:
 
         model = CustomUser
-        fields = ['username', 'email']
+        fields = ['username', 'email', 'password', 'confirm_password']
+        widgets = {
+            'username': TextInput(attrs={
+                'type': "text",  'placeholder': "login"
+            }),
+            'email': TextInput(attrs={
+                'type': "email",  'placeholder': "email"
+            }),
+            'password': TextInput(attrs={
+                'type': "password",  'placeholder': "********"
+            }),
+            'confirm_password': TextInput(attrs={
+                'type': "password",  'placeholder': "********"
+            })
+        }
+
+
+
+
+# class CustomUserCreationForm(UserCreationForm):
+
+#     class Meta:
+
+#         model = CustomUser
+#         fields = ['username', 'email']
+
+
+# class CustomUserChangeForm(UserChangeForm):
+
+#     class Meta:
+
+#         model = CustomUser
+#         fields = ['username', 'email']
