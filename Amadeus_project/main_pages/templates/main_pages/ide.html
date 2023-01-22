@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IDE</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="wrapper">
+        <header class="headerWrap">
+            <div class="container">
+                <div class="inner">
+                    <h2><a href='index.html' class="titleHeader">Amadeus</a></h2>
+                    <div class="navBtnWrap"><a href="#" class="navBtn">Курсы</a><a href="ide.html" class="navBtn">IDE</a></div>
+                    <img src="img\bars-solid.svg" alt="" class="hambBtn">
+                    <div class="accountBtnWrap">
+                        <a href="regist.html" class="Btn">Регистрация</a>
+                        <a href="login.html" class="Btn">Вход</a>
+                    </div>
+                </div>
+                <hr noshade="true" class="underline">
+            </div>
+        </header>
+        <nav class="hambWrap"><div class="container"><div class="inner" id="hamburgerMenu"></div></div></nav>
+        <div class="editorContainer">
+            <div class="editorInner">
+                <div id="editor"></div>
+            </div>
+        </div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.14.0/ace.js" type ="text/javascript" charset="utf-8"></script>
+        <script src="ide_script.js"></script>
+        <script src="script.js"></script>
+    </div>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="wrapper">
+        <header class="headerWrap">
+            <div class="container">
+                <div class="inner">
+                    <h2><a href='index.html' class="titleHeader">Amadeus</a></h2>
+                    <div class="navBtnWrap"><a href="#" class="navBtn">Курсы</a><a href="ide.html" class="navBtn">IDE</a></div>
+                    <img src="img\bars-solid.svg" alt="" class="hambBtn">
+                    <div class="accountBtnWrap">
+                        <a href="regist.html" class="Btn">Регистрация</a>
+                        <a href="login.html" class="Btn">Вход</a>
+                    </div>
+                </div>
+                <hr noshade="true" class="underline">
+            </div>
+        </header>
+        <nav class="hambWrap"><div class="container"><div class="inner" id="hamburgerMenu"></div></div></nav>
+        <main class="mainWrap">
+            <div class="container">
+                <div class="inner blockForForm">
+                    <h3 class="subtitle">Регистрация аккаунта</h3>
+                    <form action="файл-обработчик" class="form">
+                        <label>Логин
+                            <input type="text" placeholder="login">
+                        </label>
+                        <label>Почта  
+                            <input type="email" placeholder="user@mail.ru">
+                        </label>
+                        <label>Пароль
+                            <input type="password" placeholder="*********">
+                        </label>
+                        <label>Повтор пароля
+                            <input type="password" placeholder="*********">
+                        </label>
+                       <input type="submit" value="Регистрация" class="Btn">
+                    </form>
+                    <h6 class="changePage">Есть аккаунт? <a href="login.html">Войти</a></h6>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
