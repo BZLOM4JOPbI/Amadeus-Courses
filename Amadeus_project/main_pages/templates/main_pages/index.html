@@ -19,7 +19,7 @@
                 <div class="inner">
                     <h2><a href='index.html' class="titleHeader">Amadeus</a></h2>
                     <div class="navBtnWrap"><a href="#" class="navBtn">Курсы</a><a href="ide.html" class="navBtn">IDE</a></div>
-                    <img src="img\bars-solid.svg" alt="" class="hambBtn">
+                    <img src="{% static 'main_pages/img\bars-solid.svg' %}" alt="" class="hambBtn">
                     <div class="accountBtnWrap">
                         <a href="regist.html" class="Btn">Регистрация</a>
                         <a href="login.html" class="Btn">Вход</a>
@@ -31,7 +31,7 @@
         <nav class="hambWrap"><div class="container"><div class="inner" id="hamburgerMenu"></div></div></nav>
         <main class="mainWrap">
             <div class="container">
-                <div class="codeBG">
+                <div class="codeBG" style="background-image: url({% static 'main_pages/img/blackbg.png' %});">
                     <div class="blur">
                         <div class="mainInner">
                             <h1 class="mainTitle">Доступные курсы<br>по программированию с нуля</h1>
@@ -42,6 +42,6 @@
             </div>
         </main>
     </div>
-    <script src="{ static 'main_pages/js/script.js'}"></script>
+    <script src="{% static 'main_pages/js/script.js' %}"></script>
 </body>
 </html>

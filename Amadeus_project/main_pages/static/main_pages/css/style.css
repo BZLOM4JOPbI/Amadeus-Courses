@@ -204,7 +204,7 @@ input[type='submit']:disabled {
 
 /* ГЛавная индекса */
 .codeBG {
-    background-image: url('img/blackbg.png');
+    /* background-image: url('Amadeus_project/main_pages/static/main_pages/img/blackbg.png'); */
     background-position: left;
     border-radius: 3px;
 }
