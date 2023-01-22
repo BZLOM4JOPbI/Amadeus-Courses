@@ -101,7 +101,7 @@ body {
         margin: 0 0 25px;
     }
     .navBtnWrap > .navBtn {
-        margin: 0 15    px 0 0;
+        margin: 0 15px 0 0;
     }
     .hambBtn {
         display: block;
@@ -194,6 +194,7 @@ input[type='submit']:disabled {
     .form{
         border-color: #fff;
         margin-bottom: 0px;
+        padding: 20px;
     }
     .changePage {
         border-color: #fff;
@@ -209,7 +210,7 @@ input[type='submit']:disabled {
     border-radius: 3px;
 }
 .blur {
-    background: rgba(255, 255, 255, 0.2);
+    background: rgba(89, 138, 118, 0.6);
     backdrop-filter: blur(2px);
     border-radius: 3px;
     -webkit-appearance: none;
