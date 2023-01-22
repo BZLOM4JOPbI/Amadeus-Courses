@@ -10,7 +10,7 @@ class CustomUserForm(ModelForm):
         fields = ['username', 'email', 'password', 'confirm_password']
         widgets = {
             'username': TextInput(attrs={
-                'type': "text",  'placeholder': "login", 'class': 'test'
+                'type': "text",  'placeholder': "login"
             }),
             'email': TextInput(attrs={
                 'type': "email",  'placeholder': "email"
