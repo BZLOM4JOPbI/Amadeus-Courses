@@ -15,4 +15,3 @@ def login(request):
 
 def ide(request):
     return render(request, 'main_pages/ide.html')
-
