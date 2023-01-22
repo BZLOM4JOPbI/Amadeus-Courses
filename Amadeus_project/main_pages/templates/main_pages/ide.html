@@ -19,7 +19,7 @@
                 <div class="inner">
                     <h2><a href='index.html' class="titleHeader">Amadeus</a></h2>
                     <div class="navBtnWrap"><a href="#" class="navBtn">Курсы</a><a href="ide.html" class="navBtn">IDE</a></div>
-                    <img src="img\bars-solid.svg" alt="" class="hambBtn">
+                    <img src=" {% static 'main_pages/img\bars-solid.svg' %}" alt="" class="hambBtn">
                     <div class="accountBtnWrap">
                         <a href="regist.html" class="Btn">Регистрация</a>
                         <a href="login.html" class="Btn">Вход</a>
@@ -35,8 +35,8 @@
             </div>
         </div>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.14.0/ace.js" type ="text/javascript" charset="utf-8"></script>
-        <script src="{ static 'main_pages/js/ide_script.js'}"></script>
-        <script src="{ static 'main_pages/js/script.js'}"></script>
+        <script src="{% static 'main_pages/js/ide_script.js' %}"></script>
+        <script src="{% static 'main_pages/js/script.js' %}"></script>
     </div>
 </body>
 </html>
