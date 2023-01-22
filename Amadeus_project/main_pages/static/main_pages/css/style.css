@@ -403,10 +403,3 @@ input[type='submit']:disabled {
         scale: 1;
     }
 }
-
-
-
-
-.test {
-    border-radius: 20px;
-}
