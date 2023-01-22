@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Курсы Amadeus</title>
+    <title>Document</title>
     <link rel="stylesheet" href="{% static 'main_pages/css/style.css' %}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -19,9 +19,9 @@
                 <div class="inner">
                     <h2><a href='index.html' class="titleHeader">Amadeus</a></h2>
                     <div class="navBtnWrap"><a href="#" class="navBtn">Курсы</a><a href="ide.html" class="navBtn">IDE</a></div>
-                    <img src="{% static 'main_pages/img\bars-solid.svg' %}" alt="" class="hambBtn">
+                    <img src="img\bars-solid.svg" alt="" class="hambBtn">
                     <div class="accountBtnWrap">
-                        <a href="test_regist.html" class="Btn">Регистрация</a>
+                        <a href="regist.html" class="Btn">Регистрация</a>
                         <a href="login.html" class="Btn">Вход</a>
                     </div>
                 </div>
@@ -31,17 +31,18 @@
         <nav class="hambWrap"><div class="container"><div class="inner" id="hamburgerMenu"></div></div></nav>
         <main class="mainWrap">
             <div class="container">
-                <div class="codeBG" style="background-image: url({% static 'main_pages/img/blackbg.png' %});">
-                    <div class="blur">
-                        <div class="mainInner">
-                            <h1 class="mainTitle">Доступные курсы<br>по программированию с нуля</h1>
-                            <h4 class="mainSubtitle">Хобби может легко стать любимой работой</h4>
-                        </div>
-                    </div>
+                <div class="inner blockForForm">
+                    <h3 class="subtitle">Регистрация аккаунта</h3>
+                    <form method="post" >
+                      {% csrf_token %}
+                      {{ form.as_p  }}
+                      <button type="submit">Save changes</button>
+                    </form>
+                    <h6 class="changePage">Есть аккаунт? <a href="login.html">Войти</a></h6>
                 </div>
             </div>
         </main>
     </div>
-    <script src="{% static 'main_pages/js/script.js' %}"></script>
+    <script src="{ static 'main_pages/js/script.js'}"></script>
 </body>
 </html>
