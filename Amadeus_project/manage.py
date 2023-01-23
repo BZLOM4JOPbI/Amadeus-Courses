@@ -20,3 +20,7 @@ def main():
 
 if __name__ == '__main__':
     main()
+
+# Когда мы запускаем сервер, он сам запускает его без кэширования
+if '--nostatic' not in sys.argv:
+    sys.argv.append('--nostatic')
