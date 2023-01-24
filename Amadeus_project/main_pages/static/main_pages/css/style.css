@@ -406,13 +406,18 @@ input[type='submit']:disabled {
     /*background-color: rgb(89, 138, 118);*/
     justify-content: space-between;
     flex-wrap: wrap;
+    align-items: baseline;
 }
 .footerSubtitle {
     font-weight: 400;
     font-size: 16px;
+    margin-bottom: 5px;
 }
 .footerWrap .titleHeader {
     font-size: 24px;
+    margin-bottom: 10px;
+    font-weight: 500;
+    display: inline-block;
 }
 /* Animation */
 @keyframes increaseWidth {
