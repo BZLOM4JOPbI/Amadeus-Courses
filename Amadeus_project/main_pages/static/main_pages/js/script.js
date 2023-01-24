@@ -3,6 +3,7 @@ const navButtons = document.querySelector('.navBtnWrap').cloneNode(1);
 const hambButton = document.querySelector('.hambBtn');
 const hamburgerMenu = document.querySelector('#hamburgerMenu');
 
+
 const mediaQuery = window.matchMedia('(min-width: 751px)'); // Медиазапрос на увелечение экрана выше брейкпоинта
 
 const hambClick = () => {
@@ -19,6 +20,10 @@ const hambClick = () => {
 };
 
 hambButton.addEventListener('click', hambClick);
+
+const footerYear = document.querySelector('.footerSubtitle');
+let now = new Date();
+footerYear.textContent = 'Copyright ' + footerYear.textContent + now.getFullYear() + '. All rights reserved.';
 
 const hamburgerAviable = () => {
     if (mediaQuery.matches && Boolean(hamburgerMenu.children.length)) {

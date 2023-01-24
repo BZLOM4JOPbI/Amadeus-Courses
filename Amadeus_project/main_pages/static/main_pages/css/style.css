@@ -1,5 +1,5 @@
 /* Фундаментальные стили */
-body {
+body, html {
     margin: 0;
     padding: 0;
     width: 100%;
@@ -14,6 +14,9 @@ body {
 }
 .wrapper {
     overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
 }
 .container {
     max-width: 1650px;
@@ -37,6 +40,14 @@ body {
     background-color: #000;
     animation: increaseWidth 1s;
 }
+.inner {
+    padding: 20px 15px 0;
+    display: flex;
+    align-items: center;
+}
+.mainWrap {
+    flex: 1 1 auto;
+}
 /* Конец фундаментальных стилей */
 
 /* Стили header'a */
@@ -48,11 +59,6 @@ body {
 }
 .titleHeader:hover {
     cursor: default;
-}
-.inner {
-    padding: 20px 15px 0;
-    display: flex;
-    align-items: center;
 }
 .accountBtnWrap {
     margin-left: auto;
@@ -379,6 +385,40 @@ input[type='submit']:disabled {
 }
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Footer */
+.footerWrap  .inner {
+    /*background-color: rgb(89, 138, 118);*/
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: baseline;
+}
+.footerSubtitle {
+    font-weight: 400;
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+.footerWrap .titleHeader {
+    font-size: 24px;
+    margin-bottom: 10px;
+    font-weight: 500;
+    display: inline-block;
+}
 /* Animation */
 @keyframes increaseWidth {
     0% {
