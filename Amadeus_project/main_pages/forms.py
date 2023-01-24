@@ -24,8 +24,6 @@ class CustomUserForm(ModelForm):
         }
 
 
-
-
 # class CustomUserCreationForm(UserCreationForm):
 
 #     class Meta:
