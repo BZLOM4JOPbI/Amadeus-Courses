@@ -383,7 +383,15 @@ input[type='submit']:disabled {
     border-radius: 3px;
     height: 500px;
 }
-
+.resultBtn {
+    display: block;
+    width: 100%;
+    border-radius: 3px;
+    padding: 10px;
+    box-sizing: border-box;
+    background-color: rgb(89, 138, 118);
+    cursor: pointer;
+}
 
 
 
