@@ -10,6 +10,9 @@ ide.setOptions({
     fontSize: '18px',
     mode: 'ace/mode/javascript',
     theme: 'ace/theme/eclipse',
+    enableBasicAutocompletion: true,
+    enableLiveAutocompletion: true,
+    enableSnippets: true,
 })
 let result = document.querySelector('.resultBtn');
 const getResult = () => {
