@@ -27,9 +27,10 @@
                     <label>Подтверждение пароля
                         {{ form.confirm_password }}
                     </label>
+                    {{ form.errors }}
                     <input type="submit" value="Регистрация" class="Btn">
                 </form>
-                <h6 class="changePage">Есть аккаунт? <a href="{% url  'login' %}">Войти</a></h6>
+                <h6 class="changePage">Есть аккаунт? <a href="{% url 'login' %}">Войти</a></h6>
             </div>
         </div>
     </main>
