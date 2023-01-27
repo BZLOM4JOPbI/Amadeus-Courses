@@ -10,8 +10,12 @@ ide.setOptions({
 const getCode = () => {
     return ide.getValue()
 };
-let outputBtn = document.querySelector('.resultBtn') 
+let outputBtn = document.querySelector('.resultBtn');
+let resetBtn = document.querySelector('.resetBtn');
 outputBtn.addEventListener('click', (event) => {
     let output = new Function(getCode())();
     (output) ? console.log(output) : true
+});
+resetBtn.addEventListener('click', (event) => {
+    ide.setValue('');
 });
