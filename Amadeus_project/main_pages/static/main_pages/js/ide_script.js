@@ -12,11 +12,6 @@ const getCode = () => {
 };
 let outputBtn = document.querySelector('.resultBtn') 
 outputBtn.addEventListener('click', (event) => {
-    let valueIde = getCode();
-    try {
-        console.log(new Function(valueIde)())
-    } catch (err) {
-        console.error(err)
-    }
-
+    let output = new Function(getCode())();
+    (output) ? console.log(output) : true
 });
