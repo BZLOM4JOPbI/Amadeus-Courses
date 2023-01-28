@@ -10,14 +10,20 @@ IDE
 
 {% block content %}
     <main class="mainWrap">
-        <div class="editorContainer">
-            <div class="editorInner">
-                <div id="editor"></div>
+        <div class="courseInner">
+            <div class="container">
+                <div class="courseText">
+                    <h3 class="taskTitle">Задание</h3>
+                </div>
+                <div class="editorContainer">
+                    <div class="editorInner">
+                        <div id="editor"></div>
+                    </div>
+                    <p class="resultBtn">Code</p>
+                    <p class="resetBtn">Reset IDE</p>
+
+                </div>
             </div>
-        </div>
-        <div class="container" style="display: flex; justify-content: space-around;">
-            <p class="resultBtn">Code</p>
-            <p class="resetBtn">Reset IDE</p>
         </div>
     </main>
 {% endblock %}

@@ -373,15 +373,14 @@ input[type='submit']:disabled {
 .editorContainer {
     padding: 0 15px;
     box-sizing: border-box;
-    max-width: 1000px;
-    margin: 30px auto;
+    width: 59%;
 
 }
 .editorInner {
     position: relative;
     border: 1.5px solid #000;
     border-radius: 3px;
-    height: 500px;
+    height: 80vh;
 }
 .resultBtn {
     display: block;
@@ -400,6 +399,18 @@ input[type='submit']:disabled {
     box-sizing: border-box;
     background-color: rgb(89, 138, 118);
     cursor: pointer;
+}
+.courseInner > .container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.courseText {
+    width: 40%;
+    height: 100vh;
+    border-radius: 3px;
+    border: 1.5px solid #000;
 }
 
 

@@ -1,5 +1,5 @@
 const ide = ace.edit('editor');
-
+// IDE Options
 ide.setTheme('ace/theme/clouds');
 ide.session.setMode('ace/mode/javascript');
 ide.setOptions({
@@ -7,6 +7,8 @@ ide.setOptions({
     enableBasicAutocompletion: true,
     enableLiveAutocompletion: true,
 });
+
+// Main funcional buttons
 const getCode = () => {
     return ide.getValue()
 };
@@ -19,3 +21,4 @@ outputBtn.addEventListener('click', (event) => {
 resetBtn.addEventListener('click', (event) => {
     ide.setValue('');
 });
+
