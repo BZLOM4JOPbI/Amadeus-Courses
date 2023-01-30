@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
+from django.core.exceptions import ValidationError
 
 
 class CustomUser(AbstractUser):
@@ -21,9 +22,9 @@ class CustomUser(AbstractUser):
 
     def clean(self):        # для паролей, пометить не никак не могу, выдаёт ошибку
         if self.password != self.confirm_password: 
-            raise SyntaxError('Это не тот пароль!')
+            raise ValidationError('Это не тот пароль!')
         if len(self.password) < 12:
-            raise SyntaxError('Слишком мал')
+            raise ValidationError('Слишком мал')
         return self.password, self.confirm_password
 
 # class LoginUser()
