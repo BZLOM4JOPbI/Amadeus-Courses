@@ -1,6 +1,7 @@
 from .models import CustomUser
 from django.forms import ModelForm, TextInput
 from django.core.exceptions import ValidationError
+from django import forms
 
 
 class CustomUserForm(ModelForm):
@@ -44,3 +45,8 @@ class CustomUserForm(ModelForm):
     #     # if len(password) < 12:
     #     #     raise SyntaxError('Слишком мал!')
     #     return password, confirm_password
+
+
+class LoginForm(forms.Form):
+    username = forms.CharField()
+    password = forms.CharField(widget=forms.PasswordInput)

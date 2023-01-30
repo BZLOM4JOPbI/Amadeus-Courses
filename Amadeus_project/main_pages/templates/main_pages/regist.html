@@ -15,9 +15,6 @@
                 <h3 class="subtitle">Регистрация аккаунта</h3>
                 <form method="post" class="form">
                     {% csrf_token %}
-                    {% if errors %}
-                        {{ errors }}
-                    {% endif %} 
                     <label>Логин
                         {{ form.username }}
                     </label>
@@ -31,6 +28,13 @@
                         {{ form.confirm_password }}
                     </label>
                     <input type="submit" value="Регистрация" class="Btn">
+                    {% if messages %}
+                        {% for message in messages %}
+                        <div class="test">
+                        {{ message }}
+                        </div>
+                        {% endfor %}
+                    {% endif %}
                 </form>
                 <h6 class="changePage">Есть аккаунт? <a href="{% url 'login' %}">Войти</a></h6>
             </div>

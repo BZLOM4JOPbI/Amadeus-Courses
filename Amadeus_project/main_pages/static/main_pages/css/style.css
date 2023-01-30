@@ -518,3 +518,9 @@ code {
         transform: scale(0.1);
     }
 }
+
+
+
+.test {
+    margin: 0 auto;
+}
