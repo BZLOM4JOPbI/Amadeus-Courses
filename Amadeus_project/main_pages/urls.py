@@ -10,8 +10,10 @@ urlpatterns = [
     path('', views.index, name='home_page'),
     path('regist.html', views.regist, name='regist_user'),
     path('ide.html', views.ide, name='ide'),
-    path('login.html', views.login, name='login'),
-    path('course.html', views.course, name='course')
+    path('course.html', views.course, name='course'),
+    path('login.html', views.user_login, name='login'),
+    path('logout.html', views.user_login, name='logout'),
+    path('profile.html', views.user_login, name='profile'),
 ]
 
 
