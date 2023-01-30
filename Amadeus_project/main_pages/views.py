@@ -29,6 +29,9 @@ def ide(request):
     return render(request, 'main_pages/ide.html')
 
 
+def course(request):
+    return render(request, 'main_pages/course.html')
+
 def user_login(request):
     if request.method == 'POST':
         form = LoginForm(request.POST)

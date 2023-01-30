@@ -11,7 +11,10 @@ urlpatterns = [
     path('regist.html', views.regist, name='regist_user'),
     path('ide.html', views.ide, name='ide'),
     path('login.html', views.login, name='login'),
+    path('course.html', views.course, name='course')
 ]
+
+
 # И это тоже я добавил
 if settings.DEBUG:
     urlpatterns += static(settings.STATIC_URL, view=cache_control(no_cache=True, must_revalidate=True)(serve))
