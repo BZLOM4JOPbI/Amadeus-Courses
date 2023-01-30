@@ -1,21 +1,24 @@
-//var editor = document.querySelector('#editor');\
 const ide = ace.edit('editor');
-
-/*ace.edit(editor, {
-    theme: 'ace/theme/eclipse',
-    mode: 'ace/mode/javascript',
-    fontSize: 18,
-});*/
+// IDE Options
+ide.setTheme('ace/theme/clouds');
+ide.session.setMode('ace/mode/javascript');
 ide.setOptions({
     fontSize: '18px',
-    mode: 'ace/mode/javascript',
-    theme: 'ace/theme/eclipse',
     enableBasicAutocompletion: true,
     enableLiveAutocompletion: true,
-    enableSnippets: true,
-})
-let result = document.querySelector('.resultBtn');
-const getResult = () => {
-    result.textContent = ide.getValue();
+});
+
+// Main funcional buttons
+const getCode = () => {
+    return ide.getValue()
 };
-result.addEventListener('click', getResult);
+let outputBtn = document.querySelector('.resultBtn');
+let resetBtn = document.querySelector('.resetBtn');
+outputBtn.addEventListener('click', (event) => {
+    let output = new Function(getCode())();
+    (output) ? console.log(output) : true
+});
+resetBtn.addEventListener('click', (event) => {
+    ide.setValue('');
+});
+

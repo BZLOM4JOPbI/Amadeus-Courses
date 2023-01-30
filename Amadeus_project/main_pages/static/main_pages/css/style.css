@@ -373,27 +373,93 @@ input[type='submit']:disabled {
 .editorContainer {
     padding: 0 15px;
     box-sizing: border-box;
-    max-width: 1000px;
-    margin: 30px auto;
-
+    width: 59%;
+    min-width: 500px;
 }
 .editorInner {
     position: relative;
     border: 1.5px solid #000;
     border-radius: 3px;
-    height: 500px;
+    height: 80vh;
+    margin-bottom: 15px;
+}
+.ideBtnWrap {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
 }
 .resultBtn {
     display: block;
-    width: 100%;
+    width: 30%;
     border-radius: 3px;
     padding: 10px;
     box-sizing: border-box;
     background-color: rgb(89, 138, 118);
     cursor: pointer;
 }
+.resetBtn {
+    display: block;
+    width: 30%;
+    border-radius: 3px;
+    padding: 10px;
+    box-sizing: border-box;
+    background-color: rgb(89, 138, 118);
+    cursor: pointer;
+}
+.courseInner > .container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.courseText {
+    width: 40%;
 
+    min-width: 350px;
+    margin-bottom: 15px;
 
+}
+.taskText {
+    display: block;
+    padding: 15px;
+    overflow-wrap: break-word;
+    max-height: 80vh;
+    overflow-y: auto;
+    white-space: pre-wrap;       /* Since CSS 2.1 */
+    white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
+    white-space: -o-pre-wrap;    /* Opera 7 */
+    word-wrap: break-word;       /* Internet Explorer 5.5+ */
+}
+.taskTitle {
+    display: block;
+    padding: 5px 10px;
+    text-align: center;
+    font-size: 30px;
+    border-top: 1.5px solid #000;
+    border-bottom: 1.5px solid #000;    
+    margin-bottom: 15px;
+}
+code {
+    display: block;
+    width: fit-content;
+    background-color: rgba(89, 138, 118, 0.7);
+    border-radius: 3px;
+    padding: 15px;
+    margin: 15px;
+    font-family: monospace;
+}
+.taskText > .taskTitle {
+    margin: 10px;
+}
+@media screen  and (max-width: 884px){
+    .courseText {
+        width: 100%;
+    }
+    .editorContainer {
+        width: 100%;
+        min-width: 350px;
+    }
+}
 
 
 
@@ -446,9 +512,9 @@ input[type='submit']:disabled {
 }
 @keyframes increaseScale {
     0% {
-        scale: 0.5;
+        transform: scale(0.5);
     }
     100% {
-        scale: 1;
+        transform: scale(0.1);
     }
 }
