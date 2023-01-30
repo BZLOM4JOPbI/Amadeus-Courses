@@ -389,21 +389,11 @@ input[type='submit']:disabled {
     justify-content: space-evenly;
 }
 .resultBtn {
-    display: block;
-    width: 30%;
-    border-radius: 3px;
-    padding: 10px;
     box-sizing: border-box;
-    background-color: rgb(89, 138, 118);
     cursor: pointer;
 }
-.resetBtn {
-    display: block;
-    width: 30%;
-    border-radius: 3px;
-    padding: 10px;
+.resetBtn { 
     box-sizing: border-box;
-    background-color: rgb(89, 138, 118);
     cursor: pointer;
 }
 .courseInner > .container {
