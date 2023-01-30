@@ -514,3 +514,7 @@ code {
 .test {
     margin: 0 auto;
 }
+
+.form > p {
+    width: 100%;
+}

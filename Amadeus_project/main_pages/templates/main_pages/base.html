@@ -21,8 +21,14 @@
                     <div class="navBtnWrap"><a href="{% url 'course' %}" class="navBtn">Курсы</a><a href="{% url 'ide' %}" class="navBtn">IDE</a></div>
                     <img src=" {% static 'main_pages/img/bars-solid.svg' %}" alt="" class="hambBtn">
                     <div class="accountBtnWrap">
+                        {% if user.is_authenticated %}
+                        <a class="Btn" href="{% url 'profile' %}">Профиль</a>
+                        {% else %}
                         <a href="{% url 'regist_user' %}" class="Btn">Регистрация</a>
                         <a href="{% url 'login' %}" class="Btn">Вход</a>
+                        {% endif %}
+                        <!-- <a href="{% url 'regist_user' %}" class="Btn">Регистрация</a>
+                        <a href="{% url 'login' %}" class="Btn">Вход</a> -->
                     </div>
                 </div>
                 <hr noshade="true" class="underline">
