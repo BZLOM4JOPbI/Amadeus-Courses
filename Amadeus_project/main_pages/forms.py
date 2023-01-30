@@ -27,7 +27,7 @@ class CustomUserForm(ModelForm):
     def clean_email(self):
         email = self.cleaned_data['email'].strip()
         if CustomUser.objects.filter(email__iexact=email).exists():
-            raise ValidationError('Это почта уже используется!')
+            raise SyntaxError('Это почта уже используется!')
         return email
 
     def clean_username(self):
@@ -35,7 +35,6 @@ class CustomUserForm(ModelForm):
         if CustomUser.objects.filter(username__iexact=username).exists():
             raise ValidationError('Это имя уже используется!')
         return username
-
 
     # def clean(self):
     #     confirm_password = self.cleaned_data['confirm_password'].strip()
