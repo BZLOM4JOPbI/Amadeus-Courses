@@ -222,7 +222,7 @@ input[type='submit']:disabled {
     border-radius: 3px;
 }
 .blur {
-    background: var(--accent-color) ;
+    background: rgba(89, 138, 118, 0.6);
     backdrop-filter: blur(2px);
     border-radius: 3px;
     -webkit-appearance: none;
