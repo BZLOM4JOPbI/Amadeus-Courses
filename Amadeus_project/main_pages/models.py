@@ -1,28 +1,20 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
-from django.core.exceptions import ValidationError
 
 
 class CustomUser(AbstractUser):
 
-    username = models.CharField('login',
+    username = models.CharField('Логин',
                                 max_length=50,
                                 unique=True,)
 
-    email = models.CharField('email',
+    email = models.CharField('Почта',
                             max_length=50,
                             unique=True)
 
-    password = models.CharField('password',
+    password = models.CharField('Пароль',
                                 max_length=100)
 
-    confirm_password = models.CharField('confirm_password',
+    confirm_password = models.CharField('Подтвеждение пароля',
                                         max_length=100,
                                         blank=True)
-
-    def clean(self):        # для паролей, пометить не никак не могу, выдаёт ошибку
-        if self.password != self.confirm_password:
-            raise ValidationError('Это не тот пароль!')
-        if len(self.password) < 12:
-            raise ValidationError('Слишком мал')
-        return self.password, self.confirm_password

@@ -7,14 +7,14 @@ from django.http import HttpResponse
 
 
 def regist(request):
+    form = CustomUserForm(request.POST if request.POST else None)
     if request.method == 'POST':
         form = CustomUserForm(request.POST)
         if form.is_valid():
             form.save()
             username = form.cleaned_data.get('username')
             messages.success(request, f'Создан аккаунт {username}')
-            redirect('home_page')
-    form = CustomUserForm
+            return redirect('home_page')
     context = {
         'form': form
     }
@@ -46,7 +46,7 @@ def user_login(request):
             if user is not None:
                 if user.is_active:
                     login(request, user)
-                    return HttpResponse('Authenticated successfully')
+                    return redirect('home_page')
                 else:
                     return HttpResponse('Disabled account')
             else:
