@@ -12,13 +12,17 @@ IDE
     <main class="mainWrap">
         <div class="courseInner">
             <div class="container">
-                <div class="editorContainer" style="width: 100%;">
+                <div class="console">
+                    <ul class="consoleLogs"></ul>
+                    <p class="Btn">Сброс</p>
+                </div>
+                <div class="editorContainer" style="width: 70%;">
                     <div class="editorInner">
                         <div id="editor"></div>
                     </div>
                     <div class="ideBtnWrap" >
-                        <p class="resultBtn Btn">Code</p>
-                        <p class="resetBtn Btn">Reset</p>
+                        <p class="resultBtn Btn">Пуск</p>
+                        <p class="resetBtn Btn">Сброс</p>
                     </div>
                 </div>
             </div>
@@ -28,7 +32,9 @@ IDE
 
 
 {% block ide %}
+    <!-- Библитека IDE -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.14.0/ace.js" type ="text/javascript" charset="utf-8"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.14.0/ext-language_tools.min.js"></script>
+    <!-- Консоль и редактор -->
     <script src="{% static 'main_pages/js/ide_script.js' %}"></script>
 {% endblock %}
