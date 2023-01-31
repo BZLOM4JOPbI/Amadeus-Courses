@@ -26,5 +26,3 @@ class CustomUser(AbstractUser):
         if len(self.password) < 12:
             raise ValidationError('Слишком мал')
         return self.password, self.confirm_password
-
-# class LoginUser()
