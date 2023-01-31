@@ -49,3 +49,14 @@ class CustomUserForm(ModelForm):
 class LoginForm(forms.Form):
     username = forms.CharField()
     password = forms.CharField(widget=forms.PasswordInput)
+
+    class Meta:
+        fields = ['username', 'password']
+        widgets = {
+            'username': TextInput(attrs={
+                'type': "text",  'placeholder': "login"
+            }),
+            'password': TextInput(attrs={
+                'type': "password",  'placeholder': "********"
+            }),
+        }
