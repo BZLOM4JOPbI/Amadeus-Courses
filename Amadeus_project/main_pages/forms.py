@@ -35,6 +35,12 @@ class CustomUserForm(ModelForm):
         username = self.cleaned_data['username'].strip()
         if CustomUser.objects.filter(username__iexact=username).exists():
             raise ValidationError('Это имя уже используется!')
+        if username.isalnum():
+            for i in set(username):
+                if ord(i) > 177:
+                    raise ValidationError('Используйте латинские буквы!')
+        else:
+            raise ValidationError('Используйте цифры от 0-9, "_" и "-".')
         return username
 
     def clean_confirm_password(self):
@@ -44,7 +50,11 @@ class CustomUserForm(ModelForm):
             raise ValidationError('Пароли не совпадают!')
         if len(password) < 12:
             raise ValidationError('Слишком короткий пароль!')
-        return password, confirm_password
+        if '_' not in password:
+            raise ValidationError('пароль должен содеражать "_" или "-" или ".')
+        # if password == password.lower():
+        #     raise ValidationError('Пароль должен содеражать минимум одну сточную и одну заглавную букву!')
+        return password
 
 
 class LoginForm(forms.Form):
