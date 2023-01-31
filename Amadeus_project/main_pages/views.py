@@ -21,10 +21,6 @@ def regist(request):
     return render(request, 'main_pages/regist.html', context)
 
 
-def profile(request):
-    return render(request, 'main_pages/profile.html')
-
-
 def index(request):
     return render(request, 'main_pages/index.html')
 
@@ -35,6 +31,10 @@ def ide(request):
 
 def course(request):
     return render(request, 'main_pages/course.html')
+
+
+def logout(request):
+    return render(request, 'main_pages/logout.html')
 
 
 def user_login(request):
