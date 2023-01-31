@@ -21,6 +21,10 @@ def regist(request):
     return render(request, 'main_pages/regist.html', context)
 
 
+def profile(request):
+    return render(request, 'main_pages/profile.html')
+
+
 def index(request):
     return render(request, 'main_pages/index.html')
 

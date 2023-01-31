@@ -12,8 +12,7 @@ urlpatterns = [
     path('ide.html', views.ide, name='ide'),
     path('course.html', views.course, name='course'),
     path('login.html', views.user_login, name='login'),
-    path('logout.html', views.user_login, name='logout'),
-    path('profile.html', views.user_login, name='profile'),
+    path('profile.html', views.profile, name='profile'),
 ]
 
 

@@ -21,10 +21,8 @@ class CustomUser(AbstractUser):
                                         blank=True)
 
     def clean(self):        # для паролей, пометить не никак не могу, выдаёт ошибку
-        if self.password != self.confirm_password: 
+        if self.password != self.confirm_password:
             raise ValidationError('Это не тот пароль!')
         if len(self.password) < 12:
             raise ValidationError('Слишком мал')
         return self.password, self.confirm_password
-
-# class LoginUser()
