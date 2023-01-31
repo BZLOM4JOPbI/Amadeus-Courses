@@ -451,6 +451,38 @@ code {
 .taskText > .taskTitle {
     margin: 10px;
 }
+.console {
+    position: relative;
+    width: 30%;
+    height: 80vh;
+    box-sizing: border-box;
+    background-color: var(--main-color);
+    border: 3px solid var(--accent-color);
+    border-radius: 3px;
+    padding: 15px;
+    padding-bottom: 40px;
+}
+.console > .Btn {
+    position: absolute;
+    background-color: #fff;
+    bottom: 0px;
+    left: -.5px;
+    right: -.5px;
+}
+.consoleLogs {
+    display: block;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    list-style-type: none;
+    overflow-x: auto;
+}
+.consoleLogs li {
+    color: #fff;
+}
+.console > .Btn:hover {
+    background-color: var(--accent-color);
+}
 @media screen  and (max-width: 884px){
     .courseText {
         width: 100%;
