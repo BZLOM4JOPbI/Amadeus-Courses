@@ -9,7 +9,7 @@ class CustomUser(AbstractUser):
                                 unique=True,)
 
     email = models.CharField('Почта',
-                            max_length=50,
+                            max_length=100,
                             unique=True)
 
     password = models.CharField('Пароль',
