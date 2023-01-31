@@ -64,7 +64,13 @@ body, html {
 .titleHeader:hover {
     cursor: default;
 }
+.userName {
+    text-decoration: underline;
+    text-decoration-color: var(--accent-color);
+}
 .accountBtnWrap {
+    display: flex;
+    align-items: center;
     margin-left: auto;
 }
 .accountBtnWrap > .Btn {
@@ -104,7 +110,8 @@ body, html {
         margin: 0;
     }
     .accountBtnWrap > .Btn {
-        margin: 0;
+        margin: 0 0 0 7px;
+        padding: 2.5px 5px;
     }
     .navBtnWrap {
         display: none;

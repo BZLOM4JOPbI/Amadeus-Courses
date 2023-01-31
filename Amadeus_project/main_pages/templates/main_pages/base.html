@@ -22,8 +22,8 @@
                     <img src=" {% static 'main_pages/img/bars-solid.svg' %}" alt="" class="hambBtn">
                     <div class="accountBtnWrap">
                         {% if user.is_authenticated %}
-                        {{ user.username }}
-                        <p><a class="Btn" href="{% url 'logout' %}">Log Out</a></p>
+                        <h4 class="userName">{{ user.username }}</h4>
+                        <a class="Btn" href="{% url 'logout' %}">Log Out</a>
                         {% else %}
                         <a href="{% url 'regist_user' %}" class="Btn">Регистрация</a>
                         <a href="{% url 'login' %}" class="Btn">Вход</a>
