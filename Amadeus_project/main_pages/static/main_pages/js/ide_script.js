@@ -35,3 +35,7 @@ const addLogs = (input) => {
     log.textContent = `>  ${input}`;
     consoleLogs.appendChild(log);
 };
+const resetConsole = document.querySelector('.console > .Btn');
+resetConsole.addEventListener('click', () => {
+    consoleLogs.innerHTML = '';
+})
