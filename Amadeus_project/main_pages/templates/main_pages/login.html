@@ -14,10 +14,7 @@
             <h3 class="subtitle">Вход</h3>
             <form action="{% url 'login' %}" method="post" class="form">
                 {% csrf_token %}
-                <p>Логин</p>
-                {{ form.username }}
-                <p>Пароль</p>
-                {{ form.password }}
+                {{ form.as_p}}
                 <input type="submit" value="Авторизация" class="Btn">
             </form>
             <h6 class="changePage">Нет аккаунта? <a href="{% url 'regist_user' %}">Регистрация</a></h6>
