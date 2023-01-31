@@ -14,7 +14,7 @@ const hambClick = () => {
     }
     navButtons.style.display = 'block';
     hamburgerMenu.appendChild(navButtons);
-    accountButtons.style.display = 'block';
+    accountButtons.style.display = 'flex';
     hamburgerMenu.appendChild(accountButtons);
     setInterval(hamburgerAviable, 1500);
 };
