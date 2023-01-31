@@ -25,7 +25,6 @@
                         {{ user.username }}
                         <p><a class="Btn" href="{% url 'logout' %}">Log Out</a></p>
                         {% else %}
-                        <p>You are not logged in</p>
                         <a href="{% url 'regist_user' %}" class="Btn">Регистрация</a>
                         <a href="{% url 'login' %}" class="Btn">Вход</a>
                         {% endif %}
