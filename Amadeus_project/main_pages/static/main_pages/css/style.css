@@ -389,8 +389,7 @@ input[type='submit']:disabled {
 .editorContainer {
     padding: 0 15px;
     box-sizing: border-box;
-    width: 54%;
-    min-width: 500px;
+    width: 65%;
 }
 .editorInner {
     position: relative;
@@ -412,54 +411,18 @@ input[type='submit']:disabled {
     box-sizing: border-box;
     cursor: pointer;
 }
-.courseInner > .container {
+.ideInner > .container {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-between;
 }
 .courseText {
-    width: 45%;
-
-    min-width: 350px;
-    margin-bottom: 15px;
-
-}
-.taskText {
-    display: block;
-    padding: 15px;
-    overflow-wrap: break-word;
-    max-height: 80vh;
-    overflow-y: auto;
-    white-space: pre-wrap;       /* Since CSS 2.1 */
-    white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
-    white-space: -o-pre-wrap;    /* Opera 7 */
-    word-wrap: break-word;       /* Internet Explorer 5.5+ */
-}
-.taskTitle {
-    display: block;
-    padding: 5px 10px;
-    text-align: center;
-    font-size: 30px;
-    border-top: 1.5px solid var(--main-color);
-    border-bottom: 1.5px solid var(--main-color);    
-    margin-bottom: 15px;
-}
-code {
-    display: block;
-    width: fit-content;
-    background-color: rgba(89, 138, 118, 0.7);
-    border-radius: 3px;
-    padding: 15px;
-    margin: 15px;
-    font-family: monospace;
-}
-.taskText > .taskTitle {
-    margin: 10px;
+    width: 100%;
 }
 .console {
     position: relative;
-    width: 30%;
+    width: 35%;
     height: 80vh;
     box-sizing: border-box;
     background-color: var(--main-color);
@@ -490,15 +453,58 @@ code {
     background-color: var(--accent-color);
 }
 @media screen  and (max-width: 884px){
-    .courseText {
-        width: 100%;
-    }
     .editorContainer {
         width: 100%;
-        min-width: 350px;
+    }
+    .ideInner > .container {
+        display: flex;
+        flex-direction: column-reverse;
+    }
+    .console {
+        width: 100%;
+    }   
+    .ideBtnWrap {
+        margin-bottom: 20px;
     }
 }
 /**/
+
+/* Cтили заданий*/
+.taskText {
+    display: block;
+    padding: 15px;
+    overflow-wrap: break-word;
+    white-space: pre-wrap;       /* Since CSS 2.1 */
+    white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
+    white-space: -o-pre-wrap;    /* Opera 7 */
+    word-wrap: break-word;       /* Internet Explorer 5.5+ */
+    font-family: 'Roboto';
+}
+.taskTitle {
+    display: block;
+    padding: 5px 10px;
+    text-align: center;
+    font-size: 30px;
+    border-top: 1.5px solid var(--main-color);
+    border-bottom: 1.5px solid var(--main-color);    
+    margin-bottom: 15px;
+}
+code {
+    display: block;
+    width: fit-content;
+    background-color: rgba(89, 138, 118, 0.7);
+    border-radius: 3px;
+    padding: 15px;
+    margin: 15px;
+    font-family: monospace;
+}
+.courseText {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+/**/
+
 
 /* Стили подвала */
 .footerWrap  .inner {

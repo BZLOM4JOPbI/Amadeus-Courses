@@ -23,7 +23,7 @@
                     <div class="accountBtnWrap">
                         {% if user.is_authenticated %}
                         <h4 class="userName">Welcome, {{ user.username }}!</h4>
-                        <a class="Btn" href="{% url 'logout' %}">Logout</a>
+                        <a class="Btn" href="{% url 'logout' %}">Выйти</a>
                         {% else %}
                         <a href="{% url 'regist_user' %}" class="Btn">Регистрация</a>
                         <a href="{% url 'login' %}" class="Btn">Вход</a>

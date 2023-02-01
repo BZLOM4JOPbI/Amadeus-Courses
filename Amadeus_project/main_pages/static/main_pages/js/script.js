@@ -16,6 +16,7 @@ const hambClick = () => {
     hamburgerMenu.appendChild(navButtons);
     accountButtons.style.display = 'flex';
     hamburgerMenu.appendChild(accountButtons);
+
     setInterval(hamburgerAviable, 1500);
 };
 
