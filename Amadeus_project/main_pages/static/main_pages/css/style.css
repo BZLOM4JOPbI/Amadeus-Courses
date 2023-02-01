@@ -429,7 +429,7 @@ input[type='submit']:disabled {
     border: 3px solid var(--accent-color);
     border-radius: 3px;
     padding: 15px;
-    padding-bottom: 40px;
+    padding-bottom: 55px;
 }
 .console > .Btn {
     position: absolute;
@@ -502,6 +502,19 @@ code {
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+.courseInner .editorInner {
+    height: 60vh;
+}
+.courseInner .console {
+    height: auto;
+    min-height: 20vh;
+    width: 100%;
+    max-height: 50vh;
+}
+.courseInner .consoleLogs {
+    max-height: 30vh;
+    overflow-y: auto;
 }
 /**/
 
