@@ -18,3 +18,4 @@ class CustomUser(AbstractUser):
     confirm_password = models.CharField('Подтвеждение пароля',
                                         max_length=100,
                                         blank=True)
+

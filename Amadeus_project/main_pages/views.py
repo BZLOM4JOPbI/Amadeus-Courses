@@ -17,7 +17,9 @@ def regist(request):
     if request.method == 'POST':
         form = CustomUserForm(request.POST)
         if form.is_valid():
-            form.save()
+            user = form.save()
+            user.set_password(user.password)
+            user.save()
             return redirect('home_page')
     context = {
         'form': form
