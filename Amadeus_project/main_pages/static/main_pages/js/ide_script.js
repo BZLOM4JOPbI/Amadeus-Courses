@@ -1,5 +1,6 @@
 const ide = ace.edit('editor');
 // IDE Options
+ide.setValue('// Put your here');
 ide.setTheme('ace/theme/clouds');
 ide.session.setMode('ace/mode/javascript');
 ide.setOptions({
@@ -19,7 +20,7 @@ outputBtn.addEventListener('click', (event) => {
     addLogs(input);
 });
 resetBtn.addEventListener('click', (event) => {
-    ide.setValue('');
+    ide.setValue('// Put your here');
 });
 // Консоль
 const consoleLogs = document.querySelector('.consoleLogs');
@@ -36,7 +37,6 @@ const addLogs = (input) => {
     consoleLogs.appendChild(log);
 };
 const resetConsole = document.querySelector('.console > .Btn');
-resetConsole.addEventListener('click', () => {
+resetConsole.addEventListener('click', (event) => {
     consoleLogs.innerHTML = '';
-    ide.setValue('// Put your here')
 })
