@@ -38,4 +38,5 @@ const addLogs = (input) => {
 const resetConsole = document.querySelector('.console > .Btn');
 resetConsole.addEventListener('click', () => {
     consoleLogs.innerHTML = '';
+    ide.setValue('// Put your here')
 })
