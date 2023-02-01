@@ -9,7 +9,7 @@ class CustomUserForm(ModelForm):
     class Meta:
 
         model = CustomUser
-        fields = ['username', 'email', 'password', 'confirm_password']
+        fields = ['username', 'email', 'password', 'confirm_password', ]
         widgets = {
             'username': TextInput(attrs={
                 'type': "text",  'placeholder': "login"
@@ -17,12 +17,12 @@ class CustomUserForm(ModelForm):
             'email': TextInput(attrs={
                 'type': "email",  'placeholder': "email"
             }),
+            'confirm_password': TextInput(attrs={
+                'type': "password",  'placeholder': "********"
+            }),
             'password': TextInput(attrs={
                 'type': "password",  'placeholder': "********"
             }),
-            'confirm_password': TextInput(attrs={
-                'type': "password",  'placeholder': "********"
-            })
         }
 
     def clean_email(self):
@@ -50,10 +50,11 @@ class CustomUserForm(ModelForm):
             raise ValidationError('Пароли не совпадают!')
         if len(password) < 12:
             raise ValidationError('Слишком короткий пароль!')
-        if '_' not in password:
-            raise ValidationError('пароль должен содеражать "_" или "-" или ".')
-        # if password == password.lower():
-        #     raise ValidationError('Пароль должен содеражать минимум одну сточную и одну заглавную букву!')
+        if len(set(password)) < 5:
+            raise ValidationError('Пароль слишком простой!')
+        if password.isalpha() or password.isdigit():
+            error = ['Цифры от 0-9', 'минимум одну сточную и одну заглавную букву']
+            raise ValidationError(f'Пароль должен содеражать {error[password.isdigit()]}')
         return password
 
 

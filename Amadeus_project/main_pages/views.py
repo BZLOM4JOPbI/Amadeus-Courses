@@ -1,9 +1,15 @@
 from django.shortcuts import render, redirect
 from .forms import CustomUserForm
 from django.contrib import messages
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 from .forms import LoginForm
 from django.http import HttpResponse
+
+
+def logout_user(request):
+    logout(request)
+    messages.info(request, "You have successfully logged out.") 
+    return redirect("home_page")
 
 
 def regist(request):
@@ -12,8 +18,6 @@ def regist(request):
         form = CustomUserForm(request.POST)
         if form.is_valid():
             form.save()
-            username = form.cleaned_data.get('username')
-            messages.success(request, f'Создан аккаунт {username}')
             return redirect('home_page')
     context = {
         'form': form
@@ -31,10 +35,6 @@ def ide(request):
 
 def course(request):
     return render(request, 'main_pages/course.html')
-
-
-def logout(request):
-    return render(request, 'main_pages/logout.html')
 
 
 def user_login(request):
