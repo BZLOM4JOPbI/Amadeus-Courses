@@ -24,13 +24,14 @@ class CustomUserForm(ModelForm):
                 'type': "password",  'placeholder': "********"
             }),
         }
-
+    # Проверка почты на валидность
     def clean_email(self):
         email = self.cleaned_data['email'].strip()
         if CustomUser.objects.filter(email__iexact=email).exists():
             raise ValidationError('Это почта уже используется!')
         return email
-
+    
+    # Проверка имени на валидность
     def clean_username(self):
         username = self.cleaned_data['username'].strip()
         if CustomUser.objects.filter(username__iexact=username).exists():
@@ -43,6 +44,7 @@ class CustomUserForm(ModelForm):
             raise ValidationError('Используйте цифры от 0-9, "_" и "-".')
         return username
 
+    # Проверка пароля на валидность
     def clean_confirm_password(self):
         confirm_password = self.cleaned_data['confirm_password'].strip()
         password = self.cleaned_data['password'].strip()

@@ -25,7 +25,7 @@ def regist(request):
     return render(request, 'main_pages/regist.html', context)
 
 
-def index(request):
+def home(request):
     return render(request, 'main_pages/index.html')
 
 
