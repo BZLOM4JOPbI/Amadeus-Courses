@@ -295,9 +295,11 @@ input[type='submit']:disabled {
 @media screen and (max-width: 680px) {
     .cardGrid {
         padding: 0 5vw;
+        grid-template-columns: repeat( auto-fit, minmax(270px, 1fr) );
     }
+    
 }
-@media screen and (min-width: 300px){
+@media screen and (min-width: 3000px){
     .card {
         padding: 1.5vw;
     }
@@ -435,7 +437,6 @@ code {
     flex-direction: column;
     align-items: center;
 }
-<<<<<<< HEAD
 .courseInner .editorInner {
     height: 60vh;
 }
@@ -448,8 +449,6 @@ code {
     max-height: 40vh;
     overflow-y: auto;
 }
-=======
->>>>>>> a4084f19301c6d83148be681669ba805d0e3ee63
 /**/
 
 
