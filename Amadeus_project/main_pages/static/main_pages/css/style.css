@@ -361,7 +361,7 @@ input[type='submit']:disabled {
     border: 3px solid var(--accent-color);
     border-radius: 3px;
     padding: 15px;
-    padding-bottom: 55px;
+    padding-bottom: 40px;
 }
 .console > .Btn {
     position: absolute;
@@ -435,6 +435,7 @@ code {
     flex-direction: column;
     align-items: center;
 }
+<<<<<<< HEAD
 .courseInner .editorInner {
     height: 60vh;
 }
@@ -447,6 +448,8 @@ code {
     max-height: 40vh;
     overflow-y: auto;
 }
+=======
+>>>>>>> a4084f19301c6d83148be681669ba805d0e3ee63
 /**/
 
 
@@ -497,4 +500,12 @@ code {
 }
 /* */
 
+
+/* потом поправь */
+/* Это для вывода ошибок при авторизации */
+/* строчка выглядит так <p class="test2">{{ form.message }}</p> */
+.test2 {
+    margin: 0px 0px 20px 0px;
+    font-size: 23px;
+}
 

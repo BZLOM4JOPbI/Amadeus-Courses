@@ -4,11 +4,11 @@ from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from .forms import LoginForm
 from django.http import HttpResponse
+from django.core.exceptions import ValidationError
 
 
 def logout_user(request):
     logout(request)
-    messages.info(request, "You have successfully logged out.") 
     return redirect("home_page")
 
 
@@ -20,6 +20,7 @@ def regist(request):
             user = form.save()
             user.set_password(user.password)
             user.save()
+            login(request, user)
             return redirect('home_page')
     context = {
         'form': form
@@ -49,10 +50,8 @@ def user_login(request):
                 if user.is_active:
                     login(request, user)
                     return redirect('home_page')
-                else:
-                    return HttpResponse('Disabled account')
             else:
-                return HttpResponse('Invalid login')
+                form.message = 'Неверный логин или пароль.'
     else:
         form = LoginForm()
     return render(request, 'main_pages/login.html', {'form': form})

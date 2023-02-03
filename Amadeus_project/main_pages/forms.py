@@ -57,6 +57,16 @@ class CustomUserForm(ModelForm):
         if password.isalpha() or password.isdigit():
             error = ['Цифры от 0-9', 'минимум одну сточную и одну заглавную букву']
             raise ValidationError(f'Пароль должен содеражать {error[password.isdigit()]}')
+        test_arg = [0, 0]
+        for i in password:
+            if 'a' <= i.lower() <= 'z':
+                if i.isupper():
+                    test_arg[1] = 1
+                else:
+                    test_arg[0] = 1
+        if sum(test_arg) != 2:
+            error = ['строчную букву', 'заглавную букву']
+            raise ValidationError(f'пароль должен соджержать {error[test_arg.index(0)]}')
         return password
 
 
