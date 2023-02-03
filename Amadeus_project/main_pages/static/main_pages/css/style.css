@@ -222,11 +222,11 @@ input[type='submit']:disabled {
 }
 /* Конец и слава богу*/
 
-/* Баннер индекса */
+/* Стили индекса */
 .codeBG {
-    /* background-image: url('Amadeus_project/main_pages/static/main_pages/img/blackbg.png'); */
     background-position: left;
     border-radius: 3px;
+    grid-area: banner;
 }
 .blur {
     background: rgba(89, 138, 118, 0.6);
@@ -246,7 +246,7 @@ input[type='submit']:disabled {
     font-size: 24px;
     font-weight: 500;
 }
-.mainInner {
+.bannerInner {
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -254,119 +254,52 @@ input[type='submit']:disabled {
     text-align: center;
     border-radius: 3px;
 }
-@media screen and (max-width: 1220px) {
-    .mainTitle {
-        font-size: 60px;
-        line-height: 70px;
-    }
-    .mainSubtitle {
-        font-size: 27px;
+.mainInner {
+    margin-bottom: 50px;
+}
+.card {
+    border: 1.5px solid var(--main-color);
+    border-radius: 3px;
+    padding: 3vw;
+    display: flex;
+    flex-direction: column;
+    animation: none;
+    box-sizing: border-box;
+    min-height: 400px;
+}
+.cardGrid {
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: repeat( auto-fit, minmax(310px, 1fr) );
+    grid-gap: 5vh;
+}
+.card:hover {
+    animation: increaseScale .3s;
+    animation-fill-mode: forwards;
+}
+.taskTitle {
+    font-size: 24px;
+}
+.taskDesc {
+    margin: 10px 0px;
+    flex: 1 1 auto;
+    font-weight: 400;
+}
+.taskList { 
+    margin: 60px 0;
+    text-align: center;
+    font-size: 40px;
+    padding-bottom: 10px;
+    border-bottom: 1.5px solid var(--main-color);
+}
+@media screen and (max-width: 680px) {
+    .cardGrid {
+        padding: 0 5vw;
     }
 }
-@media screen and (max-width: 1070px) {
-    .mainTitle {
-        font-size: 53px;
-        line-height: 62px;
-    }
-    .mainSubtitle {
-        font-size: 24px;
-    }
-}
-@media screen and (max-width: 807px) {
-    .mainTitle {
-        font-size: 51px;
-        line-height: 62px;
-    }
-    .mainSubtitle {
-        font-size: 24px;
-    }
-}
-@media screen and (max-width: 788px) {
-    .mainTitle {
-        font-size: 47px;
-        line-height: 53px;
-    }
-    .mainSubtitle {
-        font-size: 21px;
-    }
-    .mainInner {
-        padding: 30px 80px 40px;
-    }
-}
-@media screen and (max-width: 788px) {
-    .mainInner {
-        padding: 20px 60px 30px;
-    }
-}
-@media screen and (max-width: 690px) {
-    .mainTitle {
-        font-size: 44px;
-        line-height: 50px;
-    }
-    .mainSubtitle {
-        font-size: 21px;
-    }
-}
-@media screen and (max-width: 635px) {
-    .mainTitle {
-        font-size: 39px;
-        line-height: 47px;
-    }
-    .mainSubtitle {
-        font-size: 19px;
-    }
-}
-@media screen and (max-width: 580px) {
-    .mainTitle {
-        font-size: 35px;
-        line-height: 34px;
-        text-align: left;
-    }
-    .mainSubtitle {
-        font-size: 17px;
-        text-align: left;
-    }
-    .mainInner {
-        padding: 15px 50px 20px;
-        align-items: flex-start;
-    }
-}
-@media screen and (max-width: 520px) {
-    .mainInner {
-        padding: 10px 30px 15px;
-        align-items: flex-start;
-    }
-}
-@media screen and (max-width: 470px) {
-    .mainTitle {
-        font-size: 32px;
-        line-height: 39px;
-    }
-    .mainSubtitle {
-        font-size: 16px;
-    }
-}
-@media screen and (max-width: 440px) {
-    .mainTitle {
-        font-size: 29px;
-        line-height: 36px;
-    }
-    .mainSubtitle {
-        font-size: 14px;
-    }
-}
-@media screen and (max-width: 410px) {
-    .mainTitle {
-        font-size: 26px;
-        line-height: 30px;
-    }
-    .mainSubtitle {
-        font-size: 14px;
-    }
-}
-@media screen and (max-width: 390px) {
-    .mainInner {
-        padding: 8px 24px 12px;
+@media screen and (min-width: 300px){
+    .card {
+        padding: 1.5vw;
     }
 }
 /**/
@@ -389,7 +322,7 @@ input[type='submit']:disabled {
 .editorContainer {
     padding: 0 15px;
     box-sizing: border-box;
-    width: 65%;
+    width: 64%;
 }
 .editorInner {
     position: relative;
@@ -414,7 +347,6 @@ input[type='submit']:disabled {
 .ideInner > .container {
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap;
     justify-content: space-between;
 }
 .courseText {
@@ -422,7 +354,7 @@ input[type='submit']:disabled {
 }
 .console {
     position: relative;
-    width: 35%;
+    width: 34%;
     height: 80vh;
     box-sizing: border-box;
     background-color: var(--main-color);
@@ -480,7 +412,7 @@ input[type='submit']:disabled {
     word-wrap: break-word;       /* Internet Explorer 5.5+ */
     font-family: 'Roboto';
 }
-.taskTitle {
+.tasktitle {
     display: block;
     padding: 5px 10px;
     text-align: center;
@@ -503,6 +435,21 @@ code {
     flex-direction: column;
     align-items: center;
 }
+<<<<<<< HEAD
+.courseInner .editorInner {
+    height: 60vh;
+}
+.courseInner .console {
+    height: auto;
+    width: 100%;
+}
+.courseInner .consoleLogs {
+    min-height: 10vh;
+    max-height: 40vh;
+    overflow-y: auto;
+}
+=======
+>>>>>>> a4084f19301c6d83148be681669ba805d0e3ee63
 /**/
 
 
@@ -545,10 +492,10 @@ code {
 }
 @keyframes increaseScale {
     0% {
-        transform: scale(0.5);
+        transform: scale(1);
     }
     100% {
-        transform: scale(0.1);
+        transform: scale(1.05);
     }
 }
 /* */
