@@ -352,9 +352,6 @@ input[type='submit']:disabled {
     flex-direction: row;
     justify-content: space-between;
 }
-.courseText {
-    width: 100%;
-}
 .console {
     position: relative;
     width: 34%;
@@ -404,50 +401,61 @@ input[type='submit']:disabled {
 }
 /**/
 
-/* Cтили заданий*/
-.taskText {
-    display: block;
-    padding: 15px;
-    overflow-wrap: break-word;
-    white-space: pre-wrap;       /* Since CSS 2.1 */
-    white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
-    white-space: -o-pre-wrap;    /* Opera 7 */
-    word-wrap: break-word;       /* Internet Explorer 5.5+ */
-    font-family: 'Roboto';
-}
-.tasktitle {
-    display: block;
-    padding: 5px 10px;
-    text-align: center;
-    font-size: 30px;
-    border-top: 1.5px solid var(--main-color);
-    border-bottom: 1.5px solid var(--main-color);    
-    margin-bottom: 15px;
-}
-code {
-    display: block;
-    width: fit-content;
-    background-color: rgba(89, 138, 118, 0.7);
-    border-radius: 3px;
-    padding: 15px;
-    margin: 15px;
-    font-family: monospace;
-}
-.courseText {
+/* Cтили task'ов*/
+/* overflow-wrap: break-word;
+white-space: pre-wrap;     
+white-space: -moz-pre-wrap;  
+white-space: -o-pre-wrap;    
+word-wrap: break-word;       
+font-family: 'Roboto'; */
+.courseInner {
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-top: 30px;
+}
+.courseTitle {
+    font-size: 40px;
+}
+.courseTextContainer {
+    padding: 15px;
+    margin: 30px 0;
+    width: 90%;
+    border-left: 1.5px solid var(--main-color);
+    border-right: 1.5px solid var(--main-color);
+}
+.courseText {
+    margin: 7px 0;
+    line-height: 27px;
+}
+.task {
+    align-self: flex-start;
+    font-size: 30px;
+    margin: 30px 0;
+}
+.courseInner .underline {
+    width: 50%;
+    max-width: 50%;
+}
+.courseInner code {
+    background-color: rgba(89, 138, 118, .5);
+    display: inline-block;
+    padding: 15px;
+}
+.courseInner .editorContainer {
+    width: 90%
 }
 .courseInner .editorInner {
     height: 60vh;
 }
 .courseInner .console {
     height: auto;
-    width: 100%;
+    width: 90%;
+    margin: 30px 0px;
 }
 .courseInner .consoleLogs {
     min-height: 10vh;
-    max-height: 40vh;
+    max-height: 35vh;
     overflow-y: auto;
 }
 /**/
