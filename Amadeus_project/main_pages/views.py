@@ -55,3 +55,7 @@ def user_login(request):
     else:
         form = LoginForm()
     return render(request, 'main_pages/login.html', {'form': form})
+
+
+def task_one(request):
+    return render(request, 'main_pages/task1.html')
