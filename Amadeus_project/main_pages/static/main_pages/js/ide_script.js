@@ -17,7 +17,9 @@ let resetBtn = document.querySelector('.resetBtn');
 
 const getCodeResult = () => {
     let input = ide.getValue();
-    input = 'out = ""; console.log = function(val){out = out + " " + val; return out;};' + input;
+    let str = 'const originalLog = console.log;console.log = function (...value) {originalLog.apply(console, value);return value;};'
+    // input = 'out = "";console.log = function(val){out = out + " " + val; return out;};' + input;
+    input = str + input;
     try {
         input = eval(input);
     } catch (err) {
@@ -56,20 +58,28 @@ resetConsole.addEventListener('click', (event) => {
 
 // Проверка Решения
 const completeBtn = document.querySelector('.completeBtn');
+const ideContainer = document.querySelector('.editorContainer');
+const ideBtnsGoup = document.querySelector('.ideBtnWrap');
+const tastCompleteResult = document.createElement('div')
+tastCompleteResult.className = 'notification';
 const rightTestValue = {
-    'task1.html' : 'Hello, World',
+    'task1.html' : 'Hello, World!',
 };
 
 const completeTask = () => {
     const keyOfTestValue = location.href.split('/')[3];
-    console.log('a');
-    if (getCodeResult() === rightTestValue[keyOfTestValue]) {
-        console.log('Верно');
+    if (getCodeResult() == rightTestValue[keyOfTestValue]) {
         addLogs(getCodeResult());
+        completeBtn.textContent = 'Решить еще раз'
+        tastCompleteResult.style.backgroundColor = 'rgba(89, 138, 118, 0.6)'
+        tastCompleteResult.textContent = 'Задание выполнено'
+        ideContainer.insertBefore(tastCompleteResult, ideBtnsGoup);
+    } else {
+        addLogs(getCodeResult());
+        tastCompleteResult.style.backgroundColor = 'rgba(164, 50, 64, 0.5)'
+        tastCompleteResult.textContent = 'Попробуйте еще раз'
+        ideContainer.insertBefore(tastCompleteResult, ideBtnsGoup);
     }
-    else {
-        console.log('Ошибка');
-    }
-}
 
+}   
 completeBtn.addEventListener('click', completeTask);

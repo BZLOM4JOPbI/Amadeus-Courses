@@ -34,6 +34,8 @@ body, html {
     border: 1.5px solid var(--main-color);
     padding: 7px 10px;
     border-radius: 3px;
+    background-color: #fff;
+    cursor: pointer;
 }
 .Btn:hover {
     background-color: var(--accent-color);
@@ -160,9 +162,6 @@ body, html {
     box-sizing: content-box;
     align-items: flex-start;
     margin-bottom: 30px;
-}
-.form > .Btn {
-    cursor: pointer;
 }
 input::placeholder {
     opacity: 0.3;
@@ -339,14 +338,6 @@ input[type='submit']:disabled {
     align-items: center;
     justify-content: space-evenly;
 }
-.resultBtn {
-    box-sizing: border-box;
-    cursor: pointer;
-}
-.resetBtn { 
-    box-sizing: border-box;
-    cursor: pointer;
-}
 .ideInner > .container {
     display: flex;
     flex-direction: row;
@@ -459,6 +450,11 @@ font-family: 'Roboto'; */
     min-height: 10vh;
     max-height: 35vh;
     overflow-y: auto;
+}
+.notification {
+    padding: 15px;
+    border-radius: 3px;
+    margin: 10px;
 }
 @media screen and (max-width: 640px) {
     .courseInner .underline {
