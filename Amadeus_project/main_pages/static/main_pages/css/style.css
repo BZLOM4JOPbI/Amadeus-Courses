@@ -249,7 +249,7 @@ input[type='submit']:disabled {
     display: flex;
     align-items: center;
     flex-direction: column;
-    padding: 40px 100px 60px;
+    padding: 3vw 7vw 4vw;
     text-align: center;
     border-radius: 3px;
 }
@@ -292,10 +292,33 @@ input[type='submit']:disabled {
     padding-bottom: 10px;
     border-bottom: 1.5px solid var(--main-color);
 }
+@media screen and (max-width: 846px){
+    .mainTitle {
+        font-size: 54px;
+        line-height: 70px;
+    }
+}
 @media screen and (max-width: 680px) {
     .cardGrid {
         padding: 0 5vw;
         grid-template-columns: repeat( auto-fit, minmax(270px, 1fr) );
+    }
+    .mainTitle {
+        font-size: 38px;
+        line-height: 54px;
+    }
+    .mainSubtitle {
+        font-size: 18px;
+    }
+    
+}
+@media screen and (max-width: 470px) {
+    .mainTitle {
+        font-size: 28px;
+        line-height: 38px;
+    }
+    .mainSubtitle {
+        font-size: 16px;
     }
     
 }
@@ -455,10 +478,18 @@ font-family: 'Roboto'; */
     padding: 15px;
     border-radius: 3px;
     margin: 10px;
+    animation: increaseOpacity .3s;
 }
 @media screen and (max-width: 640px) {
     .courseInner .underline {
         align-self: flex-start;
+    }
+    .courseInner .console {
+        width: 100%;
+    }
+    .courseInner .editorContainer {
+        width: 100%;
+        padding: 0;
     }
 }
 /**/
