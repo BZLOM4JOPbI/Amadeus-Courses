@@ -441,6 +441,8 @@ font-family: 'Roboto'; */
     background-color: rgba(89, 138, 118, .5);
     display: inline-block;
     padding: 15px;
+    margin: 10px 1px;
+    border-radius: 3px;
 }
 .courseInner .editorContainer {
     width: 90%
@@ -457,6 +459,11 @@ font-family: 'Roboto'; */
     min-height: 10vh;
     max-height: 35vh;
     overflow-y: auto;
+}
+@media screen and (max-width: 640px) {
+    .courseInner .underline {
+        align-self: flex-start;
+    }
 }
 /**/
 

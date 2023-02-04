@@ -1,6 +1,7 @@
 const ide = ace.edit('editor');
 // IDE Options
-ide.setValue('// Put your here');
+let ideDefaultValue = '// Put your code here';
+ide.setValue(ideDefaultValue);
 ide.setTheme('ace/theme/clouds');
 ide.session.setMode('ace/mode/javascript');
 ide.setOptions({
@@ -10,33 +11,65 @@ ide.setOptions({
 });
 
 // Main funcional buttons
-const getCode = () => {
-    return ide.getValue()
-};
-let outputBtn = document.querySelector('.resultBtn');
+let outputToConsoleBtn = document.querySelector('.resultBtn');
 let resetBtn = document.querySelector('.resetBtn');
-outputBtn.addEventListener('click', (event) => {
-    let input = getCode();
-    addLogs(input);
-});
-resetBtn.addEventListener('click', (event) => {
-    ide.setValue('// Put your here');
-});
-// Консоль
-const consoleLogs = document.querySelector('.consoleLogs');
-const addLogs = (input) => {
-    const log = document.createElement('li');
-    // input = 'console.oldLog = console.log;console.log = function(value){console.oldLog(value);return value;};' + input;
-    input = 'out = ""; console.log = function(val){out = out + " " + val; return out;};' + input
+
+
+const getCodeResult = () => {
+    let input = ide.getValue();
+    input = 'out = ""; console.log = function(val){out = out + " " + val; return out;};' + input;
     try {
         input = eval(input);
     } catch (err) {
         input = err;
     }
+    return input
+};
+
+
+outputToConsoleBtn.addEventListener('click', (event) => {
+    addLogs(getCodeResult());
+});
+
+
+resetBtn.addEventListener('click', (event) => {
+    ide.setValue(ideDefaultValue);
+});
+
+
+// Консоль
+const consoleLogs = document.querySelector('.consoleLogs');
+const resetConsole = document.querySelector('.console > .Btn');
+
+
+const addLogs = (input) => {
+    const log = document.createElement('li');
     log.textContent = `>  ${input}`;
     consoleLogs.appendChild(log);
 };
-const resetConsole = document.querySelector('.console > .Btn');
+
+
 resetConsole.addEventListener('click', (event) => {
     consoleLogs.innerHTML = '';
 })
+
+
+// Проверка Решения
+const completeBtn = document.querySelector('.completeBtn');
+const rightTestValue = {
+    'task1.html' : 'Hello, World',
+};
+
+const completeTask = () => {
+    const keyOfTestValue = location.href.split('/')[3];
+    console.log('a');
+    if (getCodeResult() === rightTestValue[keyOfTestValue]) {
+        console.log('Верно');
+        addLogs(getCodeResult());
+    }
+    else {
+        console.log('Ошибка');
+    }
+}
+
+completeBtn.addEventListener('click', completeTask);
