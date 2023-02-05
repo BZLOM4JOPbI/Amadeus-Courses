@@ -441,6 +441,10 @@ font-family: 'Roboto'; */
     margin: 7px 0;
     line-height: 30px;
 }
+.courseText > a{
+    text-decoration: underline;
+    text-decoration-color: var(--accent-color);
+}
 .courseList {
     line-height: 30px;
     padding-left: 25px;
