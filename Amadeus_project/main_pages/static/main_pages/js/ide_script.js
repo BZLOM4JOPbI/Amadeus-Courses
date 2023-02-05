@@ -46,7 +46,11 @@ const resetConsole = document.querySelector('.console > .Btn');
 
 const addLogs = (input) => {
     const log = document.createElement('li');
-    log.textContent = `>  ${input}`;
+    if (typeof input[0] == 'string') {
+            log.textContent = `>  '${input[0]}'`;
+    }else if (typeof input[0] == 'number') {
+        log.textContent = `>  ${input[0]}`;
+    }
     consoleLogs.appendChild(log);
 };
 
@@ -74,7 +78,7 @@ const rightTestValue = {
 const completeTask = () => {
     const keyOfTestValue = location.href.split('/')[3];
     addLogs(getCodeResult());
-    if (getCodeResult() == rightTestValue[keyOfTestValue]) {
+    if (getCodeResult()[0] === rightTestValue[keyOfTestValue]) {
         completeBtn.textContent = 'Решить еще раз'
         tastCompleteResult.style.backgroundColor = 'rgba(89, 138, 118, 0.6)'
         tastCompleteResult.textContent = 'Задание выполнено'
