@@ -13,14 +13,10 @@ urlpatterns = [
     path('course', views.course, name='course'),
     path('login', views.user_login, name='login'),
     path('logout', views.logout_user, name='logout'),
-<<<<<<< HEAD
-    path('task1', views.task_one, name='task_one')
-=======
     path('task1', views.task_one, name='task_one'),
     path('task2', views.task_two, name='task_two'),
     path('task3', views.task_three, name='task_three'),
     path('task4', views.task_four, name='task_four'),
->>>>>>> 8b5d4e2df0117e141304ccfb46c95d6c7b9afc57
 ]
 
 
