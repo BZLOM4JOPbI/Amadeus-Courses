@@ -4,7 +4,7 @@
 
 
 {% block title %}
-IDE
+Задание 3
 {% endblock %}
 
 
@@ -78,14 +78,21 @@ IDE
             </article>
         </div>
     </main>
-{% endblock %}
-
-
-{% block ide %}
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.14.0/ace.js" type ="text/javascript" charset="utf-8"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.14.0/ext-language_tools.min.js"></script>
-    <script src="{% static 'main_pages/js/ide_script.js' %}"></script>
     <script>
         ide.setValue('let V = 24; // Скорость\nlet t = 2; // Время');
     </script>
 {% endblock %}
+
+
+<!-- {% block ide %}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.14.0/ace.js" type ="text/javascript" charset="utf-8"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.14.0/ext-language_tools.min.js"></script>
+    <script src="{% static 'main_pages/js/ide_script.js' %}"></script>
+<<<<<<< HEAD
+{% endblock %} -->
+=======
+    <script>
+        ide.setValue('let V = 24; // Скорость\nlet t = 2; // Время')
+    </script>
+{% endblock %}
+>>>>>>> f44d1e22c7c17b5bbb8a106015b57c379cf5c3e2

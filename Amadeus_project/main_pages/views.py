@@ -37,6 +37,7 @@ def user_login(request):
     return render(request, 'main_pages/login.html', {'form': form})
 
 
+<<<<<<< HEAD
 def task_one(request):
     form = UserProgressForm(request.POST if request.POST else None)
     form.username = 'Абдула'
@@ -47,6 +48,8 @@ def task_one(request):
     return render(request, 'main_pages/regist.html', context)
 
 
+=======
+>>>>>>> 82b83951eb5c1059376f2b90f45bfd11b240079c
 def regist(request):
     form = CustomUserForm(request.POST if request.POST else None)
     if form.is_valid():
@@ -60,7 +63,10 @@ def regist(request):
         'form': form
     }
     return render(request, 'main_pages/regist.html', context)
+<<<<<<< HEAD
     return render(request, 'main_pages/task1.html')
+=======
+>>>>>>> 82b83951eb5c1059376f2b90f45bfd11b240079c
 
 
 def task_two(request):
@@ -73,3 +79,21 @@ def task_three(request):
 
 def task_four(request):
     return render(request, 'main_pages/task4.html')
+<<<<<<< HEAD
+=======
+
+
+def task_one(request='post'):
+    form = UserProgressForm(request.POST if request.POST else None)
+    if form:
+        form.username = 'Абдула'
+        form.save
+        context = {
+            'form': form
+            }
+        return render(request, 'main_pages/task1.html', context)
+    else:
+        return redirect('login')
+
+
+>>>>>>> 82b83951eb5c1059376f2b90f45bfd11b240079c
