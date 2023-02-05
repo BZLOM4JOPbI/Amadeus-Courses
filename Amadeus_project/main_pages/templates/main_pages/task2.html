@@ -1,0 +1,91 @@
+{% extends 'main_pages/base.html' %}
+
+{% load static %}
+
+
+{% block title %}
+IDE
+{% endblock %}
+
+
+{% block content %}
+    <main class="mainWrap">
+        <div class="container" style="flex-direction: column">
+            <article class="courseInner">
+                <h4 class="courseTitle">Переменные в JavaScript</h4>
+                <hr class="underline" noshade="true">
+                <div class="courseTextContainer">
+                    <p class="courseText">Переменные являются именованными значениями и могут хранить любой тип данных JavaScript.</p>
+                    <p class="courseText">Вот мы объявляем переменные:</p>
+                    <code>
+                        let x = 'Строка';<br>
+                        const n = 5;
+                    </code>
+                    <p class="courseText">Вот что происходит в этом примере:</p>
+                    <ul class="courseList">
+                        <li>let и const &ndash; это ключевые слова, которые говорят JS об объявлении переменной</li>
+                        <li>x и n &ndash; некоторые имена переменных</li>
+                        <li>' = ' &ndash; так называемый оператор присваивания, сообщающий, что далее идет значение переменной</li>
+                        <li>'Строка' и число 5 &ndash; значения, которые мы хотим сохранить</li>
+                    </ul>
+                    <p class="courseText">После объявления, вы можете ссылаться на переменную по ее имени в вашем коде.</p>
+                    <code>
+                        let greetings = 'Привет, Мир!';<br>
+                        console.log(greetings);
+                        // Выведет в консоль значение переменной
+                    </code>
+                    <code>
+                        let n = 5;<br>
+                        console.log(n + 5); // Выведет в консоль число 10 (результат сложения)
+                    </code>
+                    <p class="courseText">Возможно ссылаться на переменную даже в объявлении других переменных.</p>
+                    <code>
+                        let n = 5;<br>
+                        let x = n + 5;<br>
+                        console.log(x) // Выведет число 10
+                    </code>
+                    <p class="courseText">Несколько правил именования переменных:</p>
+                    <ul class="courseList">
+                        <li>Первым символом имени может быть буква, нижнее подчеркивание(_) и знак доллара($)</li>
+                        <li>После первого символа можно также использовать цифры</li>
+                        <li>Именна переменных чувствительны к регистру</li>
+                    </ul>
+                    <p class="courseText">Так выглядят недопустимые имена перменных. Попробуйте определить, что не так с каждым из них:</p>
+                    <code>
+                        let -var = 'Hello';<br>
+                        let 2name = 'Ivan and Dima';<br>
+                        let @btnText = 'Click';<br>
+                        let procent% = 55;<br>
+                    </code>
+                    <h6 class="task">Задание</h6>
+                    <p class="courseText">В редакторе кода объявлены две переменные: скорость V и время t.</p>
+                    <p class="courseText">Посчитайте расстояние S по формуле S = V * t и сохраните результат в переменную. После чего выведете значение переменной с помощью console.log()</p>
+                </div>
+                <div class="editorContainer">
+                    <div class="editorInner">
+                        <div id="editor"></div>
+                    </div>
+                    <div class="ideBtnWrap">
+                        <button class="resultBtn Btn">Тест</button>
+                        <button class="completeBtn Btn">Завершить</button>
+                        <button class="resetBtn Btn">Сброс</button>
+                    </div>
+                </div>
+                <div class="console">
+                    <ul class="consoleLogs"></ul>
+                    <button class="Btn">Сброс</button>
+                </div>
+            </article>
+        </div>
+    </main>
+{% endblock %}
+
+
+{% block ide %}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.14.0/ace.js" type ="text/javascript" charset="utf-8"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.14.0/ext-language_tools.min.js"></script>
+    <script src="{% static 'main_pages/js/ide_script.js' %}"></script>
+    <script>
+        ide.setValue('let V = 24; // Скорость\nlet t = 2; // Время')
+    </script>
+{% endblock %}
