@@ -12,14 +12,14 @@
     <main class="mainWrap">
         <div class="container">
             <div class="mainInner">
-                <div class="codeBG" style="background-image: url({% static 'main_pages/img/blackbg.png' %});">
+                <section class="codeBG" style="background-image: url({% static 'main_pages/img/blackbg.png' %});">
                     <div class="blur">
                         <div class="bannerInner">
                             <h1 class="mainTitle">Доступные курсы по программированию</h1>
                             <h4 class="mainSubtitle">Хобби может легко стать любимой работой</h4>
                         </div>
                     </div>
-                </div>
+                </section>
                 <h4 class="taskList">Задачи</h4>
                 <div class="cardGrid">
                     <div class="card task1">
@@ -30,17 +30,17 @@
                     <div class="card task2">
                         <h5 class="taskTitle">Переменные</h6>
                         <h6 class="taskDesc">Переменные являются неотъемлемой частью программирования. Они используются для хранения данных и информации в программе. Мы можем легко понять концепцию переменной, если представим ее как «коробку» для данных</h6>
-                        <a href="" class="Btn">Решить</a>
+                        <a href="{% url 'task_two' %}" class="Btn">Решить</a>
                     </div>
                     <div class="card task3">
                         <h5 class="taskTitle">Масcивы</h6>
                         <h6 class="taskDesc">Объект Массива, как и массивы в других языках программирования, позволяет хранить коллекцию из нескольких элементов в одной переменной для выполнения общих операций</h6>
-                        <a href="" class="Btn">Решить</a>
+                        <a href="{% url 'task_three' %}" class="Btn">Решить</a>
                     </div>
                     <div class="card task4">
                         <h5 class="taskTitle">Объекты</h6>
                         <h6 class="taskDesc">Объект представляет собой коллекцию пар "ключ - значение", называемых свойствами. Сравните это с ручкой. Ручка - объект со свойствами: цветом, дизайном, весом, производителем</h6>
-                        <a href="" class="Btn">Решить</a>
+                        <a href="{% url 'task_four' %}" class="Btn">Решить</a>
                     </div>
                 </div>
             </div>

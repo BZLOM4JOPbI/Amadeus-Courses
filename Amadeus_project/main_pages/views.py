@@ -59,3 +59,15 @@ def user_login(request):
 
 def task_one(request):
     return render(request, 'main_pages/task1.html')
+
+
+def task_two(request):
+    return render(request, 'main_pages/task2.html')
+
+
+def task_three(request):
+    return render(request, 'main_pages/task3.html')
+
+
+def task_four(request):
+    return render(request, 'main_pages/task4.html')

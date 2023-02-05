@@ -63,23 +63,21 @@ const ideBtnsGoup = document.querySelector('.ideBtnWrap');
 const tastCompleteResult = document.createElement('div')
 tastCompleteResult.className = 'notification';
 const rightTestValue = {
-    'task1.html' : 'Hello, World!',
+    'task1' : 'Hello, World!',
+    'task2' : 48,
 };
 
 const completeTask = () => {
     const keyOfTestValue = location.href.split('/')[3];
+    addLogs(getCodeResult());
     if (getCodeResult() == rightTestValue[keyOfTestValue]) {
-        addLogs(getCodeResult());
         completeBtn.textContent = 'Решить еще раз'
         tastCompleteResult.style.backgroundColor = 'rgba(89, 138, 118, 0.6)'
         tastCompleteResult.textContent = 'Задание выполнено'
-        ideContainer.insertBefore(tastCompleteResult, ideBtnsGoup);
     } else {
-        addLogs(getCodeResult());
         tastCompleteResult.style.backgroundColor = 'rgba(164, 50, 64, 0.5)'
         tastCompleteResult.textContent = 'Попробуйте еще раз'
-        ideContainer.insertBefore(tastCompleteResult, ideBtnsGoup);
     }
-
+    ideContainer.insertBefore(tastCompleteResult, ideBtnsGoup);
 }   
 completeBtn.addEventListener('click', completeTask);

@@ -310,7 +310,6 @@ input[type='submit']:disabled {
     .mainSubtitle {
         font-size: 18px;
     }
-    
 }
 @media screen and (max-width: 470px) {
     .mainTitle {
@@ -440,7 +439,11 @@ font-family: 'Roboto'; */
 }
 .courseText {
     margin: 7px 0;
-    line-height: 27px;
+    line-height: 30px;
+}
+.courseList {
+    line-height: 30px;
+    padding-left: 25px;
 }
 .task {
     align-self: flex-start;
@@ -457,6 +460,7 @@ font-family: 'Roboto'; */
     padding: 15px;
     margin: 10px 1px;
     border-radius: 3px;
+    line-height: 30px;
 }
 .courseInner .editorContainer {
     width: 90%
@@ -487,9 +491,12 @@ font-family: 'Roboto'; */
     .courseInner .console {
         width: 100%;
     }
-    .courseInner .editorContainer {
+    .editorContainer {
         width: 100%;
         padding: 0;
+    }
+    .courseInner .editorContainer {
+    width: 100%;
     }
 }
 /**/
