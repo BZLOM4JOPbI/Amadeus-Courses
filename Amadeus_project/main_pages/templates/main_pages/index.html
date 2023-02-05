@@ -25,7 +25,11 @@
                     <div class="card task1">
                         <h5 class="taskTitle">Погружение</h6>
                         <h6 class="taskDesc">Вы когда-нибудь пытались научиться читать, писать или говорить на незнакомом языке? Любое изучение начинается с азов и терпеливого прохождения практики</h6>
-                        <a href="{% url 'task_one' %}" class="Btn">Решить</a>
+                        <form method="post">
+                            {% csrf_token %}
+                            <input type="submit" value="Регистрация" class="Btn">
+                        </form>
+                        <a href="{% url 'task_one' %}" style="color: black;">sdfgs</a>
                     </div>
                     <div class="card task2">
                         <h5 class="taskTitle">Переменные</h6>

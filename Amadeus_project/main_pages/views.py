@@ -1,31 +1,11 @@
 from django.shortcuts import render, redirect
-from .forms import CustomUserForm
-from django.contrib import messages
+from .forms import *
 from django.contrib.auth import authenticate, login, logout
-from .forms import LoginForm
-from django.http import HttpResponse
-from django.core.exceptions import ValidationError
 
 
 def logout_user(request):
     logout(request)
     return redirect("home_page")
-
-
-def regist(request):
-    form = CustomUserForm(request.POST if request.POST else None)
-    if request.method == 'POST':
-        form = CustomUserForm(request.POST)
-        if form.is_valid():
-            user = form.save()
-            user.set_password(user.password)
-            user.save()
-            login(request, user)
-            return redirect('home_page')
-    context = {
-        'form': form
-    }
-    return render(request, 'main_pages/regist.html', context)
 
 
 def home(request):
@@ -58,4 +38,25 @@ def user_login(request):
 
 
 def task_one(request):
-    return render(request, 'main_pages/task1.html')
+    form = UserProgressForm(request.POST if request.POST else None)
+    form.username = 'Абдула'
+    form.save
+    context = {
+        'form': form
+        }
+    return render(request, 'main_pages/regist.html', context)
+
+
+def regist(request):
+    form = CustomUserForm(request.POST if request.POST else None)
+    if form.is_valid():
+        user = form.save()
+        user.set_password(user.password)
+        user.confirm_password = ''
+        user.save()
+        login(request, user)
+        return redirect('home_page')
+    context = {
+        'form': form
+    }
+    return render(request, 'main_pages/regist.html', context)

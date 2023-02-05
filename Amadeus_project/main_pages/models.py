@@ -19,3 +19,10 @@ class CustomUser(AbstractUser):
                                         max_length=100,
                                         blank=True)
 
+
+class UserProgress(models.Model):
+    
+    username = models.CharField(
+                            max_length=50,
+                            unique=True
+                            )

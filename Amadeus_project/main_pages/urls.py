@@ -8,12 +8,12 @@ from django.conf import settings
 
 urlpatterns = [
     path('', views.home, name='home_page'),
-    path('regist.html', views.regist, name='regist_user'),
-    path('ide.html', views.ide, name='ide'),
-    path('course.html', views.course, name='course'),
-    path('login.html', views.user_login, name='login'),
-    path('logout.html', views.logout_user, name='logout'),
-    path('task1.html', views.task_one, name='task_one')
+    path('regist', views.regist, name='regist_user'),
+    path('ide', views.ide, name='ide'),
+    path('course', views.course, name='course'),
+    path('login', views.user_login, name='login'),
+    path('logout', views.logout_user, name='logout'),
+    path('task1', views.task_one, name='task_one')
 ]
 
 

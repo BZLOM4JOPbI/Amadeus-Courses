@@ -1,4 +1,4 @@
-from .models import CustomUser
+from .models import *
 from django.forms import ModelForm, TextInput
 from django import forms
 from django.core.exceptions import ValidationError
@@ -24,6 +24,7 @@ class CustomUserForm(ModelForm):
                 'type': "password",  'placeholder': "********"
             }),
         }
+
     # Проверка почты на валидность
     def clean_email(self):
         email = self.cleaned_data['email'].strip()
@@ -73,3 +74,10 @@ class CustomUserForm(ModelForm):
 class LoginForm(forms.Form):
     username = forms.CharField(label='Логин', widget=forms.TextInput(attrs={'placeholder': 'login'}))
     password = forms.CharField(label='Пароль', widget=forms.PasswordInput(attrs={'placeholder': '********'}))
+
+
+class UserProgressForm(ModelForm):
+
+    class Meta:
+        model = UserProgress
+        fields = ['username']
