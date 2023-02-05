@@ -46,10 +46,16 @@ const resetConsole = document.querySelector('.console > .Btn');
 
 const addLogs = (input) => {
     const log = document.createElement('li');
-    if (typeof input[0] == 'string') {
-            log.textContent = `>  '${input[0]}'`;
-    }else if (typeof input[0] == 'number') {
-        log.textContent = `>  ${input[0]}`;
+    if (input.lenght > 1) {
+        log.textContent = `>  ${input}`;
+    } else {
+        if (typeof input[0] == 'string') {
+                log.textContent = `>  '${input[0]}'`;
+        } else if (typeof input[0] == 'number') {
+            log.textContent = `>  ${input[0]}`;
+        } else {
+            log.textContent = `>  ${input[0]}`;
+        }
     }
     consoleLogs.appendChild(log);
 };
@@ -72,6 +78,7 @@ const rightTestValue = {
     'task1' : 'Hello, World!',
     'task3' : 48,
     'task2' : 38,
+    'task4' : 'Смузихлеб Иван - лучший фронт'
 };
 
 
@@ -79,12 +86,15 @@ const completeTask = () => {
     const keyOfTestValue = location.href.split('/')[3];
     addLogs(getCodeResult());
     if (getCodeResult()[0] === rightTestValue[keyOfTestValue]) {
-        completeBtn.textContent = 'Решить еще раз'
-        tastCompleteResult.style.backgroundColor = 'rgba(89, 138, 118, 0.6)'
-        tastCompleteResult.textContent = 'Задание выполнено'
+        completeBtn.textContent = 'Решить еще раз';
+        tastCompleteResult.style.backgroundColor = 'rgba(89, 138, 118, 0.6)';
+        tastCompleteResult.textContent = 'Задание выполнено';
+    } else if (keyOfTestValue == 'task4') {
+        tastCompleteResult.style.backgroundColor = 'rgba(89, 138, 118, 0.6)';
+        tastCompleteResult.textContent = 'Задание выполнено';
     } else {
-        tastCompleteResult.style.backgroundColor = 'rgba(164, 50, 64, 0.5)'
-        tastCompleteResult.textContent = 'Попробуйте еще раз'
+        tastCompleteResult.style.backgroundColor = 'rgba(164, 50, 64, 0.5)';
+        tastCompleteResult.textContent = 'Попробуйте еще раз';
     }
     ideContainer.insertBefore(tastCompleteResult, ideBtnsGoup);
 }   
