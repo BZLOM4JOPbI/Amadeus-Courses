@@ -62,10 +62,14 @@ const ideContainer = document.querySelector('.editorContainer');
 const ideBtnsGoup = document.querySelector('.ideBtnWrap');
 const tastCompleteResult = document.createElement('div')
 tastCompleteResult.className = 'notification';
+
+
 const rightTestValue = {
     'task1' : 'Hello, World!',
-    'task2' : 48,
+    'task3' : 48,
+    'task2' : 38,
 };
+
 
 const completeTask = () => {
     const keyOfTestValue = location.href.split('/')[3];
