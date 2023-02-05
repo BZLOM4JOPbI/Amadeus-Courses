@@ -38,7 +38,6 @@ def user_login(request):
 
 
 def task_one(request):
-<<<<<<< HEAD
     form = UserProgressForm(request.POST if request.POST else None)
     form.username = 'Абдула'
     form.save
@@ -61,7 +60,6 @@ def regist(request):
         'form': form
     }
     return render(request, 'main_pages/regist.html', context)
-=======
     return render(request, 'main_pages/task1.html')
 
 
@@ -75,4 +73,3 @@ def task_three(request):
 
 def task_four(request):
     return render(request, 'main_pages/task4.html')
->>>>>>> 8b5d4e2df0117e141304ccfb46c95d6c7b9afc57
