@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from .forms import *
 from django.contrib.auth import authenticate, login, logout
-
+from .services import handle_special_task
 
 def logout_user(request):
     logout(request)
@@ -37,19 +37,6 @@ def user_login(request):
     return render(request, 'main_pages/login.html', {'form': form})
 
 
-<<<<<<< HEAD
-def task_one(request):
-    form = UserProgressForm(request.POST if request.POST else None)
-    form.username = 'Абдула'
-    form.save
-    context = {
-        'form': form
-        }
-    return render(request, 'main_pages/regist.html', context)
-
-
-=======
->>>>>>> 82b83951eb5c1059376f2b90f45bfd11b240079c
 def regist(request):
     form = CustomUserForm(request.POST if request.POST else None)
     if form.is_valid():
@@ -63,37 +50,16 @@ def regist(request):
         'form': form
     }
     return render(request, 'main_pages/regist.html', context)
-<<<<<<< HEAD
-    return render(request, 'main_pages/task1.html')
-=======
->>>>>>> 82b83951eb5c1059376f2b90f45bfd11b240079c
 
 
-def task_two(request):
-    return render(request, 'main_pages/task2.html')
-
-
-def task_three(request):
-    return render(request, 'main_pages/task3.html')
-
-
-def task_four(request):
-    return render(request, 'main_pages/task4.html')
-<<<<<<< HEAD
-=======
-
-
-def task_one(request='post'):
-    form = UserProgressForm(request.POST if request.POST else None)
-    if form:
-        form.username = 'Абдула'
-        form.save
-        context = {
-            'form': form
-            }
-        return render(request, 'main_pages/task1.html', context)
+def task_handler(request, task_number, special_task=1):
+    if task_number == special_task:
+        form = UserProgressForm(request.POST if request.POST else None)
+        context = handle_special_task(form)
+        if context:
+            return render(request, f'main_pages/task{special_task}.html', context)
+        else:
+            return redirect('login')
     else:
-        return redirect('login')
+         return render(request, f'main_pages/task{task_number}.html')
 
-
->>>>>>> 82b83951eb5c1059376f2b90f45bfd11b240079c

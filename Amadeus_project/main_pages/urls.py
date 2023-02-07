@@ -13,14 +13,7 @@ urlpatterns = [
     path('course', views.course, name='course'),
     path('login', views.user_login, name='login'),
     path('logout', views.logout_user, name='logout'),
-    path('task1', views.task_one, name='task_one'),
-    path('task2', views.task_two, name='task_two'),
-    path('task3', views.task_three, name='task_three'),
-    path('task4', views.task_four, name='task_four'),
-<<<<<<< HEAD
-
-=======
->>>>>>> 82b83951eb5c1059376f2b90f45bfd11b240079c
+    path('task/<int:task_number>/', views.task_handler, {'special_task': 1},  name='task'),
 ]
 
 
