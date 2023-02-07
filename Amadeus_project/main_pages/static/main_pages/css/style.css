@@ -15,6 +15,8 @@ body, html {
 :root {
     --main-color: #000;
     --accent-color: rgb(89, 138, 118);
+    --accent-colorOp: rgba(89, 138, 118, 0.6);
+    --font-family: 'Roboto';
 }
 .wrapper {
     overflow: hidden;
@@ -27,7 +29,7 @@ body, html {
     margin: 0 auto;
     padding: 0 15px;
     box-sizing: border-box;
-    font-family: 'Roboto';
+    font-family: var(--font-family);
 }
 .Btn {
     font-weight: 400;
@@ -54,6 +56,16 @@ body, html {
 .mainWrap {
     flex: 1 1 auto;
 }
+.noselect {
+    -webkit-touch-callout: none; /* iOS Safari */
+      -webkit-user-select: none; /* Safari */
+       -khtml-user-select: none; /* Konqueror HTML */
+         -moz-user-select: none; /* Old versions of Firefox */
+          -ms-user-select: none; /* Internet Explorer/Edge */
+              user-select: none; /* Non-prefixed version, currently
+                                    supported by Chrome, Edge, Opera and Firefox */
+}
+  
 /**/
 
 /* Стили шапки */
@@ -228,7 +240,7 @@ input[type='submit']:disabled {
     grid-area: banner;
 }
 .blur {
-    background: rgba(89, 138, 118, 0.6);
+    background:var(--accent-colorOp);
     backdrop-filter: blur(2px);
     border-radius: 3px;
     -webkit-appearance: none;
@@ -338,7 +350,7 @@ input[type='submit']:disabled {
     /* font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'source-code-pro', monospace; */
 }
 .ace_folding-enabled {
-    background-color: rgba(89, 138, 118, 0.6);
+    background-color: var(--accent-colorOp);
 }  
 .ace-clouds .ace_gutter-active-line {
     background-color: var(--accent-color);
@@ -431,11 +443,11 @@ font-family: 'Roboto'; */
     font-size: 40px;
 }
 .courseTextContainer {
-    padding: 15px;
+    padding: 15px 10px;
     margin: 30px 0;
-    width: 90%;
-    border-left: 1.5px solid var(--main-color);
-    border-right: 1.5px solid var(--main-color);
+    width: 95%;
+    /* border-left: 1.5px solid var(--main-color);
+    border-right: 1.5px solid var(--main-color); */
 }
 .courseText {
     margin: 7px 0;
@@ -459,7 +471,7 @@ font-family: 'Roboto'; */
     max-width: 50%;
 }
 .courseInner code {
-    background-color: rgba(89, 138, 118, .5);
+    background-color: var(--accent-colorOp);
     display: inline-block;
     padding: 15px;
     margin: 10px 1px;
@@ -500,7 +512,17 @@ font-family: 'Roboto'; */
         padding: 0;
     }
     .courseInner .editorContainer {
-    width: 100%;
+     width: 100%;
+    }
+    code, .courseText {
+        font-size: 16px;
+    }
+    .courseTitle {
+        font-size: 34px;
+        align-self: flex-start;
+    }
+    .courseList li {
+        font-size: 16px;
     }
 }
 /**/
@@ -508,7 +530,6 @@ font-family: 'Roboto'; */
 
 /* Стили подвала */
 .footerWrap  .inner {
-    /*background-color: rgb(89, 138, 118);*/
     justify-content: space-between;
     flex-wrap: wrap;
     align-items: baseline;

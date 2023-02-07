@@ -32,4 +32,4 @@ const hamburgerAviable = () => {
         hamburgerMenu.removeChild(accountButtons);
     }
 };
-// Проверка на расширение дисплеия с активным бургером
+// Проверка на расширение дисплея с активным бургером
