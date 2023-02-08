@@ -1,0 +1,631 @@
+/* Общие стили */
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: var(--primary-color);
+}
+* {
+    text-decoration: none;
+    color: var(--main-color);
+    font-size: 18px;
+    margin: 0;
+}
+:root {
+    --main-color: #000;
+    --primary-color: #fff;
+    --accent-color: rgb(89, 138, 118);
+    --accent-colorOp: rgba(89, 138, 118, 0.6);
+    --font-family: 'Roboto';
+}
+.wrapper {
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+}
+.container {
+    max-width: 1650px;
+    margin: 0 auto;
+    padding: 0 15px;
+    box-sizing: border-box;
+    font-family: var(--font-family);
+}
+.Btn {
+    font-weight: 400;
+    border: 1.5px solid var(--main-color);
+    padding: 7px 10px;
+    border-radius: 3px;
+    background-color: var(--primary-color);
+    cursor: pointer;
+}
+.Btn:hover {
+    background-color: var(--accent-color);
+}
+.underline {
+    margin: 10px 0;
+    border-color: var(--main-color);
+    background-color: var(--main-color);
+    animation: increaseWidth 1s;
+}
+.inner {
+    padding: 20px 15px 0;
+    display: flex;
+    align-items: center;
+}
+.mainWrap {
+    flex: 1 1 auto;
+}
+.noselect {
+    -webkit-touch-callout: none; /* iOS Safari */
+      -webkit-user-select: none; /* Safari */
+       -khtml-user-select: none; /* Konqueror HTML */
+         -moz-user-select: none; /* Old versions of Firefox */
+          -ms-user-select: none; /* Internet Explorer/Edge */
+              user-select: none; /* Non-prefixed version, currently
+                                    supported by Chrome, Edge, Opera and Firefox */
+}
+.accentBtn {
+    background-color: var(--accent-color);
+}
+.accentBtn:hover {
+    box-shadow: 0px 0px 20px var(--accent-color);
+    border-color: var(--accent-color);
+}
+/**/
+
+/* Стили шапки */
+.titleHeader {
+    font-size: 36px;
+    font-weight: 500;
+    text-transform: uppercase;
+    animation: increaseOpacity 1s;
+}
+.titleHeader:hover {
+    cursor: default;
+}
+.userName {
+    text-decoration: underline;
+    text-decoration-color: var(--accent-color);
+}
+.accountBtnWrap {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+}
+.accountBtnWrap > .Btn {
+    margin: 0 10px;
+}
+.navBtnWrap {
+    margin-left: 30px;
+}
+.navBtnWrap > .navBtn {
+    margin: 0 10px;
+    font-weight: 500;
+    text-decoration: underline;
+    text-decoration-color: var(--accent-color);
+    transition-duration: 0.3s;
+}
+.navBtn:hover {
+    text-decoration: none;
+}
+.hambBtn {
+    width: 35px;
+    height: 35px;
+    display: block;
+    margin-left: auto;
+    display: none;
+    cursor: pointer;
+}
+#hamburgerMenu {
+    align-items: baseline;
+    justify-content: space-between;
+}
+#hamburgerMenu > div {
+    animation: increaseOpacity 0.7s;
+}
+@media screen and (max-width: 750px) {
+    .accountBtnWrap {
+        display: none;
+        margin: 0;
+    }
+    .accountBtnWrap > .Btn {
+        margin: 0 0 0 7px;
+        padding: 2.5px 5px;
+    }
+    .navBtnWrap {
+        display: none;
+        margin: 0 0 25px;
+    }
+    .navBtnWrap > .navBtn {
+        margin: 0 15px 0 0;
+    }
+    .hambBtn {
+        display: block;
+    }
+    .hambWrap {
+        width: 100%;
+        height: 100%;
+    }
+    .form {
+        border-width: 0px;
+    }
+}
+/**/
+
+/* Формы */
+.blockForForm {
+    display: block;
+}
+.subtitle {
+    text-align: center;
+    font-weight: 500;
+    font-size: 24px;
+    margin-bottom: 30px;
+    text-decoration: underline;
+    text-decoration-color: var(--accent-color);
+}
+.form > label, input {
+    display: block;
+    width: 100%;
+}
+.form {
+    display: flex;
+    flex-direction: column;
+    border: 1.5px solid var(--main-color);
+    padding: 35px;
+    border-radius: 3px;
+    max-width: 500px;
+    margin: 0 auto;
+    box-sizing: content-box;
+    align-items: flex-start;
+    margin-bottom: 30px;
+}
+input::placeholder {
+    opacity: 0.3;
+    font-size: 16px;
+}
+input {
+    border-radius: 3px;
+    margin: 8px 0px 20px;
+    padding: 6px 9px;
+    border: 1.5px solid var(--main-color);
+    box-sizing: border-box;
+}
+input[type='submit'] {
+    background-color: var(--accent-color);
+    -webkit-appearance: none;
+}
+input[type='submit']:disabled {
+    opacity: .5;
+    cursor: default;
+}
+.changePage {
+    max-width: 530px;
+    margin: 0 auto;
+    font-weight: 400;
+    display: block;
+    text-align: center;
+    padding: 20px;
+    border: 1.5px solid var(--main-color);
+    border-radius: 3px;
+    margin-bottom: 50px;
+}
+.changePage > a {
+    transition-duration: .3s;
+    text-decoration: underline;
+    text-decoration-color: var(--accent-color); 
+}
+.changePage > a:hover {
+    text-decoration: none;
+
+}
+@media screen and (max-width: 750px) {
+    .form{
+        border-color: var(--primary-color);
+        margin-bottom: 0px;
+        padding: 20px;
+    }
+    .changePage {
+        border-color: var(--primary-color);
+        padding-top: 0px;
+    }
+}
+.form > p {
+    width: 100%;
+}
+.test {
+    margin: 0 auto;
+}
+/* Конец и слава богу*/
+
+/* Стили индекса */
+.codeBG {
+    background-position: left;
+    border-radius: 3px;
+    grid-area: banner;
+}
+.blur {
+    background:var(--accent-colorOp);
+    backdrop-filter: blur(2px);
+    border-radius: 3px;
+    -webkit-appearance: none;
+}
+.mainTitle {
+    color: var(--primary-color);
+    font-weight: 700;
+    font-size: 70px;
+    line-height: 80px;
+}
+.mainSubtitle {
+    margin-top: 30px;
+    color: var(--primary-color);
+    font-size: 24px;
+    font-weight: 500;
+}
+.bannerInner {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 3vw 7vw 4vw;
+    text-align: center;
+    border-radius: 3px;
+}
+.mainInner {
+    margin-bottom: 50px;
+}
+.card {
+    border: 1.5px solid var(--main-color);
+    border-radius: 3px;
+    padding: 3vw;
+    display: flex;
+    flex-direction: column;
+    animation: none;
+    box-sizing: border-box;
+    min-height: 400px;
+    box-shadow: 0px 0px 4px var(--accent-color);
+}
+.cardGrid {
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: repeat( auto-fit, minmax(310px, 1fr) );
+    grid-gap: 5vh;
+}
+.card:hover {
+    animation: increaseScale .3s;
+    animation-fill-mode: forwards;
+}
+.taskTitle {
+    font-size: 24px;
+}
+.taskDesc {
+    margin: 10px 0px;
+    flex: 1 1 auto;
+    font-weight: 400;
+}
+.taskList { 
+    margin: 60px 0;
+    text-align: center;
+    font-size: 40px;
+    padding-bottom: 10px;
+    border-bottom: 1.5px solid var(--main-color);
+}
+@media screen and (max-width: 846px){
+    .mainTitle {
+        font-size: 54px;
+        line-height: 70px;
+    }
+}
+@media screen and (max-width: 680px) {
+    .cardGrid {
+        padding: 0 5vw;
+        grid-template-columns: repeat( auto-fit, minmax(270px, 1fr) );
+    }
+    .mainTitle {
+        font-size: 38px;
+        line-height: 54px;
+    }
+    .mainSubtitle {
+        font-size: 18px;
+    }
+}
+@media screen and (max-width: 470px) {
+    .mainTitle {
+        font-size: 28px;
+        line-height: 38px;
+    }
+    .mainSubtitle {
+        font-size: 16px;
+    }
+    
+}
+@media screen and (min-width: 3000px){
+    .card {
+        padding: 1.5vw;
+    }
+}
+/**/
+
+/* IDE */
+#editor {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0px;
+    left: 0px;
+    /* font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'source-code-pro', monospace; */
+}
+.ace_folding-enabled {
+    background-color: var(--accent-colorOp);
+}  
+.ace-clouds .ace_gutter-active-line {
+    background-color: var(--accent-color);
+}   
+.editorContainer {
+    padding: 0 15px;
+    box-sizing: border-box;
+    width: 64%;
+}
+.editorInner {
+    position: relative;
+    border: 1.5px solid var(--main-color);
+    border-radius: 3px;
+    height: 80vh;
+    margin-bottom: 15px;
+}
+.ideBtnWrap {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.ideInner > .container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.console {
+    position: relative;
+    width: 34%;
+    height: 80vh;
+    box-sizing: border-box;
+    background-color: var(--main-color);
+    border: 3px solid var(--accent-color);
+    border-radius: 3px;
+    padding: 15px;
+    padding-bottom: 40px;
+}
+.console > .Btn {
+    position: absolute;
+    background-color: var(--primary-color);
+    bottom: 0px;
+    left: -.5px;
+    right: -.5px;
+}
+.consoleLogs {
+    display: block;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    list-style-type: none;
+    overflow-x: auto;
+}
+.consoleLogs li {
+    color: var(--primary-color);
+}
+.console > .Btn:hover {
+    background-color: var(--accent-color);
+}
+.NonDisplay {
+    display: none;
+}
+@media screen  and (max-width: 884px){
+    .editorContainer {
+        width: 100%;
+    }
+    .ideInner > .container {
+        display: flex;
+        flex-direction: column-reverse;
+    }
+    .console {
+        width: 100%;
+    }   
+    .ideBtnWrap {
+        margin-bottom: 20px;
+        row-gap: 15px;
+    }
+    /* .ideNavBtn {
+        margin-top: 15px;
+    } */
+}
+/**/
+
+/* Cтили task'ов*/
+/* overflow-wrap: break-word;
+white-space: pre-wrap;     
+white-space: -moz-pre-wrap;  
+white-space: -o-pre-wrap;    
+word-wrap: break-word;       
+font-family: 'Roboto'; */
+.courseInner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 30px;
+}
+.courseTitle {
+    font-size: 40px;
+}
+.courseTextContainer {
+    padding: 15px 10px;
+    margin: 30px 0;
+    width: 95%;
+    /* border-left: 1.5px solid var(--main-color);
+    border-right: 1.5px solid var(--main-color); */
+}
+.courseText {
+    margin: 7px 0;
+    line-height: 30px;
+}
+.courseText > a{
+    text-decoration: underline;
+    text-decoration-color: var(--accent-color);
+}
+.courseList {
+    line-height: 30px;
+    padding-left: 25px;
+}
+.task {
+    align-self: flex-start;
+    font-size: 30px;
+    margin: 30px 0;
+}
+.courseInner .underline {
+    width: 50%;
+    max-width: 50%;
+}
+.courseInner code {
+    background-color: var(--accent-colorOp);
+    display: inline-block;
+    padding: 15px;
+    margin: 10px 1px;
+    border-radius: 3px;
+    line-height: 30px;
+}
+.courseInner .editorContainer {
+    width: 90%
+}
+.courseInner .editorInner {
+    height: 60vh;
+}
+.courseInner .console {
+    height: auto;
+    width: 90%;
+    margin: 30px 0px;
+}
+.courseInner .consoleLogs {
+    min-height: 10vh;
+    max-height: 35vh;
+    overflow-y: auto;
+}
+.notification {
+    padding: 15px;
+    border-radius: 3px;
+    margin: 10px;
+    animation: increaseOpacity .3s;
+}
+@media screen and (max-width: 640px) {
+    .courseInner .underline {
+        align-self: flex-start;
+    }
+    .courseInner .console {
+        width: 100%;
+    }
+    .editorContainer {
+        width: 100%;
+        padding: 0;
+    }
+    .courseInner .editorContainer {
+     width: 100%;
+    }
+    code, .courseText {
+        font-size: 16px;
+    }
+    .courseTitle {
+        font-size: 34px;
+        align-self: flex-start;
+    }
+    .courseList li {
+        font-size: 16px;
+    }
+}
+/**/
+
+
+/* Стили подвала */
+.footerWrap  .inner {
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: baseline;
+}
+.footerSubtitle {
+    font-weight: 400;
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+.footerWrap .titleHeader {
+    font-size: 24px;
+    margin-bottom: 10px;
+    font-weight: 500;
+    display: inline-block;
+}
+/* */
+/* @media screen and (prefers-color-scheme: dark) {
+    body, html {
+    background-color: var(--main-color);
+    }
+    * {
+        color: #fff;
+        border-color: #fff !important;
+    }
+    .underline {
+    border-color: #fff;
+    background-color: #fff;
+    }
+    .Btn {
+        color: black;
+    }
+
+} */
+/* @media screen and (prefers-color-scheme: dark) {
+    :root {
+        --main-color: #fff;
+        --primary-color: #1b1b1b;
+    }
+    .mainTitle {
+        color: var(--main-color);
+    }
+    .mainSubtitle {
+        color: var(--main-color);
+    }
+    p > input {
+        background-color: var(--primary-color);
+    }
+} */
+/* Анимации */
+@keyframes increaseWidth {
+    0% {
+        width: 0%;
+    }
+    100% {
+        width: 100%;
+    }
+}
+@keyframes increaseOpacity {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+@keyframes increaseScale {
+    0% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(1.05);
+    }
+}
+/* */
+
+
+/* потом поправь */
+/* Это для вывода ошибок при авторизации */
+/* строчка выглядит так <p class="test2">{{ form.message }}</p> */
+.test2 {
+    margin: 0px 0px 20px 0px;
+    font-size: 23px;
+}
+
