@@ -12,20 +12,32 @@
     <main class="mainWrap">
         <div class="container" style="flex-direction: column">
             <article class="courseInner">
-                <h4 class="courseTitle">Первое погружение в JavaScript</h4>
+                <h4 class="courseTitle">Мы очень рады, что вы, наконец, нашли нас.</h4>
                 <hr class="underline" noshade="true">
                 <div class="courseTextContainer">
-                    <p class="courseText"></p>
+                    <p class="courseText">Мы хотим сделать процесс обучения программированию проще, быстрее и доступнее, поэтому приглашаем вас на курсы по программированию.</p>
+                    <p class="courseText">Наши курсы – это сочетание высокого качества обучения с доступной ценой. В них мы расскажем о том, что такое язык программирования, как он устроен и как работает</p>
+                    <p class="courseText">Наша цель – помочь вам стать профессионалом в сфере программирования.</p>
+                    <p class="courseText">Мы работаем над тем, чтобы сделать программирование доступным и интересным, а обучение — эффективным и комфортным. Поэтому мы создали удобную платформу для обучения.</p>
+                    <p class="courseText">Вы можете узнать, как использовать переменные, операции, функции, циклы и операторы, чтобы создавать простые программы, которые могут выполнять разные задачи.</p>
+                    <p class="courseText">Программирование — это просто, если вы знаете, что делаете!</p>
                     <h6 class="task">Задание</h6>
+                    <p class="courseText">Тут нет задания, можете написать что угодно.</p>
                 </div>
                 <div class="editorContainer">
                     <div class="editorInner">
                         <div id="editor"></div>
                     </div>
                     <div class="ideBtnWrap">
-                        <button class="resultBtn Btn">Тест</button>
-                        <button class="completeBtn Btn">Завершить</button>
-                        <button class="resetBtn Btn">Сброс</button>
+                        <div class="ideBtnFun">
+                            <button class="resultBtn Btn">Тест</button>
+                            <button class="completeBtn Btn">Завершить</button>
+                            <button class="resetBtn Btn">Сброс</button>
+                        </div>
+                        <div class="ideNavBtn">
+                            <button class="Btn"><a href="{% url 'task_three' %}" aria-disabled="true">Предыдущий шаг</a></button>
+                            <button class="Btn NonDisplay"><a href="{% url 'task_two' %}">Следующий шаг</a></button>
+                        </div>
                     </div>
                 </div>
                 <div class="console">
