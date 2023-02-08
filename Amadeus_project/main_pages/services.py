@@ -50,7 +50,7 @@ def check_password_correct(password:str, confirm_password:str) -> None:
     
 def is_password_contains_upper_lower_letters(password:str) -> bool:
     test_arg = [0, 0]
-    for char in password:
+    for char in set(password):
         if 'a' <= char.lower() <= 'z':
             if char.isupper():
                 test_arg[1] = 1

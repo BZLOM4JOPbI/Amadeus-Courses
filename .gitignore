@@ -2,4 +2,3 @@ venv
 Amadeus_project/db.sqlite3
 .vercel
 Amadeus_project/Amadeus_project/config.py
-Amadeus_project/Amadeus_project/__pycache__

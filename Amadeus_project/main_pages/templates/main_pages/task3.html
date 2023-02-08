@@ -72,8 +72,8 @@
                             <button class="resetBtn Btn">Сброс</button>
                         </div>
                         <div class="ideNavBtn">
-                            <button class="Btn"><a href="{% url 'task_two' %}" aria-disabled="true">Предыдущий шаг</a></button>
-                            <button class="Btn"><a href="{% url 'task_four' %}">Следующий шаг</a></button>
+                            <button class="Btn"><a href="{% url 'task' task_number=2 %}" aria-disabled="true">Предыдущий шаг</a></button>
+                            <button class="Btn"><a href="{% url 'task' task_number=4 %}">Следующий шаг</a></button>
                         </div>
                     </div>
                 </div>
@@ -91,15 +91,8 @@
 
 
 
-<!-- {% block ide %}
+<!-- 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.14.0/ace.js" type ="text/javascript" charset="utf-8"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.14.0/ext-language_tools.min.js"></script>
     <script src="{% static 'main_pages/js/ide_script.js' %}"></script>
-
-{% endblock %} -->
-
-    <script>
-        ide.setValue('let V = 24; // Скорость\nlet t = 2; // Время')
-    </script>
-{% endblock %}
-
+-->
