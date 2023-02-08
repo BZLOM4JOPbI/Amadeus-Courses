@@ -11,6 +11,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">    
     <link rel="stylesheet" href=" {% static 'main_pages/css/style.css' %}">
+    <link rel="stylesheet" id="cssDarkTheme">
     <link rel="apple-touch-icon" sizes="180x180" href=" {% static 'main_pages/img/favicon/apple-touch-icon.png' %}">
     <link rel="icon" type="image/png" sizes="32x32" href=" {% static 'main_pages/img/favicon/favicon-32x32.png' %}">
     <link rel="icon" type="image/png" sizes="16x16" href=" {% static 'main_pages/img/favicon/favicon-16x316.png' %}">
@@ -25,14 +26,15 @@
             <div class="container">
                 <div class="inner">
                     <h2><a href="{% url 'home_page' %}" class="titleHeader noselect">Amadeus</a></h2>
-                    <div class="navBtnWrap"><a href="{% url 'ide' %}" class="navBtn">IDE</a></div>
+                    
+                    <div class="navBtnWrap"><a href="{% url 'ide' %}" class="navBtn">IDE</a><a id="changeColorTheme" class="navBtn">Theme</a></div>
                     <img src=" {% static 'main_pages/img/bars-solid.svg' %}" alt="" class="hambBtn">
                     <div class="accountBtnWrap">
                         {% if user.is_authenticated %}
                         <h4 class="userName">Welcome, {{ user.username }}!</h4>
                         <a class="Btn" href="{% url 'logout' %}">Выйти</a>
                         {% else %}
-                        <a href="{% url 'regist_user' %}" class="Btn">Регистрация</a>
+                        <a href="{% url 'regist_user' %}" class="Btn accentBtn">Регистрация</a>
                         <a href="{% url 'login' %}" class="Btn">Вход</a>
                         {% endif %}
                     </div>
