@@ -2,9 +2,9 @@ const accountButtons = document.querySelector('.accountBtnWrap').cloneNode(1);
 const navButtons = document.querySelector('.navBtnWrap').cloneNode(1);
 const hambButton = document.querySelector('.hambBtn');
 const hamburgerMenu = document.querySelector('#hamburgerMenu');
+
+
 const themeChangeBtn = document.querySelector('#changeColorTheme');
-
-
 const themeDark = document.getElementById('cssDarkTheme');
 themeChangeBtn.addEventListener('click', (event) => {
     if (localStorage.getItem('nightTheme')) {
@@ -16,9 +16,7 @@ themeChangeBtn.addEventListener('click', (event) => {
     localStorage.setItem('nightTheme', true);
 });
 
-if (localStorage.getItem('nightTheme')) {
-    themeDark.setAttribute('href', '/static/main_pages/css/dark_style.css');
-}
+
 
 const mediaQuery = window.matchMedia('(min-width: 751px)'); // Медиазапрос на увелечение экрана выше брейкпоинта
 
