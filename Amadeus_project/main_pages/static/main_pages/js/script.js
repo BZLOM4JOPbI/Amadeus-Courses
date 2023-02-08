@@ -14,7 +14,13 @@ themeChangeBtn.addEventListener('click', (event) => {
     }
     themeDark.setAttribute('href', '/static/main_pages/css/dark_style.css');
     localStorage.setItem('nightTheme', true);
+    ide.setTheme('ace/theme/tomorrow_night');
 });
+
+if (localStorage.getItem('nightTheme')) {
+    themeDark.setAttribute('href', '/static/main_pages/css/dark_style.css');
+    ide.setTheme('ace/theme/tomorrow_night');
+}
 
 
 
