@@ -18,11 +18,10 @@ class CustomUser(AbstractUser):
     confirm_password = models.CharField('Подтвеждение пароля',
                                         max_length=100,
                                         blank=True)
-
-
-class UserProgress(models.Model):
     
-    username = models.CharField(
-                            max_length=50,
-                            unique=True
-                            )
+    pos = models.IntegerField('ID',
+                        blank=False,
+                        null=True)
+                
+    
+    progress = models.CharField('Прогресс', max_length=10, blank=False)
