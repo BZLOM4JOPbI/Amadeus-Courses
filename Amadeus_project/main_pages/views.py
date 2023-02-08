@@ -56,6 +56,7 @@ def regist(request):
 
 
 def task_handler(request, task_number, special_task=1):
+    return render(request, f'main_pages/task{task_number}.html') # для тестов потом уберем
     if task_number == special_task:
         form = None
         context = handle_special_task(form)
@@ -64,5 +65,5 @@ def task_handler(request, task_number, special_task=1):
         else:
             return redirect('login')
     else:
-         return render(request, f'main_pages/task{task_number}.html')
+        return render(request, f'main_pages/task{task_number}.html')
 
