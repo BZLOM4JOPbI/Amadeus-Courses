@@ -370,7 +370,8 @@ input[type='submit']:disabled {
 .ideBtnWrap {
     display: flex;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: space-between;
+    flex-wrap: wrap;
 }
 .ideInner > .container {
     display: flex;
@@ -409,6 +410,9 @@ input[type='submit']:disabled {
 .console > .Btn:hover {
     background-color: var(--accent-color);
 }
+.NonDisplay {
+    display: none;
+}
 @media screen  and (max-width: 884px){
     .editorContainer {
         width: 100%;
@@ -422,7 +426,11 @@ input[type='submit']:disabled {
     }   
     .ideBtnWrap {
         margin-bottom: 20px;
+        row-gap: 15px;
     }
+    /* .ideNavBtn {
+        margin-top: 15px;
+    } */
 }
 /**/
 
@@ -546,7 +554,23 @@ font-family: 'Roboto'; */
     display: inline-block;
 }
 /* */
+/* @media screen and (prefers-color-scheme: dark) {
+    body, html {
+    background-color: var(--main-color);
+    }
+    * {
+        color: #fff;
+        border-color: #fff !important;
+    }
+    .underline {
+    border-color: #fff;
+    background-color: #fff;
+    }
+    .Btn {
+        color: black;
+    }
 
+} */
 /* Анимации */
 @keyframes increaseWidth {
     0% {
