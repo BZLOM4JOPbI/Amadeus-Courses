@@ -1,6 +1,12 @@
 const ide = ace.edit('editor');
 // IDE Options
-let ideDefaultValue = '// Put your code here';
+const taskValuesForIde = {
+    task1: '// Put your code here',
+    task3: 'let V = 24; // Скорость\nlet t = 2; // Время',
+    task2   : 'console.log(5 _ (2 _ 6) _ 2);',
+    task4: '// Put your code here',
+}
+let ideDefaultValue = location.href.split('/')[3].includes('task') ? taskValuesForIde[location.href.split('/')[3]] : '// Put your code here';
 ide.setValue(ideDefaultValue);
 ide.setTheme('ace/theme/clouds');
 ide.session.setMode('ace/mode/javascript');
@@ -46,7 +52,17 @@ const resetConsole = document.querySelector('.console > .Btn');
 
 const addLogs = (input) => {
     const log = document.createElement('li');
-    log.textContent = `>  ${input}`;
+    if (input.lenght > 1) {
+        log.textContent = `>  ${input}`;
+    } else {
+        if (typeof input[0] == 'string') {
+                log.textContent = `>  '${input[0]}'`;
+        } else if (input[0].length > 1) {
+            log.textContent = `>  [${input[0]}]`;
+        } else {
+            log.textContent = `>  ${input[0]}`;
+        }
+    }
     consoleLogs.appendChild(log);
 };
 
@@ -68,19 +84,23 @@ const rightTestValue = {
     'task1' : 'Hello, World!',
     'task3' : 48,
     'task2' : 38,
+    'task4' : 'Смузихлеб Иван - лучший фронт'
 };
 
 
 const completeTask = () => {
     const keyOfTestValue = location.href.split('/')[3];
     addLogs(getCodeResult());
-    if (getCodeResult() == rightTestValue[keyOfTestValue]) {
-        completeBtn.textContent = 'Решить еще раз'
-        tastCompleteResult.style.backgroundColor = 'rgba(89, 138, 118, 0.6)'
-        tastCompleteResult.textContent = 'Задание выполнено'
+    if (getCodeResult()[0] === rightTestValue[keyOfTestValue]) {
+        completeBtn.textContent = 'Решить еще раз';
+        tastCompleteResult.style.backgroundColor = 'rgba(89, 138, 118, 0.6)';
+        tastCompleteResult.textContent = 'Задание выполнено';
+    } else if (keyOfTestValue == 'task4') {
+        tastCompleteResult.style.backgroundColor = 'rgba(89, 138, 118, 0.6)';
+        tastCompleteResult.textContent = 'Задание выполнено';
     } else {
-        tastCompleteResult.style.backgroundColor = 'rgba(164, 50, 64, 0.5)'
-        tastCompleteResult.textContent = 'Попробуйте еще раз'
+        tastCompleteResult.style.backgroundColor = 'rgba(164, 50, 64, 0.5)';
+        tastCompleteResult.textContent = 'Попробуйте еще раз';
     }
     ideContainer.insertBefore(tastCompleteResult, ideBtnsGoup);
 }   

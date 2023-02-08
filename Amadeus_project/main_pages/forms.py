@@ -9,7 +9,7 @@ class CustomUserForm(ModelForm):
     class Meta:
 
         model = CustomUser
-        fields = ['username', 'email', 'password', 'confirm_password', ]
+        fields = ['username', 'email', 'password', 'confirm_password',]
         widgets = {
             'username': TextInput(attrs={
                 'type': "text",  'placeholder': "login"
@@ -52,10 +52,3 @@ class CustomUserForm(ModelForm):
 class LoginForm(forms.Form):
     username = forms.CharField(label='Логин', widget=forms.TextInput(attrs={'placeholder': 'login'}))
     password = forms.CharField(label='Пароль', widget=forms.PasswordInput(attrs={'placeholder': '********'}))
-
-
-class UserProgressForm(ModelForm):
-
-    class Meta:
-        model = UserProgress
-        fields = ['username']

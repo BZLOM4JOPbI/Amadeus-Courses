@@ -24,6 +24,7 @@ def user_login(request):
     if request.method == 'POST':
         form = LoginForm(request.POST)
         if form.is_valid():
+            global id
             cd = form.cleaned_data
             user = authenticate(username=cd['username'], password=cd['password'])
             if user is not None:
@@ -43,6 +44,8 @@ def regist(request):
         user = form.save()
         user.set_password(user.password)
         user.confirm_password = ''
+        user.progress = []
+        user.pos = len(CustomUser.objects.all()) - 1
         user.save()
         login(request, user)
         return redirect('home_page')
@@ -50,6 +53,22 @@ def regist(request):
         'form': form
     }
     return render(request, 'main_pages/regist.html', context)
+
+    return render(request, 'main_pages/task1.html')
+
+
+def task_one(request='post'):
+    return render(request, 'main_pages/task1.html')
+
+
+def task_one(request):
+    user = CustomUser.objects.all()[1]
+    print(user)
+    user.progress.extend(['1', 1])
+    return render(request, 'main_pages/task1.html')
+
+
+
 
 
 def task_handler(request, task_number, special_task=1):
@@ -62,4 +81,13 @@ def task_handler(request, task_number, special_task=1):
             return redirect('login')
     else:
          return render(request, f'main_pages/task{task_number}.html')
+
+
+
+def task_three(request):
+    return render(request, 'main_pages/task3.html')
+
+
+def task_four(request):
+    return render(request, 'main_pages/task4.html')
 

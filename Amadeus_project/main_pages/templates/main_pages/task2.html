@@ -61,9 +61,15 @@
                         <div id="editor"></div>
                     </div>
                     <div class="ideBtnWrap">
-                        <button class="resultBtn Btn">Тест</button>
-                        <button class="completeBtn Btn">Завершить</button>
-                        <button class="resetBtn Btn">Сброс</button>
+                        <div class="ideBtnFun">
+                            <button class="resultBtn Btn">Тест</button>
+                            <button class="completeBtn Btn accentBtn">Завершить</button>
+                            <button class="resetBtn Btn">Сброс</button>
+                        </div>
+                        <div class="ideNavBtn">
+                            <button class="Btn"><a href="{% url 'task_one' %}" aria-disabled="true">Предыдущий шаг</a></button>
+                            <button class="Btn"><a href="{% url 'task_three' %}">Следующий шаг</a></button>
+                        </div>
                     </div>
                 </div>
                 <div class="console">
@@ -74,7 +80,7 @@
         </div>
     </main>
     <script>
-        ide.setValue('let V = 24; // Скорость\nlet t = 2; // Время')
+        ide.setValue('console.log(5 _ (2 _ 6) _ 2);')
     </script>
 {% endblock %}
 
