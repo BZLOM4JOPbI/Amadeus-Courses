@@ -53,11 +53,6 @@ def regist(request):
         'form': form
     }
     return render(request, 'main_pages/regist.html', context)
-    return render(request, 'main_pages/task1.html')
-
-
-def task_one(request='post'):
-    return render(request, 'main_pages/task1.html')
 
 
 def task_one(request):
