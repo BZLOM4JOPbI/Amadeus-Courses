@@ -4,16 +4,17 @@ body, html {
     padding: 0;
     width: 100%;
     height: 100vh;
-    background-color: #fff;
+    background-color: var(--primary-color);
 }
 * {
     text-decoration: none;
-    color: black;
+    color: var(--main-color);
     font-size: 18px;
     margin: 0;
 }
 :root {
     --main-color: #000;
+    --primary-color: #fff;
     --accent-color: rgb(89, 138, 118);
     --accent-colorOp: rgba(89, 138, 118, 0.6);
     --font-family: 'Roboto';
@@ -36,7 +37,7 @@ body, html {
     border: 1.5px solid var(--main-color);
     padding: 7px 10px;
     border-radius: 3px;
-    background-color: #fff;
+    background-color: var(--primary-color);
     cursor: pointer;
 }
 .Btn:hover {
@@ -65,7 +66,13 @@ body, html {
               user-select: none; /* Non-prefixed version, currently
                                     supported by Chrome, Edge, Opera and Firefox */
 }
-  
+.accentBtn {
+    background-color: var(--accent-color);
+}
+.accentBtn:hover {
+    box-shadow: 0px 0px 20px var(--accent-color);
+    border-color: var(--accent-color);
+}
 /**/
 
 /* Стили шапки */
@@ -216,12 +223,12 @@ input[type='submit']:disabled {
 }
 @media screen and (max-width: 750px) {
     .form{
-        border-color: #fff;
+        border-color: var(--primary-color);
         margin-bottom: 0px;
         padding: 20px;
     }
     .changePage {
-        border-color: #fff;
+        border-color: var(--primary-color);
         padding-top: 0px;
     }
 }
@@ -246,14 +253,14 @@ input[type='submit']:disabled {
     -webkit-appearance: none;
 }
 .mainTitle {
-    color: #fff;
+    color: var(--primary-color);
     font-weight: 700;
     font-size: 70px;
     line-height: 80px;
 }
 .mainSubtitle {
     margin-top: 30px;
-    color: #fff;
+    color: var(--primary-color);
     font-size: 24px;
     font-weight: 500;
 }
@@ -391,7 +398,7 @@ input[type='submit']:disabled {
 }
 .console > .Btn {
     position: absolute;
-    background-color: #fff;
+    background-color: var(--primary-color);
     bottom: 0px;
     left: -.5px;
     right: -.5px;
@@ -405,7 +412,7 @@ input[type='submit']:disabled {
     overflow-x: auto;
 }
 .consoleLogs li {
-    color: #fff;
+    color: var(--primary-color);
 }
 .console > .Btn:hover {
     background-color: var(--accent-color);
@@ -570,6 +577,21 @@ font-family: 'Roboto'; */
         color: black;
     }
 
+} */
+/* @media screen and (prefers-color-scheme: dark) {
+    :root {
+        --main-color: #fff;
+        --primary-color: #1b1b1b;
+    }
+    .mainTitle {
+        color: var(--main-color);
+    }
+    .mainSubtitle {
+        color: var(--main-color);
+    }
+    p > input {
+        background-color: var(--primary-color);
+    }
 } */
 /* Анимации */
 @keyframes increaseWidth {

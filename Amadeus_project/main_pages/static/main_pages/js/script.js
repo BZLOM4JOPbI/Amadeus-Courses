@@ -33,3 +33,10 @@ const hamburgerAviable = () => {
     }
 };
 // Проверка на расширение дисплея с активным бургером
+
+
+const themeChangeBtn = document.getElementById('changeColorTheme');
+const themeDark = document.getElementById('cssDarkTheme');
+themeChangeBtn.addEventListener('click', (event) => {
+    themeDark.setAttribute('href', 'static/main_pages/css/dark_style.css')
+})
