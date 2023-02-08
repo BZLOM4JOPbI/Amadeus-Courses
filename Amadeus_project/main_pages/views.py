@@ -53,30 +53,11 @@ def regist(request):
         'form': form
     }
     return render(request, 'main_pages/regist.html', context)
-<<<<<<< HEAD
-=======
-
-    return render(request, 'main_pages/task1.html')
-
-
-def task_one(request='post'):
-    return render(request, 'main_pages/task1.html')
->>>>>>> 8eed4a55a4cc1e3531a572ac47435ce6de4cc0ab
-
-
-def task_one(request):
-    user = CustomUser.objects.all()[1]
-    print(user)
-    user.progress.extend(['1', 1])
-    return render(request, 'main_pages/task1.html')
-
-
-
 
 
 def task_handler(request, task_number, special_task=1):
     if task_number == special_task:
-        form = UserProgressForm(request.POST if request.POST else None)
+        form = None
         context = handle_special_task(form)
         if context:
             return render(request, f'main_pages/task{special_task}.html', context)
@@ -84,13 +65,4 @@ def task_handler(request, task_number, special_task=1):
             return redirect('login')
     else:
          return render(request, f'main_pages/task{task_number}.html')
-
-
-
-def task_three(request):
-    return render(request, 'main_pages/task3.html')
-
-
-def task_four(request):
-    return render(request, 'main_pages/task4.html')
 
