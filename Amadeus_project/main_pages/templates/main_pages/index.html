@@ -25,39 +25,57 @@
                     <div class="card task1">
                         <h5 class="taskTitle">Погружение</h6>
                         <h6 class="taskDesc">Вы когда-нибудь пытались научиться читать, писать или говорить на незнакомом языке? Любое изучение начинается с азов и терпеливого прохождения практики</h6>
+                        <form method="post">
+                            {% csrf_token %}
+                            <input type="submit" value="Регистрация" class="Btn">
+                        </form>
+                        <a href="{% url 'task' task_number=1 %}" class="Btn">Решить</a>
                         {% if '1' in user.last_name %}
                             Решено
                         {% endif %}
                         <a href="{% url 'task_one' %}" class="Btn">Решить</a>
+
                     </div>
-                    <div class="card task3">
+                    <div class="card task2">
                         <h5 class="taskTitle">Операторы</h6>
                         <h6 class="taskDesc">Оператор способен манипулировать значениями, что позволяет выполнять определенные математические и логических вычисления на данных. В JS они используются для сравнения значений, выполнения арифметических операций и т.д.</h6>
+
+                        <a href="{% url 'task' task_number=2 %}" class="Btn">Решить</a>
+
                         {% if '2' in user.last_name %}
                             Решено
                         {% endif %}
                         <a href="{% url 'task_two' %}" class="Btn">Решить</a>
+
                     </div>
-                    <div class="card task2">
+                    <div class="card task3">
                         <h5 class="taskTitle">Переменные</h6>
                         <h6 class="taskDesc">Переменные являются неотъемлемой частью программирования. Они используются для хранения данных и информации в программе. Мы можем легко понять концепцию переменной, если представим ее как «коробку» для данных</h6>
+
+                        <a href="{% url 'task' task_number=3 %}" class="Btn">Решить</a>
+
                         {% if '3' in user.last_name %}
                             Решено
                         {% endif %}
                         <a href="{% url 'task_three' %}" class="Btn">Решить</a>
+
                     </div>
                     <div class="card task4">
-<<<<<<< HEAD
+
                         <h5 class="taskTitle">Объекты</h6>
                         <h6 class="taskDesc">Объект представляет собой коллекцию пар "ключ - значение", называемых свойствами. Сравните это с ручкой. Ручка - объект со свойствами: цветом, дизайном, весом, производителем</h6>
+
+                        <a href="{% url 'task' task_number=4 %}" class="Btn">Решить</a>
+
                         {% if '4' in user.last_name %}
                             Решено
                         {% endif %}
-=======
+
                         <h5 class="taskTitle">О нас</h6>
                         <h6 class="taskDesc"></h6>
->>>>>>> 47b2f1caf4f209c598aba8295912f7e45b7c4cdc
+
                         <a href="{% url 'task_four' %}" class="Btn">Решить</a>
+
                     </div>
                 </div>
             </div>

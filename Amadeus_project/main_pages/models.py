@@ -1,7 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
 
-
 class CustomUser(AbstractUser):
 
     username = models.CharField('Логин',
@@ -18,6 +17,21 @@ class CustomUser(AbstractUser):
     confirm_password = models.CharField('Подтвеждение пароля',
                                         max_length=100,
                                         blank=True)
+
+    
+    def __str__(self):
+        return f'{self.username} {self.email}'
+
+
+class UserProgress(models.Model):
+    
+    username = models.CharField('Username',
+                            max_length=50,
+                            unique=True
+                            )
+    def __str__(self):
+        return f'{self.username}'
+
     
     pos = models.IntegerField('ID',
                         blank=False,
@@ -25,3 +39,4 @@ class CustomUser(AbstractUser):
                 
     
     progress = models.CharField('Прогресс', max_length=10, blank=False)
+
