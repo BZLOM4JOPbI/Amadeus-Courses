@@ -44,8 +44,8 @@
                             <button class="resetBtn Btn">Сброс</button>
                         </div>
                         <div class="ideNavBtn">
-                            <button class="Btn NonDisplay"><a href="{% url 'task_two' %}" aria-disabled="true">Предыдущий шаг</a></button>
-                            <button class="Btn"><a href="{% url 'task_two' %}">Следующий шаг</a></button>
+                            <button class="Btn NonDisplay"><a href="{% url 'task' task_number=2 %}" aria-disabled="true">Предыдущий шаг</a></button>
+                            <button class="Btn"><a href="{% url 'task' task_number=2 %}">Следующий шаг</a></button>
                         </div>
                     </div>
                 </div>
