@@ -14,3 +14,6 @@
 .consoleLogs li {
     color: var(--main-color);
 }
+.hambBtn {
+    filter: invert(100%);
+}

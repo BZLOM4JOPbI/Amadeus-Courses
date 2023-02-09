@@ -6,7 +6,8 @@ const taskValuesForIde = {
     '2'   : 'console.log(5 _ (2 _ 6) _ 2);',
     '4': '// Put your code here',
 }
-let ideDefaultValue = '1234'.includes(location.href.split('/')[4]) ? taskValuesForIde[location.href.split('/')[4]] : '// Put your code here';
+const keyOfTestValue = location.href.split('/')[4];
+let ideDefaultValue = '1234'.includes(keyOfTestValue) ? taskValuesForIde[keyOfTestValue] : '// Put your code here';
 ide.setValue(ideDefaultValue);
 ide.setTheme('ace/theme/clouds');
 ide.session.setMode('ace/mode/javascript');
@@ -89,7 +90,6 @@ const rightTestValue = {
 
 
 const completeTask = () => {
-    const keyOfTestValue = location.href.split('/')[4];
     addLogs(getCodeResult());
     if (getCodeResult()[0] === rightTestValue[keyOfTestValue]) {
         completeBtn.textContent = 'Решить еще раз';
@@ -104,4 +104,8 @@ const completeTask = () => {
     }
     ideContainer.insertBefore(tastCompleteResult, ideBtnsGoup);
 }   
-completeBtn.addEventListener('click', completeTask);
+try {
+    completeBtn.addEventListener('click', completeTask);
+} catch (err) {
+    //pass
+}

@@ -23,35 +23,3 @@
         </div>
     </main>
 {% endblock %}
-
-<!-- <main class="mainWrap">
-        <div class="container">
-            <div class="inner blockForForm">
-                <h3 class="subtitle">Регистрация аккаунта</h3>
-                <form method="post" class="form">
-                    {% csrf_token %}
-                    <label>Логин
-                        {{ form.username }}
-                    </label>
-                    <label>Почта
-                        {{ form.email }}
-                    </label>
-                    <label> Пароль
-                        {{ form.password }}
-                    </label>
-                    <label>Подтверждение пароля
-                        {{ form.confirm_password }}
-                    </label>
-                    <input type="submit" value="Регистрация" class="Btn">
-                    {% if messages %}
-                        {% for message in messages %}
-                        <div class="test">
-                        {{ message }}
-                        </div>
-                        {% endfor %}
-                    {% endif %}
-                </form>
-                <h6 class="changePage">Есть аккаунт? <a href="{% url 'login' %}">Войти</a></h6>
-            </div>
-        </div>
-    </main> -->
