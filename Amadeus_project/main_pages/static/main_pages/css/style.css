@@ -641,8 +641,4 @@ font-family: 'Roboto'; */
 /* потом поправь */
 /* Это для вывода ошибок при авторизации */
 /* строчка выглядит так <p class="test2">{{ form.message }}</p> */
-.test2 {
-    margin: 0px 0px 20px 0px;
-    font-size: 23px;
-}
 

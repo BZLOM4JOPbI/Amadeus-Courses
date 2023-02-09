@@ -88,14 +88,26 @@ const rightTestValue = {
     '2' : 38,
     '4' : 'Смузихлеб Иван - лучший фронт'
 };
+const messageToJson = { complete: true }
 
-
-const completeTask = () => {
+const completeTask = async () => {
     addLogs(getCodeResult());
     if (getCodeResult()[0] === rightTestValue[keyOfTestValue]) {
         completeBtn.textContent = 'Решить еще раз';
         tastCompleteResult.style.backgroundColor = 'rgba(89, 138, 118, 0.6)';
         tastCompleteResult.textContent = 'Задание выполнено';
+
+        let response = await fetch('Вот тут пиши путь', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json;charset=utf-8'
+            },
+            body: JSON.stringify(messageToJson)
+            })
+
+        // let result = await response.json();
+        // alert(result.message);
+
     } else if (keyOfTestValue == '4') {
         tastCompleteResult.style.backgroundColor = 'rgba(89, 138, 118, 0.6)';
         tastCompleteResult.textContent = 'Задание выполнено';
@@ -104,6 +116,7 @@ const completeTask = () => {
         tastCompleteResult.textContent = 'Попробуйте еще раз';
     }
     ideContainer.insertBefore(tastCompleteResult, ideBtnsGoup);
+    return
 }   
 try {
     completeBtn.addEventListener('click', completeTask);
