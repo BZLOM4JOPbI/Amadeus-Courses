@@ -63,8 +63,8 @@ def regist(request):
 def task_handler(request, task_number, special_task=1):
 
     if isinstance(id, int):
-        user = CustomUser.objects.all()[id]
-        add_complete_task(task_number, user)
+        # user = CustomUser.objects.all()[id]
+        # add_complete_task(task_number, user)
         return render(request, f'main_pages/task{task_number}.html') # для тестов потом уберем
 
     else:
@@ -87,7 +87,8 @@ def get_user_id(your_username):
 
 # костыль конечно но пока так
 # потом перепишем
-def add_complete_task(task, my_user):
+def add_complete_task(request, task, my_user):
+    complete_task = request.POST.get('payment_id', '')
     task_view = f'.{task}. '
 
     if task_view not in my_user.progress:
