@@ -83,6 +83,8 @@ def task_handler(request, task_number, special_task=1):
 
 def get_user_id(your_username):
     return CustomUser.objects.get(username=your_username).get_id()
+
+
 # костыль конечно но пока так
 # потом перепишем
 def add_complete_task(task, my_user):
