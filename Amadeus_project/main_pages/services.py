@@ -14,7 +14,7 @@ def handle_special_task(form) -> Optional[dict]:
         return context
     return None
 
-def check_username_chars(username:str, *, char_code:int=177) -> None:
+def check_username_chars(username: str, *, char_code: int=177) -> None:
     # в перспективе можно заменить регуляркой
     if username.isalnum():
         for char in set(username):

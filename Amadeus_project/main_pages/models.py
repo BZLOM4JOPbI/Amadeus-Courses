@@ -18,25 +18,18 @@ class CustomUser(AbstractUser):
                                         max_length=100,
                                         blank=True)
 
-    
-    def __str__(self):
-        return f'{self.username} {self.email}'
-
-
-class UserProgress(models.Model):
-    
-    username = models.CharField('Username',
-                            max_length=50,
-                            unique=True
-                            )
-    def __str__(self):
-        return f'{self.username}'
-
-    
     pos = models.IntegerField('ID',
-                        blank=False,
-                        null=True)
-                
+                    blank=False,
+                    null=True)
     
-    progress = models.CharField('Прогресс', max_length=10, blank=False)
+    progress = models.CharField('Прогресс', 
+                                max_length=10000,
+                                blank=False,
+                                null=True)
 
+
+    def __str__(self):
+        return f'{self.pos} {self.username} {self.email}'
+
+    def get_id(self):
+        return self.pos
