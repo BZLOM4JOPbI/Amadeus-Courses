@@ -549,10 +549,11 @@ font-family: 'Roboto'; */
     .courseTitle {
         font-size: 28px;
 }
+}
 /**/
 
 
-/* Стили подвала */
+/* footer */
 .footerWrap  .inner {
     justify-content: space-between;
     flex-wrap: wrap;
@@ -602,7 +603,7 @@ font-family: 'Roboto'; */
         background-color: var(--primary-color);
     }
 } */
-/* Анимации */
+/* animation */
 @keyframes increaseWidth {
     0% {
         width: 0%;
@@ -636,9 +637,4 @@ font-family: 'Roboto'; */
     }
 }
 /* */
-
-
-/* потом поправь */
-/* Это для вывода ошибок при авторизации */
-/* строчка выглядит так <p class="test2">{{ form.message }}</p> */
-
+/* <p class="test2">{{ form.message }}</p> */
