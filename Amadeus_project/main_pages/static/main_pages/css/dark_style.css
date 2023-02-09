@@ -8,3 +8,12 @@
 .mainSubtitle {
     color: var(--main-color);
 }
+.console {
+    background-color: #000;
+}
+.consoleLogs li {
+    color: var(--main-color);
+}
+.hambBtn {
+    filter: invert(100%);
+}

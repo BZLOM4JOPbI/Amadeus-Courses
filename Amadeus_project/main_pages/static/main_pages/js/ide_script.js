@@ -1,12 +1,14 @@
 const ide = ace.edit('editor');
-// IDE Options
 const taskValuesForIde = {
     '1': '// Put your code here',
     '3': 'let V = 24; // Скорость\nlet t = 2; // Время',
-    '2'   : 'console.log(5 _ (2 _ 6) _ 2);',
+    '2': 'console.log(5 _ (2 _ 6) _ 2);',
     '4': '// Put your code here',
 }
-let ideDefaultValue = '1234'.includes(location.href.split('/')[4]) ? taskValuesForIde[location.href.split('/')[4]] : '// Put your code here';
+
+// IDE Options
+const keyOfTestValue = location.href.split('/')[4];
+let ideDefaultValue = '1234'.includes(keyOfTestValue) ? taskValuesForIde[keyOfTestValue] : '// Put your code here';
 ide.setValue(ideDefaultValue);
 ide.setTheme('ace/theme/clouds');
 ide.session.setMode('ace/mode/javascript');
@@ -86,15 +88,26 @@ const rightTestValue = {
     '2' : 38,
     '4' : 'Смузихлеб Иван - лучший фронт'
 };
+const messageToJson = { complete: true }
 
-
-const completeTask = () => {
-    const keyOfTestValue = location.href.split('/')[4];
+const completeTask = async () => {
     addLogs(getCodeResult());
     if (getCodeResult()[0] === rightTestValue[keyOfTestValue]) {
         completeBtn.textContent = 'Решить еще раз';
         tastCompleteResult.style.backgroundColor = 'rgba(89, 138, 118, 0.6)';
         tastCompleteResult.textContent = 'Задание выполнено';
+
+        let response = await fetch('Вот тут пиши путь', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json;charset=utf-8'
+            },
+            body: JSON.stringify(messageToJson)
+            })
+
+        // let result = await response.json();
+        // alert(result.message);
+
     } else if (keyOfTestValue == '4') {
         tastCompleteResult.style.backgroundColor = 'rgba(89, 138, 118, 0.6)';
         tastCompleteResult.textContent = 'Задание выполнено';
@@ -103,5 +116,10 @@ const completeTask = () => {
         tastCompleteResult.textContent = 'Попробуйте еще раз';
     }
     ideContainer.insertBefore(tastCompleteResult, ideBtnsGoup);
+    return
 }   
-completeBtn.addEventListener('click', completeTask);
+try {
+    completeBtn.addEventListener('click', completeTask);
+} catch (err) {
+    //pass
+}
