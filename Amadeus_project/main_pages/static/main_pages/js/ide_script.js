@@ -88,7 +88,16 @@ const rightTestValue = {
     '2' : 38,
     '4' : 'Смузихлеб Иван - лучший фронт'
 };
-const messageToJson = { complete: true }
+const messageTaskComplete = { complete: 'yes' }
+const sendRequest = (url, body) => {
+    return fetch(url, {
+        method: 'POST',
+        body: JSON.stringify(body),
+        headers: { 'Content-Type': 'application/json;charset=utf-8' },
+    }).then(response => {
+        return response.json()
+    })
+}
 
 const completeTask = async () => {
     addLogs(getCodeResult());
@@ -96,18 +105,7 @@ const completeTask = async () => {
         completeBtn.textContent = 'Решить еще раз';
         tastCompleteResult.style.backgroundColor = 'rgba(89, 138, 118, 0.6)';
         tastCompleteResult.textContent = 'Задание выполнено';
-
-        let response = await fetch('Вот тут пиши путь', {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json;charset=utf-8'
-            },
-            body: JSON.stringify(messageToJson)
-            })
-
-        // let result = await response.json();
-        // alert(result.message);
-
+        sendRequest('https://jsonplaceholder.typicode.com/users', messageTaskComplete).then(data => console.log(data))
     } else if (keyOfTestValue == '4') {
         tastCompleteResult.style.backgroundColor = 'rgba(89, 138, 118, 0.6)';
         tastCompleteResult.textContent = 'Задание выполнено';
@@ -123,3 +121,16 @@ try {
 } catch (err) {
     //pass
 }
+
+
+
+        // let response = await fetch('Вот тут пиши путь', {
+        //     method: 'POST',
+        //     body: JSON.stringify(messageToJson),
+        //     headers: {
+        //       'Content-Type': 'application/json;charset=utf-8'
+        //     },
+        //     })
+
+        // // let result = await response.json();
+        // // alert(result.message);
