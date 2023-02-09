@@ -152,6 +152,11 @@ body, html {
         border-width: 0px;
     }
 }
+@media screen and (min-width: 751px) {
+    .inHam {
+        display: none !important;
+    }
+}
 /**/
 
 /* Формы */
@@ -616,6 +621,14 @@ font-family: 'Roboto'; */
     }
     100% {
         transform: scale(1.05);
+    }
+}
+@keyframes decreaseScale {
+    0% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
     }
 }
 /* */

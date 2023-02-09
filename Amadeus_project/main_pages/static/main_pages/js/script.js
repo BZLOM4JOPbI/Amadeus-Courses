@@ -1,8 +1,12 @@
+// Hamburger Menu
+
 const accountButtons = document.querySelector('.accountBtnWrap').cloneNode(1);
+accountButtons.classList.add('inHam');
 const navButtons = document.querySelector('.navBtnWrap').cloneNode(1);
+navButtons.classList.add('inHam');
 const hambButton = document.querySelector('.hambBtn');
 const hamburgerMenu = document.querySelector('#hamburgerMenu');
-const mediaQuery = window.matchMedia('(min-width: 751px)'); // Медиазапрос на увелечение экрана выше брейкпоинта
+
 
 const hambClick = () => {
     if (Boolean(hamburgerMenu.children.length)) {
@@ -15,22 +19,12 @@ const hambClick = () => {
     accountButtons.style.display = 'flex';
     hamburgerMenu.appendChild(accountButtons);
     document.querySelectorAll('#changeColorTheme')[1].addEventListener('click', changeThemeFun)
-    setInterval(hamburgerAviable, 1500);
 };
 
 hambButton.addEventListener('click', hambClick);
 
-const footerYear = document.querySelector('.footerSubtitle');
-let now = new Date();
-footerYear.textContent = 'Copyright ' + footerYear.textContent + now.getFullYear() + '. All rights reserved.';
+// Hamburger End
 
-const hamburgerAviable = () => {
-    if (mediaQuery.matches && Boolean(hamburgerMenu.children.length)) {
-        hamburgerMenu.removeChild(navButtons);
-        hamburgerMenu.removeChild(accountButtons);
-    }
-};
-// Проверка на расширение дисплея с активным бургером
 
 
 // Dark Theme
@@ -57,6 +51,7 @@ const changeThemeFun = (event) => {
         //pass
     }
 }
+
 themeChangeBtn.addEventListener('click', changeThemeFun);
 
 
@@ -68,5 +63,12 @@ if (localStorage.getItem('nightTheme')) {
         //pass
     }
 }   
+// Dark Theme End
 
+// Footer Year
 
+const footerYear = document.querySelector('.footerSubtitle');
+let now = new Date();
+footerYear.textContent = 'Copyright ' + footerYear.textContent + now.getFullYear() + '. All rights reserved.';
+
+// Footer Year End

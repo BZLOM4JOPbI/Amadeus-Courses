@@ -1,11 +1,12 @@
 const ide = ace.edit('editor');
-// IDE Options
 const taskValuesForIde = {
     '1': '// Put your code here',
     '3': 'let V = 24; // Скорость\nlet t = 2; // Время',
-    '2'   : 'console.log(5 _ (2 _ 6) _ 2);',
+    '2': 'console.log(5 _ (2 _ 6) _ 2);',
     '4': '// Put your code here',
 }
+
+// IDE Options
 const keyOfTestValue = location.href.split('/')[4];
 let ideDefaultValue = '1234'.includes(keyOfTestValue) ? taskValuesForIde[keyOfTestValue] : '// Put your code here';
 ide.setValue(ideDefaultValue);
