@@ -3,6 +3,7 @@ from .forms import *
 from django.contrib.auth import authenticate, login, logout
 from .services import handle_special_task
 
+
 def logout_user(request):
     logout(request)
     return redirect("home_page")
@@ -61,10 +62,10 @@ def regist(request):
 
 
 def task_handler(request, task_number, special_task=1):
-
+ 
     if isinstance(id, int):
-        # user = CustomUser.objects.all()[id]
-        # add_complete_task(task_number, user)
+        user = CustomUser.objects.all()[id]
+        add_complete_task(request, task_number, user)
         return render(request, f'main_pages/task{task_number}.html') # для тестов потом уберем
 
     else:
@@ -88,12 +89,13 @@ def get_user_id(your_username):
 # костыль конечно но пока так
 # потом перепишем
 def add_complete_task(request, task, my_user):
-    complete_task = request.POST.get('payment_id', '')
-    task_view = f'.{task}. '
+    token = request.POST.get('access_token')
+    if token == None:
+        task_view = f'.{task}. '
 
-    if task_view not in my_user.progress:
-        my_user.progress += task_view
-        my_user.save()
+        if task_view not in my_user.progress:
+            my_user.progress += task_view
+            my_user.save()
     
 
 def user_create_and_save_account_in_bd(form):
