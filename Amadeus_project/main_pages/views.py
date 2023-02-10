@@ -90,7 +90,7 @@ def get_user_id(your_username):
 # потом перепишем
 def add_complete_task(request, task, my_user):
     token = request.POST.get('access_token')
-    if token == None:
+    if token:
         task_view = f'.{task}. '
 
         if task_view not in my_user.progress:
