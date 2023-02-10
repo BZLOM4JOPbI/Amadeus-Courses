@@ -17,3 +17,6 @@
 .hambBtn {
     filter: invert(100%);
 }
+.form input {
+    background-color: var(--primary-color);
+}
