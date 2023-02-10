@@ -90,10 +90,11 @@ const rightTestValue = {
 };
 const messageTaskComplete = { complete: 'yes' }
 const sendRequest = (url, body) => {
+    const csrftoken = document.querySelector('[name=csrfmiddlewaretoken]').value;
     return fetch(url, {
         method: 'POST',
         body: JSON.stringify(body),
-        headers: { 'Content-Type': 'application/json;charset=utf-8' },
+        headers: { 'Content-Type': 'application/json;charset=utf-8', 'X-CSRFToken': csrftoken },
     }).then(response => {
         return response.json()
     })

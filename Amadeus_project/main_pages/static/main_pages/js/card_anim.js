@@ -11,5 +11,5 @@ for (let card of cards) {
     card.addEventListener('mouseleave', decreaseSize);
     card.addEventListener('mouseenter', (event) => {
         event.target.style.animation = '';
-    });
+    }, true);
 }
