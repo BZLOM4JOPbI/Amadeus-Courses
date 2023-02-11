@@ -1,9 +1,9 @@
 const ide = ace.edit('editor');
 const taskValuesForIde = {
     '1': '// Put your code here',
-    '3': 'let V = 24; // Скорость\nlet t = 2; // Время',
-    '2': 'console.log(5 _ (2 _ 6) _ 2);',
-    '4': '// Put your code here',
+    '4': 'let V = 24; // Скорость\nlet t = 2; // Время',
+    '3': 'console.log(5 _ (2 _ 6) _ 2);',
+    '2': '// Put your code here',
 }
 
 // IDE Options
@@ -83,10 +83,10 @@ tastCompleteResult.className = 'notification';
 
 
 const rightTestValue = {
-    '1' : 'Hello, World!',
-    '3' : 48,
-    '2' : 38,
-    '4' : 'Смузихлеб Иван - лучший фронт'
+    '2' : 'Hello, World!',
+    '4' : 48,
+    '3' : 38,
+    '1' : 'Смузихлеб Иван - лучший фронт'
 };
 const messageTaskComplete = { 
     complete: 'yes',
@@ -126,7 +126,7 @@ const completeTask = async () => {
         tastCompleteResult.style.backgroundColor = 'rgba(89, 138, 118, 0.6)';
         tastCompleteResult.textContent = 'Задание выполнено';
         sendRequest('/Amadeus_project/main_pages/views', messageTaskComplete).then(data => console.log(data))
-    } else if (keyOfTestValue == '4') {
+    } else if (keyOfTestValue == '1') {
         tastCompleteResult.style.backgroundColor = 'rgba(89, 138, 118, 0.6)';
         tastCompleteResult.textContent = 'Задание выполнено';
         sendRequest('/Amadeus_project/main_pages/views', messageTaskComplete).then(data => console.log(data))
