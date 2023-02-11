@@ -120,6 +120,7 @@ const sendRequest = (url, body) => {
 }
 
 const completeTask = async () => {
+    messageTaskComplete.ideValue = ide.getValue();
     addLogs(getCodeResult());
     if (getCodeResult()[0] === rightTestValue[keyOfTestValue]) {
         completeBtn.textContent = 'Решить еще раз';
