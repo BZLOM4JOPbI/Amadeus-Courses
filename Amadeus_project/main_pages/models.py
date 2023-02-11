@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
 
+
 class CustomUser(AbstractUser):
 
     username = models.CharField('Логин',
@@ -19,14 +20,13 @@ class CustomUser(AbstractUser):
                                         blank=True)
 
     pos = models.IntegerField('ID',
-                    blank=False,
-                    null=True)
+                                blank=False,
+                                null=True)
     
     progress = models.CharField('Прогресс', 
                                 max_length=10000,
                                 blank=False,
                                 null=True)
-
 
     def __str__(self):
         return f'{self.pos} {self.username} {self.email}'

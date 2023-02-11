@@ -6,6 +6,8 @@ import json
 
 
 def logout_user(request):
+    global id
+    id = None
     logout(request)
     return redirect("home_page")
 
@@ -25,7 +27,7 @@ def course(request):
 def user_login(request):
 
     form = LoginForm(request.POST if request.POST else None)
-    
+
     if form.is_valid():
         cd = form.cleaned_data
         user = authenticate(username=cd['username'], password=cd['password'])
@@ -44,10 +46,8 @@ def user_login(request):
 
 def regist(request):
     form = CustomUserForm(request.POST if request.POST else None)
-    msg = False
 
     if form.is_valid():
-        msg = True
         user = user_create_and_save_account_in_bd(form)
         login(request, user)
         get_user_id(user.username)
@@ -55,21 +55,21 @@ def regist(request):
     
     context = {
         'form': form,
-        'msg': msg,
     }
 
     return render(request, 'main_pages/regist.html', context)
 
 
-def task_handler(request, task_number=1, special_task=1):
+def task_handler(request, task_number=1, special_task=None):
 
-    msg = add_complete_task(request, task_number)
-    context = {'msg': msg}
+    msg = add_complete_task(request, task_number) or ''
 
-    if msg:
-        return render(request, f'main_pages/task{task_number}.html', context)
+    context = {
+        'msg': msg,
+        }
 
-    return render(request, f'main_pages/task{task_number}.html') # для тестов потом уберем
+    return render(request, f'main_pages/task{task_number}.html', context)
+
 
 
 # костыль конечно но пока так
@@ -95,7 +95,6 @@ def add_complete_task(request, task):
 def get_user_id(your_username):
     global id
     id = CustomUser.objects.get(username=your_username).get_id()
-    print(id)
 
 
 def data_fill(request):
