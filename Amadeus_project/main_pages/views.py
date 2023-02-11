@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
-from .forms import *
+from main_pages.forms import *
 from django.contrib.auth import authenticate, login, logout
-from .services import handle_special_task
+from main_pages.services import *
 import json
 
 
@@ -31,8 +31,7 @@ def user_login(request):
             user = authenticate(username=cd['username'], password=cd['password'])
             if user is not None:
                 if user.is_active:
-                    global id
-                    id = get_user_id(user.username)
+                    get_user_id(user.username)
                     login(request, user)
                     return redirect('home_page')
             else:
@@ -45,21 +44,25 @@ def user_login(request):
 
 def regist(request):
     form = CustomUserForm(request.POST if request.POST else None)
+    msg = False
 
     if form.is_valid():
+        msg = True
         user = user_create_and_save_account_in_bd(form)
         login(request, user)
         get_user_id(user.username)
         return redirect('home_page')
     
     context = {
-        'form': form
+        'form': form,
+        'msg': msg,
     }
 
     return render(request, 'main_pages/regist.html', context)
 
 
 def task_handler(request, task_number=1, special_task=1):
+    print(id)
     
     if isinstance(id, int):
     
@@ -81,29 +84,28 @@ def task_handler(request, task_number=1, special_task=1):
     #     return render(request, f'main_pages/task{task_number}.html')
 
 
-def get_user_id(your_username):
-    id = CustomUser.objects.get(username=your_username).get_id()
-
-
-
 # костыль конечно но пока так
 # потом перепишем
 def add_complete_task(request, task, my_user):
     token = data_fill(request)
     
     if token:
-
         if token['complete'] == 'yes':
-            task_view = f'.{task}. '
+            task_view = f'.{token["task"]}. '
 
             if task_view not in my_user.progress:
                 my_user.progress += task_view
                 my_user.save()
     
-# парсинг json
-def data_fill(request):
-    try:
-        data = json.loads(request.body.decode("utf-8-sig"))  # Загрузка JSON
-        return data
-    except ValueError:
-        print('угу')
+# # парсинг json
+# def data_fill(request):
+#     try:
+#         data = json.loads(request.body.decode("utf-8-sig"))  # Загрузка JSON
+#         return data
+#     except ValueError:
+#         print('угу')
+id = -1.0
+def get_user_id(your_username):
+    global id
+    id = CustomUser.objects.get(username=your_username).get_id()
+
