@@ -14,7 +14,7 @@ const hambClick = () => {
         hamburgerMenu.removeChild(accountButtons);
         return
     }
-    navButtons.style.display = 'block';
+    navButtons.style.display = 'flex';
     hamburgerMenu.appendChild(navButtons);
     accountButtons.style.display = 'flex';
     hamburgerMenu.appendChild(accountButtons);

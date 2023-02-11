@@ -100,6 +100,8 @@ body, html {
 }
 .navBtnWrap {
     margin-left: 30px;
+    display: flex;
+    align-items: center;
 }
 .navBtnWrap > .navBtn {
     margin: 0 10px;
@@ -152,6 +154,49 @@ body, html {
     .form {
         border-width: 0px;
     }
+}
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 64px;
+    height: 30px;
+    margin-left: 10px;
+}
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+.slider {
+    position: absolute;
+    cursor: pointer;
+    inset: 0;
+    background-color: #000;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 2px;
+    bottom: 2px;
+    background-color: #fff;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+input:checked + .slider {
+    background-color: #fff;
+}
+input:focus + .slider {
+    box-shadow: 0 0 1px #000;
+  }
+input:checked + .slider:before {
+    -webkit-transform: translateX(30px);
+    -ms-transform: translateX(30px);
+    transform: translateX(34px);
+    background-color: #000;
 }
 @media screen and (min-width: 751px) {
     .inHam {
