@@ -74,8 +74,10 @@ footerYear.textContent = 'Copyright ' + footerYear.textContent + now.getFullYear
 // Footer Year End
 
 // ANimation 
-const animation = document.querySelector('.loadAnim');
-const submitBtn = document.querySelector('input[type="submit"]');
-submitBtn.addEventListener('click', () =>{
-    animation.style.display = 'flex';
-})
+// const textAreas = document.querySelectorAll('p input');
+// const animation = document.querySelector('.loadAnim');
+// const submitBtn = document.querySelector('input[type="submit"]');
+// submitBtn.addEventListener('click', () =>{
+//     console.log(textAreas.values());
+//     animation.style.display = 'flex';
+// })

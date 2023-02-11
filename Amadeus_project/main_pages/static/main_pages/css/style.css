@@ -637,7 +637,7 @@ font-family: 'Roboto'; */
         transform: scale(1);
     }
 }
-@keyframes wave {
+/* @keyframes wave {
     0% {
         transform: scale(0);
     }
@@ -647,12 +647,12 @@ font-family: 'Roboto'; */
     100% {
         transform: scale(0);
     }
-}
+} */
 /* */
 /* <p class="test2">{{ form.message }}</p> */
 
 /* Loading Wave Anim */
-.loadAnim {
+/* .loadAnim {
     display: flex;
     align-items: center;
     position: absolute;
@@ -681,4 +681,4 @@ font-family: 'Roboto'; */
 }
 .wave:nth-child(5) {
     animation-delay: 0.4s;
-}
+} */

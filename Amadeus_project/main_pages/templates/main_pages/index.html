@@ -25,35 +25,34 @@
                     <div class="card task1">
                         <h5 class="taskTitle">Погружение</h6>
                         <h6 class="taskDesc">Вы когда-нибудь пытались научиться читать, писать или говорить на незнакомом языке? Любое изучение начинается с азов и терпеливого прохождения практики</h6>
+                            {% if '.1.' in user.progress %}
+                                решено
+                            {% endif %}
                         <a href="{% url 'task' task_number=1 %}" class="Btn">Решить</a>
-                        {{ user.progress }}
-                        {% if '.1.' in user.progress %}
-                            решено
-                        {% endif %}
                     </div>
                     <div class="card task2">
                         <h5 class="taskTitle">Операторы</h6>
                         <h6 class="taskDesc">Оператор способен манипулировать значениями, что позволяет выполнять определенные математические и логических вычисления на данных. В JS они используются для сравнения значений, выполнения арифметических операций и т.д.</h6>
-                        <a href="{% url 'task' task_number=2 %}" class="Btn">Решить</a>
-                        {% if '.2.' in user.progress %}
-                            решено
-                        {% endif %}
+                            {% if '.2.' in user.progress %}
+                                решено
+                            {% endif %}
+                            <a href="{% url 'task' task_number=2 %}" class="Btn">Решить</a>
                     </div>
                     <div class="card task3">
                         <h5 class="taskTitle">Переменные</h6>
                         <h6 class="taskDesc">Переменные являются неотъемлемой частью программирования. Они используются для хранения данных и информации в программе. Мы можем легко понять концепцию переменной, если представим ее как «коробку» для данных</h6>
-                        <a href="{% url 'task' task_number=3 %}" class="Btn">Решить</a>
                         {% if '.3.' in user.progress %}
                             решено
                         {% endif %}
+                        <a href="{% url 'task' task_number=3 %}" class="Btn">Решить</a>
                     </div>
                     <div class="card task4">
                         <h5 class="taskTitle">О нас</h6>
                         <h6 class="taskDesc"></h6>
-                        <a href="{% url 'task' task_number=4 %}" class="Btn">Решить</a>
                         {% if '.4.' in user.progress %}
                             решено
                         {% endif %}
+                        <a href="{% url 'task' task_number=4 %}" class="Btn">Решить</a>
                     </div>
                 </div>
             </div>
