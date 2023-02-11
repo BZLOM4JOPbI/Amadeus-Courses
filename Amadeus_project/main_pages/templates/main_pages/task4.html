@@ -4,7 +4,7 @@
 
 
 {% block title %}
-    Задание 4
+Задание 4
 {% endblock %}
 
 
@@ -12,31 +12,71 @@
     <main class="mainWrap">
         <div class="container" style="flex-direction: column">
             <article class="courseInner">
-                <h4 class="courseTitle">Мы очень рады, что вы, наконец, нашли нас.</h4>
+                <h4 class="courseTitle">Переменные в JavaScript</h4>
                 <hr class="underline" noshade="true">
                 <div class="courseTextContainer">
-                    <p class="courseText">Мы хотим сделать процесс обучения программированию проще, быстрее и доступнее, поэтому приглашаем вас на курсы по программированию.</p>
-                    <p class="courseText">Наши курсы – это сочетание высокого качества обучения с доступной ценой. В них мы расскажем о том, что такое язык программирования, как он устроен и как работает</p>
-                    <p class="courseText">Наша цель – помочь вам стать профессионалом в сфере программирования.</p>
-                    <p class="courseText">Мы работаем над тем, чтобы сделать программирование доступным и интересным, а обучение — эффективным и комфортным. Поэтому мы создали удобную платформу для обучения.</p>
-                    <p class="courseText">Вы можете узнать, как использовать переменные, операции, функции, циклы и операторы, чтобы создавать простые программы, которые могут выполнять разные задачи.</p>
-                    <p class="courseText">Программирование — это просто, если вы знаете, что делаете!</p>
+                    <p class="courseText">Переменные являются именованными значениями и могут хранить любой тип данных JavaScript.</p>
+                    <p class="courseText">Вот мы объявляем переменные:</p>
+                    <code>
+                        let x = 'Строка';<br>
+                        const n = 5;
+                    </code>
+                    <p class="courseText">Вот что происходит в этом примере:</p>
+                    <ul class="courseList">
+                        <li>let и const &ndash; это ключевые слова, которые говорят JS об объявлении переменной</li>
+                        <li>x и n &ndash; некоторые имена переменных</li>
+                        <li>' = ' &ndash; так называемый оператор присваивания, сообщающий, что далее идет значение переменной</li>
+                        <li>'Строка' и число 5 &ndash; значения, которые мы хотим сохранить</li>
+                    </ul>
+                    <p class="courseText">После объявления, вы можете ссылаться на переменную по ее имени в вашем коде.</p>
+                    <code>
+                        let greetings = 'Привет, Мир!';<br>
+                        console.log(greetings);
+                        // Выведет в консоль значение переменной
+                    </code>
+                    <code>
+                        let n = 5;<br>
+                        console.log(n + 5); // Выведет в консоль число 10 (результат сложения)
+                    </code>
+                    <p class="courseText">Возможно ссылаться на переменную даже в объявлении других переменных.</p>
+                    <code>
+                        let n = 5;<br>
+                        let x = n + 5;<br>
+                        console.log(x) // Выведет число 10
+                    </code>
+                    <p class="courseText">Несколько правил именования переменных:</p>
+                    <ul class="courseList">
+                        <li>Первым символом имени может быть буква, нижнее подчеркивание(_) и знак доллара($)</li>
+                        <li>После первого символа можно также использовать цифры</li>
+                        <li>Именна переменных чувствительны к регистру</li>
+                    </ul>
+                    <p class="courseText">Так выглядят недопустимые имена перменных. Попробуйте определить, что не так с каждым из них:</p>
+                    <code>
+                        let -var = 'Hello';<br>
+                        let 2name = 'Ivan and Dima';<br>
+                        let @btnText = 'Click';<br>
+                        let procent% = 55;<br>
+                    </code>
                     <h6 class="task">Задание</h6>
-                    <p class="courseText">Тут нет задания, можете написать что угодно.</p>
+                    <p class="courseText">В редакторе кода объявлены две переменные: скорость V и время t.</p>
+                    <p class="courseText">Посчитайте расстояние S по формуле S = V * t и сохраните результат в переменную. После чего выведете значение переменной с помощью console.log()</p>
                 </div>
                 <div class="editorContainer">
                     <div class="editorInner">
                         <div id="editor"></div>
                     </div>
+                    {% if msg %}
+                        <p class="changePage">{{ msg }} <a class="userName" href="{% url 'regist_user' %}">Регистрация</a></p>
+                    {% endif %}
                     <div class="ideBtnWrap">
                         <div class="ideBtnFun">
                             <button class="resultBtn Btn">Тест</button>
-                            <button class="completeBtn Btn accentBtn">Завершить</button>
+                            <button class="completeBtn Btn accentBtn" {% if msg %} disabled="true" {% endif %}>Завершить</button>
                             <button class="resetBtn Btn">Сброс</button>
                         </div>
                         <div class="ideNavBtn">
-                            <button class="Btn"><a href="{% url 'task' task_number=3 %}" aria-disabled="true">Предыдущий шаг</a></button>
-                            <button class="Btn NonDisplay"><a href="{% url 'task' task_number=2 %}">Следующий шаг</a></button>
+                            <button class="Btn"><a href="{% url 'task' task_number=3 %}">Предыдущий шаг</a></button>
+                            <button class="Btn NonDisplay"><a href="{% url 'task' task_number=4 %}">Следующий шаг</a></button>
                         </div>
                     </div>
                 </div>

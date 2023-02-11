@@ -87,7 +87,7 @@ def add_complete_task(request, task):
                     user.progress += task_view
                     user.save()
     else:
-        msg = 'Не-не-не, не спеши, сначала зарегистрируйся!!!'
+        msg = 'Не спеши, как нам отслеживать твой прогресс?'
 
     return msg
 
