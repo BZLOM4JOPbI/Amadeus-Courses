@@ -3,6 +3,8 @@
 '''
 from typing import Optional
 from django.core.exceptions import ValidationError
+from main_pages.models import *
+import json
 
 
 def handle_special_task(form) -> Optional[dict]:
@@ -61,3 +63,23 @@ def is_password_contains_upper_lower_letters(password:str) -> bool:
             else:
                 test_arg[0] = 1
     return sum(test_arg) == 2
+
+
+
+def user_create_and_save_account_in_bd(form):
+    user = form.save()
+    user.set_password(user.password)
+    user.confirm_password = ''
+    user.progress = ''
+    user.pos = len(CustomUser.objects.all()) - 1
+    user.save()
+    return user
+
+
+# парсинг json
+def data_fill(request):
+    try:
+        data = json.loads(request.body.decode("utf-8-sig"))  # Загрузка JSON
+        return data
+    except ValueError:
+        print('угу')

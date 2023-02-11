@@ -129,6 +129,7 @@ const completeTask = async () => {
     } else if (keyOfTestValue == '4') {
         tastCompleteResult.style.backgroundColor = 'rgba(89, 138, 118, 0.6)';
         tastCompleteResult.textContent = 'Задание выполнено';
+        sendRequest('/Amadeus_project/main_pages/views', messageTaskComplete).then(data => console.log(data))
     } else {
         tastCompleteResult.style.backgroundColor = 'rgba(164, 50, 64, 0.5)';
         tastCompleteResult.textContent = 'Попробуйте еще раз';
