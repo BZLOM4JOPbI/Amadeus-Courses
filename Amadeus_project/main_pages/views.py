@@ -49,8 +49,7 @@ def regist(request):
     if form.is_valid():
         user = user_create_and_save_account_in_bd(form)
         login(request, user)
-        global id
-        id = get_user_id(user.username)
+        get_user_id(user.username)
         return redirect('home_page')
     
     context = {
@@ -83,7 +82,7 @@ def task_handler(request, task_number=1, special_task=1):
 
 
 def get_user_id(your_username):
-    return CustomUser.objects.get(username=your_username).get_id()
+    id = CustomUser.objects.get(username=your_username).get_id()
 
 
 
@@ -108,13 +107,3 @@ def data_fill(request):
         return data
     except ValueError:
         print('угу')
-
-
-def user_create_and_save_account_in_bd(form):
-    user = form.save()
-    user.set_password(user.password)
-    user.confirm_password = ''
-    user.progress = ''
-    user.pos = len(CustomUser.objects.all()) - 1
-    user.save()
-    return user
