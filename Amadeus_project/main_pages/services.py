@@ -77,9 +77,9 @@ def user_create_and_save_account_in_bd(form):
 
 
 # парсинг json
-def data_fill(request):
-    try:
-        data = json.loads(request.body.decode("utf-8-sig"))  # Загрузка JSON
-        return data
-    except ValueError:
-        print('угу')
+# def data_fill(request):
+#     try:
+#         data = json.loads(request.body.decode("utf-8-sig"))  # Загрузка JSON
+#         return data
+#     except ValueError:
+#         pass

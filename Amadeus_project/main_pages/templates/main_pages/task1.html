@@ -37,10 +37,13 @@
                     <div class="editorInner">
                         <div id="editor"></div>
                     </div>
+                    {% if msg %}
+                        {{ msg }}
+                    {% endif %}
                     <div class="ideBtnWrap">
                         <div class="ideBtnFun">
                             <button class="resultBtn Btn">Тест</button>
-                            <button class="completeBtn Btn accentBtn">Завершить</button>
+                            <button class="completeBtn Btn accentBtn" {% if msg %} disabled="true" {% endif %}>Завершить</button>
                             <button class="resetBtn Btn">Сброс</button>
                         </div>
                         <div class="ideNavBtn">
