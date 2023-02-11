@@ -5,6 +5,7 @@ body, html {
     width: 100%;
     height: 100vh;
     background-color: var(--primary-color);
+    position: relative;
 }
 * {
     text-decoration: none;
@@ -636,5 +637,48 @@ font-family: 'Roboto'; */
         transform: scale(1);
     }
 }
+@keyframes wave {
+    0% {
+        transform: scale(0);
+    }
+    50% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(0);
+    }
+}
 /* */
 /* <p class="test2">{{ form.message }}</p> */
+
+/* Loading Wave Anim */
+.loadAnim {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    display: none;
+}
+.wave {
+    background-color: var(--main-color);
+    width: 5px;
+    height: 100px;
+    border-radius: 1.5px;
+    margin: 0 5px;
+    animation: wave cubic-bezier(0.1, 0.7, 1.0, 0.1) 1s infinite;
+}
+.wave:nth-child(2) {
+    animation-delay: 0.1s;
+}
+.wave:nth-child(3) {
+    animation-delay: 0.2s;
+}
+.wave:nth-child(4) {
+    animation-delay: 0.3s;
+}
+.wave:nth-child(5) {
+    animation-delay: 0.4s;
+}

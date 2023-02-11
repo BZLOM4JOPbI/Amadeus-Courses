@@ -88,6 +88,10 @@ const rightTestValue = {
     '2' : 38,
     '4' : 'Смузихлеб Иван - лучший фронт'
 };
+const messageTaskComplete = { 
+    complete: 'yes',
+    task: keyOfTestValue,
+}
 
 function getCookie(name) {
     let cookieValue = null;
@@ -104,8 +108,6 @@ function getCookie(name) {
     }
     return cookieValue;
 }
-
-const messageTaskComplete = { complete: 'yes'}
 const sendRequest = (url, body) => {
     const csrftoken = getCookie('csrftoken');
     console.log(csrftoken);
