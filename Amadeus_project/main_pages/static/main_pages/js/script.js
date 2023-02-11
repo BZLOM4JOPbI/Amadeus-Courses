@@ -72,3 +72,10 @@ let now = new Date();
 footerYear.textContent = 'Copyright ' + footerYear.textContent + now.getFullYear() + '. All rights reserved.';
 
 // Footer Year End
+
+// ANimation 
+const animation = document.querySelector('.loadAnim');
+const submitBtn = document.querySelector('input[type="submit"]');
+submitBtn.addEventListener('click', () =>{
+    animation.style.display = 'flex';
+})

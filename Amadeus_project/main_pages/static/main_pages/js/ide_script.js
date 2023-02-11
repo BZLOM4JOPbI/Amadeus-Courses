@@ -88,7 +88,10 @@ const rightTestValue = {
     '2' : 38,
     '4' : 'Смузихлеб Иван - лучший фронт'
 };
-const messageTaskComplete = { complete: 'yes' }
+const messageTaskComplete = { 
+    complete: 'yes',
+    task: keyOfTestValue,
+}
 const sendRequest = (url, body) => {
     const csrftoken = document.querySelector('[name=csrfmiddlewaretoken]').value;
     return fetch(url, {
