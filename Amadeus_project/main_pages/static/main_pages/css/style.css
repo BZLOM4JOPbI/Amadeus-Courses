@@ -317,6 +317,11 @@ input[type='submit']:disabled {
     padding-bottom: 10px;
     border-bottom: 1.5px solid var(--main-color);
 }
+.taskStatus {
+    text-transform: uppercase;
+    text-decoration: underline;
+    text-decoration-color: var(--accent-color);
+}
 @media screen and (max-width: 846px){
     .mainTitle {
         font-size: 54px;
