@@ -7,15 +7,15 @@ from main_pages.models import *
 import json
 
 
-def handle_special_task(form) -> Optional[dict]:
-    if form:
-        form.username = 'Абдула'
-        form.save
-        context = {
-            'form': form
-            }
-        return context
-    return None
+# def handle_special_task(form) -> Optional[dict]:
+#     if form:
+#         form.username = 'Абдула'
+#         form.save
+#         context = {
+#             'form': form
+#             }
+#         return context
+#     return None
 
 
 def check_username_chars(username: str, *, char_code: int=177) -> None:
@@ -28,13 +28,15 @@ def check_username_chars(username: str, *, char_code: int=177) -> None:
         raise ValidationError('Используйте цифры от 0-9, "_" и "-".')
 
 
-def check_password_correct(password:str, confirm_password:str) -> None:
+def check_password_correct(password: str, confirm_password: str) -> None:
+
     MIN_PASSWORD_LENGTH = 12
     PASSWORD_COMPLEXITY = 5
     error_message = ''
+
     if password != confirm_password:
         error_message = 'Пароли не совпадают!'
-    
+
     elif len(password) < MIN_PASSWORD_LENGTH:
         error_message = 'Слишком короткий пароль!'
     
@@ -55,23 +57,28 @@ def check_password_correct(password:str, confirm_password:str) -> None:
     
 
 def is_password_contains_upper_lower_letters(password:str) -> bool:
+
     test_arg = [0, 0]
+
     for char in set(password):
         if 'a' <= char.lower() <= 'z':
             if char.isupper():
                 test_arg[1] = 1
             else:
                 test_arg[0] = 1
+
     return sum(test_arg) == 2
 
 
 
 def user_create_and_save_account_in_bd(form):
+    
     user = form.save()
     user.set_password(user.password)
     user.confirm_password = ''
-    user.progress = ''
-    user.pos = len(CustomUser.objects.all()) - 1
+    user.completed_tasks = ''
+    user.code_of_completed_tasks = ''
+    user.position_in_db = len(CustomUser.objects.all()) - 1
     user.save()
     return user
 
