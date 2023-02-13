@@ -62,7 +62,10 @@ def regist(request):
 
 def task_handler(request, task_number=1, special_task=None):
 
-    msg = add_complete_task(request, task_number) or ''
+    if request.GET:
+        msg = return_task_solution(request)
+    else:
+        msg = add_complete_task(request) or ''
 
     context = {
         'msg': msg,
@@ -74,10 +77,11 @@ def task_handler(request, task_number=1, special_task=None):
 
 # костыль конечно но пока так
 # потом перепишем
-def add_complete_task(request, task):
+def add_complete_task(request):
     token = data_fill(request)
     msg = None
-
+    print(request.GET)
+    print(request)
     if isinstance(id, int):
         user = CustomUser.objects.all()[id]
         if token:
@@ -105,3 +109,9 @@ def data_fill(request):
         return data
     except ValueError:
         pass
+
+
+
+def return_task_solution(request):
+    print(request)
+    return 'Вот что то оветил'
