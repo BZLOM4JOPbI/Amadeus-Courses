@@ -82,9 +82,11 @@ def add_complete_task(request, task):
         user = CustomUser.objects.all()[id]
         if token:
             if token['complete'] == 'yes':
-                task_view = f'.{token["task"]}. '
-                if task_view not in user.progress:
-                    user.progress += task_view
+                task_number = f'_{token["task"]}_ '
+                code_complete_task = f'_{token["ideValue"]}_ '
+                if task_number not in user.completed_tasks:
+                    user.completed_tasks += task_number
+                    user.code_of_completed_tasks += code_complete_task
                     user.save()
     else:
         msg = 'Не спеши, как нам отслеживать твой прогресс?'
