@@ -13,3 +13,12 @@ for (let card of cards) {
         event.target.style.animation = '';
     }, true );
 }
+
+
+function num(arrayOfSheep) {
+    const newWords = arrayOfSheep.filter(function (word) {
+        word.startsWith('a');
+    })
+    console.log(newWords)
+}
+num(['абсанс', 'вареца', 'льгозанисия', 'анубисасо', 'фия',])

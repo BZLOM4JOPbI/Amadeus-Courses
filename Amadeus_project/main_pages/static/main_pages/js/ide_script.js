@@ -22,7 +22,6 @@ ide.setOptions({
 let outputToConsoleBtn = document.querySelector('.resultBtn');
 let resetBtn = document.querySelector('.resetBtn');
 
-
 const getCodeResult = () => {
     let input = ide.getValue();
     let str = 'const originalLog = console.log;console.log = function (...value) {originalLog.apply(console, value);return value;};'
@@ -33,6 +32,7 @@ const getCodeResult = () => {
     } catch (err) {
         input = err;
     }
+    console.log(input);
     return input
 };
 
@@ -156,3 +156,14 @@ try {
 
         // // let result = await response.json();
         // // alert(result.message);
+const sendGet = async () => {
+    fetch('https://jsonplaceholder.typicode.com/users').then(response => {
+        return response.json()
+    })
+}
+const button = document.getElementById('Btn');
+button.addEventListener('click', (event) => {
+    sendGet()
+        .then(data => console.log(data))
+        .catch(err => console.log(err))
+}); 
