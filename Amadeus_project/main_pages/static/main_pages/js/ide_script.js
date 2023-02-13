@@ -157,7 +157,7 @@ try {
         // // let result = await response.json();
         // // alert(result.message);
 const sendGet = async () => {
-    fetch('https://jsonplaceholder.typicode.com/users').then(response => {
+    fetch('/Amadeus_project/main_pages/views').then(response => {
         return response.json()
     })
 }
