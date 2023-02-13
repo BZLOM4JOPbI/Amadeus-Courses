@@ -166,4 +166,4 @@ button.addEventListener('click', (event) => {
     sendGet()
         .then(data => console.log(data))
         .catch(err => console.log(err))
-}); 
+});

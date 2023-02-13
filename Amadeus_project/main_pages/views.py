@@ -62,14 +62,19 @@ def regist(request):
 
 def task_handler(request, task_number=1, special_task=None):
 
-    if request.GET:
-        msg = return_task_solution(request)
+    msg = 'Не спеши, как нам отслеживать твой прогресс?' if not isinstance(id, int) else ''
+    code = ''
+
+    if request.method == 'GET':
+        code = return_task_solution(request, task_number) or ''
     else:
-        msg = add_complete_task(request) or ''
+        add_complete_task(request)
 
     context = {
         'msg': msg,
+        'code': code,
         }
+
 
     return render(request, f'main_pages/task{task_number}.html', context)
 
@@ -79,23 +84,19 @@ def task_handler(request, task_number=1, special_task=None):
 # потом перепишем
 def add_complete_task(request):
     token = data_fill(request)
-    msg = None
-    print(request.GET)
-    print(request)
+
     if isinstance(id, int):
         user = CustomUser.objects.all()[id]
         if token:
             if token['complete'] == 'yes':
-                task_number = f'_{token["task"]}_ '
-                code_complete_task = f'_{token["ideValue"]}_ '
+                task_number = f'_{token["task"]}_'
+                code_complete_task = f'{token["ideValue"]}___'
                 if task_number not in user.completed_tasks:
                     user.completed_tasks += task_number
                     user.code_of_completed_tasks += code_complete_task
                     user.save()
-    else:
-        msg = 'Не спеши, как нам отслеживать твой прогресс?'
 
-    return msg
+    return
 
 
 def get_user_id(your_username):
@@ -112,6 +113,11 @@ def data_fill(request):
 
 
 
-def return_task_solution(request):
-    print(request)
-    return 'Вот что то оветил'
+def return_task_solution(request, task):
+
+    if isinstance(id, int):
+        user = CustomUser.objects.all()[id]
+        task_view_in_bd = f'_{task}_'
+        if task_view_in_bd in user.completed_tasks:
+            task_number = user.completed_tasks.index(task_view_in_bd)
+            return user.code_of_completed_tasks.split('___')[task_number]
