@@ -32,12 +32,12 @@ const getCodeResult = () => {
     } catch (err) {
         input = err;
     }
-    console.log(input);
     return input
 };
 
 
 outputToConsoleBtn.addEventListener('click', (event) => {
+    console.log(getCodeResult())
     addLogs(getCodeResult());
 });
 
@@ -54,15 +54,19 @@ const resetConsole = document.querySelector('.console > .Btn');
 
 const addLogs = (input) => {
     const log = document.createElement('li');
-    if (input.length > 1) {
+    if (!(Array.isArray(input))) {
         log.textContent = `>  ${input}`;
     } else {
-        if (typeof input[0] == 'string') {
-                log.textContent = `>  '${input[0]}'`;
-        } else if (Array.isArray(input[0])) {
-            log.textContent = `>  [${input[0]}]`;
+        if (input.length > 1) {
+            log.textContent = `>  ${input}`;
         } else {
-            log.textContent = `>  ${input[0]}`;
+            if (typeof input[0] == 'string') {
+                    log.textContent = `>  '${input[0]}'`;
+            } else if (Array.isArray(input[0])) {
+                log.textContent = `>  [ ${input[0]} ]`;
+            } else {
+                log.textContent = `>  ${input[0]}`;
+            }
         }
     }
     consoleLogs.appendChild(log);
@@ -121,6 +125,7 @@ const sendRequest = (url, body) => {
 
 const completeTask = async () => {
     messageTaskComplete.ideValue = ide.getValue();
+    console.log(getCodeResult())
     addLogs(getCodeResult());
     if (getCodeResult()[0] === rightTestValue[keyOfTestValue]) {
         completeBtn.textContent = 'Решить еще раз';
