@@ -163,7 +163,7 @@ try {
         // // alert(result.message);
 const sendGet = async () => {
     fetch('/Amadeus_project/main_pages/views').then(response => {
-        return response.json()
+        return response
     })
 }
 const button = document.getElementById('Btn');
