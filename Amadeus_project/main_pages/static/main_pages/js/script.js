@@ -18,7 +18,10 @@ const hambClick = () => {
     hamburgerMenu.appendChild(navButtons);
     accountButtons.style.display = 'flex';
     hamburgerMenu.appendChild(accountButtons);
-    document.querySelectorAll('#changeColorTheme')[1].addEventListener('click', changeThemeFun)
+    document.querySelectorAll('#changeColorTheme')[1].addEventListener('click', changeThemeFun);
+    if (localStorage.getItem('nightTheme')) {
+        document.querySelectorAll('#changeColorTheme')[1].checked = 'True';
+    }
 };
 
 hambButton.addEventListener('click', hambClick);
@@ -56,6 +59,7 @@ themeChangeBtn.addEventListener('click', changeThemeFun);
 
 
 if (localStorage.getItem('nightTheme')) {
+    themeChangeBtn.checked = 'True';
     themeDark.setAttribute('href', '/static/main_pages/css/dark_style.css');
     try {
         ide.setTheme('ace/theme/tomorrow_night');
