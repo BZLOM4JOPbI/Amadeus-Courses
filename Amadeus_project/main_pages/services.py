@@ -76,7 +76,7 @@ def user_create_and_save_account_in_bd(form):
     user = form.save()
     user.set_password(user.password)
     user.confirm_password = ''
-    user.completed_tasks = ''
+    user.completed_tasks = '_'
     user.code_of_completed_tasks = ''
     user.position_in_db = len(CustomUser.objects.all()) - 1
     user.save()
