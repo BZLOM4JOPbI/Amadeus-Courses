@@ -23,6 +23,7 @@ def ide(request):
 def course(request):
     return render(request, 'main_pages/course.html')
 
+
 def user_login(request):
 
     form = LoginForm(request.POST if request.POST else None)
@@ -63,6 +64,8 @@ def task_handler(request, task_number=1, special_task=None):
 
     msg = 'Не спеши, как нам отслеживать твой прогресс?' if not isinstance(id, int) else ''
     code = ''
+
+    print(request.body)
 
     if request.method == 'GET':
         code = return_task_solution(request, task_number) or ''
@@ -126,5 +129,6 @@ def return_task_solution(request, task):
         task_view_in_bd = str(task)
         if task_view_in_bd in user.completed_tasks:
             print(user.completed_tasks[1:].split('_'))
+            print(user.completed_tasks)
             task_number = user.completed_tasks[1:].split('_').index(task_view_in_bd)
             return user.code_of_completed_tasks.split('___')[task_number]
