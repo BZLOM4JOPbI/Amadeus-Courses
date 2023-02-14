@@ -89,12 +89,19 @@ def add_complete_task(request):
         user = CustomUser.objects.all()[id]
         if token:
             if token['complete'] == 'yes':
-                task_number = f'_{token["task"]}_'
-                code_complete_task = f'{token["ideValue"]}___'
-                if task_number not in user.completed_tasks:
-                    user.completed_tasks += task_number
-                    user.code_of_completed_tasks += code_complete_task
+                task_number = str(token["task"])
+                code_complete_task = token['ideValue']
+                print(user.completed_tasks)
+                if task_number not in user.completed_tasks.split('_'):
+                    user.completed_tasks += f'{task_number}_'
+                    user.code_of_completed_tasks += f'{code_complete_task}___'
                     user.save()
+                else:
+                    index_solution_in_db = user.completed_tasks[1:].split('_').index(str(task_number))
+                    solution_tasks = user.code_of_completed_tasks.split('___')
+                    solution_tasks[index_solution_in_db] = code_complete_task
+                    user.code_of_completed_tasks = '___'.join(solution_tasks)
+                    user.save() 
 
     return
 
@@ -117,7 +124,8 @@ def return_task_solution(request, task):
 
     if isinstance(id, int):
         user = CustomUser.objects.all()[id]
-        task_view_in_bd = f'_{task}_'
+        task_view_in_bd = str(task)
         if task_view_in_bd in user.completed_tasks:
-            task_number = user.completed_tasks.index(task_view_in_bd)
+            print(user.completed_tasks[1:].split('_'))
+            task_number = user.completed_tasks[1:].split('_').index(task_view_in_bd)
             return user.code_of_completed_tasks.split('___')[task_number]
