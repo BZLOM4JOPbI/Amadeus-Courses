@@ -23,7 +23,6 @@ def ide(request):
 def course(request):
     return render(request, 'main_pages/course.html')
 
-
 def user_login(request):
 
     form = LoginForm(request.POST if request.POST else None)
