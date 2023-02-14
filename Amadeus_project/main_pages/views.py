@@ -126,5 +126,6 @@ def return_task_solution(request, task):
         task_view_in_bd = str(task)
         if task_view_in_bd in user.completed_tasks:
             print(user.completed_tasks[1:].split('_'))
+            print(user.completed_tasks)
             task_number = user.completed_tasks[1:].split('_').index(task_view_in_bd)
             return user.code_of_completed_tasks.split('___')[task_number]

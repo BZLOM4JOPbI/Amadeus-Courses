@@ -111,12 +111,11 @@ function getCookie(name) {
     }
     return cookieValue;
 }
-const sendRequest = (url, body) => {
+const sendRequest = (url, method, body = null) => {
     const csrftoken = getCookie('csrftoken');
-    console.log(csrftoken);
     return fetch(url, {
-        method: 'POST',
-        body: JSON.stringify(body),
+        method: method,
+        body: method === 'POST' ?  JSON.stringify(body) : null,
         headers: { 'Content-Type': 'application/json;charset=utf-8', 'X-CSRFToken': csrftoken },
     }).then(response => {
         return response.json()
@@ -125,17 +124,16 @@ const sendRequest = (url, body) => {
 
 const completeTask = async () => {
     messageTaskComplete.ideValue = ide.getValue();
-    console.log(getCodeResult())
     addLogs(getCodeResult());
     if (getCodeResult()[0] === rightTestValue[keyOfTestValue]) {
         completeBtn.textContent = 'Решить еще раз';
         tastCompleteResult.style.backgroundColor = 'rgba(89, 138, 118, 0.6)';
         tastCompleteResult.textContent = 'Задание выполнено';
-        sendRequest('/Amadeus_project/main_pages/views', messageTaskComplete).then(data => console.log(data))
+        sendRequest('/Amadeus_project/main_pages/views', 'POST', messageTaskComplete).then(data => console.log(data))
     } else if (keyOfTestValue == '1') {
         tastCompleteResult.style.backgroundColor = 'rgba(89, 138, 118, 0.6)';
         tastCompleteResult.textContent = 'Задание выполнено';
-        sendRequest('/Amadeus_project/main_pages/views', messageTaskComplete).then(data => console.log(data))
+        sendRequest('/Amadeus_project/main_pages/views', 'POST', messageTaskComplete).then(data => console.log(data))
     } else {
         tastCompleteResult.style.backgroundColor = 'rgba(164, 50, 64, 0.5)';
         tastCompleteResult.textContent = 'Попробуйте еще раз';
@@ -161,14 +159,10 @@ try {
 
         // // let result = await response.json();
         // // alert(result.message);
-const sendGet = async () => {
-    fetch('/Amadeus_project/main_pages/views').then(response => {
-        return response
-    })
-}
+// const sendGet = async () => {
+//     fetch('/Amadeus_project/main_pages/views').then(response => {
+//         return response.json()
+//     })
+// }
 const button = document.getElementById('Btn');
-button.addEventListener('click', (event) => {
-    sendGet()
-        .then(data => console.log(data))
-        .catch(err => console.log(err))
-});
+button.addEventListener('click', sendRequest('/Amadeus_project/main_pages/views', 'GET', ))
