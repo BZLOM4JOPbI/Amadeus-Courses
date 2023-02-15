@@ -111,7 +111,8 @@ function getCookie(name) {
     }
     return cookieValue;
 }
-const sendRequest = (url, method, body = null) => {
+const sendRequest = async (url, method, body = null) => {
+    console.log('Запрос отправлен');
     const csrftoken = getCookie('csrftoken');
     return fetch(url, {
         method: method,
@@ -145,24 +146,7 @@ try {
     completeBtn.addEventListener('click', completeTask);
 } catch (err) {
     //pass
-}
-
-
-
-        // let response = await fetch('Вот тут пиши путь', {
-        //     method: 'POST',
-        //     body: JSON.stringify(messageToJson),
-        //     headers: {
-        //       'Content-Type': 'application/json;charset=utf-8'
-        //     },
-        //     })
-
-        // // let result = await response.json();
-        // // alert(result.message);
-// const sendGet = async () => {
-//     fetch('/Amadeus_project/main_pages/views').then(response => {
-//         return response.json()
-//     })
-// }
-const button = document.getElementById('Btn');
-button.addEventListener('click', sendRequest('/Amadeus_project/main_pages/views', 'GET', ))
+}   
+const sendRequestBtn = document.querySelector('.BtnGetRequest');
+// const button = document.getElementById('Btn');
+sendRequestBtn.addEventListener('click', () => sendRequest('/Amadeus_project/main_pages/views', 'GET', ).then(data => console.log(data)), true)
