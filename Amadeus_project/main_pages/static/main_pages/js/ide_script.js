@@ -149,4 +149,4 @@ try {
 }   
 const sendRequestBtn = document.querySelector('.BtnGetRequest');
 // const button = document.getElementById('Btn');
-sendRequestBtn.addEventListener('click', () => sendRequest('https://jsonplaceholder.typicode.com/users', 'GET', ).then(data => console.log(data)), true)
+sendRequestBtn.addEventListener('click', () => sendRequest('/Amadeus_project/main_pages/views', 'GET', ).then(data => console.log(data)), true)
