@@ -65,10 +65,11 @@ def task_handler(request, task_number=1, special_task=None):
     msg = 'Не спеши, как нам отслеживать твой прогресс?' if not isinstance(id, int) else ''
     code = ''
 
-    print(request.body)
+    key = request.headers['Content-Type']
 
-    if request.method == 'GET':
-        code = return_task_solution(request, task_number) or ''
+    if request.GET and key == 'application/json;charset=utf-8':
+        print('fdsfg')
+        return render(request, f'main_pages/task{task_number}.html')
     else:
         add_complete_task(request)
 
@@ -76,7 +77,6 @@ def task_handler(request, task_number=1, special_task=None):
         'msg': msg,
         'code': code,
         }
-
 
     return render(request, f'main_pages/task{task_number}.html', context)
 
@@ -132,3 +132,11 @@ def return_task_solution(request, task):
             print(user.completed_tasks)
             task_number = user.completed_tasks[1:].split('_').index(task_view_in_bd)
             return user.code_of_completed_tasks.split('___')[task_number]
+
+
+def parse_headers(request):
+    try:
+        data = json.loads(request.headers.decode("utf-8-sig"))  # Загрузка JSON
+        return data
+    except ValueError:
+        pass
