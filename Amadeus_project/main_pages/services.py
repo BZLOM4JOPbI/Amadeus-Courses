@@ -4,18 +4,8 @@
 from typing import Optional
 from django.core.exceptions import ValidationError
 from main_pages.models import *
+from django.contrib.auth import authenticate, login, logout
 import json
-
-
-# def handle_special_task(form) -> Optional[dict]:
-#     if form:
-#         form.username = 'Абдула'
-#         form.save
-#         context = {
-#             'form': form
-#             }
-#         return context
-#     return None
 
 
 def check_username_chars(username: str, *, char_code: int=177) -> None:
@@ -44,11 +34,11 @@ def check_password_correct(password: str, confirm_password: str) -> None:
        error_message = 'Пароль слишком простой!'
     
     elif password.isalpha() or password.isdigit():
-        error = ['Цифры от 0-9', 'минимум одну сточную и одну заглавную букву']
+        error = ['Цифры от 0-9', 'минимум одну сточную и одну заглавную букву', ]
         error_message = f'Пароль должен содеражать {error[password.isdigit()]}'
         
     elif not is_password_contains_upper_lower_letters(password):
-        error = ['строчную', 'заглавную']
+        error = ['строчную', 'заглавную', ]
         # error[test_arg.index(0)] очень не читаемо, переделать логику
         error_message = f'пароль должен соджержать {error[0]} и {error[1]} букву'  
         
@@ -56,7 +46,7 @@ def check_password_correct(password: str, confirm_password: str) -> None:
         raise ValidationError(error_message)
     
 
-def is_password_contains_upper_lower_letters(password:str) -> bool:
+def is_password_contains_upper_lower_letters(password: str) -> bool:
 
     test_arg = [0, 0]
 
@@ -70,6 +60,20 @@ def is_password_contains_upper_lower_letters(password:str) -> bool:
     return sum(test_arg) == 2
 
 
+def user_registration(request, form):
+
+    if form.is_valid():
+        user = user_create_and_save_account_in_bd(form)
+        login(request, user)
+        get_user_id(user.username)
+        return True
+
+    context = {
+        'form': form,
+    }
+
+    return context
+
 
 def user_create_and_save_account_in_bd(form):
     
@@ -82,11 +86,95 @@ def user_create_and_save_account_in_bd(form):
     user.save()
     return user
 
+def user_authorization(request, form):
 
-# парсинг json
-# def data_fill(request):
-#     try:
-#         data = json.loads(request.body.decode("utf-8-sig"))  # Загрузка JSON
-#         return data
-#     except ValueError:
-#         pass
+    if form.is_valid():
+        cd = form.cleaned_data
+        user = authenticate(username=cd['username'], password=cd['password'])
+        if user is not None:
+            if user.is_active:
+                get_user_id(user.username)
+                login(request, user)
+                return True
+        else:
+            form.message = 'Неверный логин или пароль.'
+    
+    return form
+
+
+def get_user_id(your_username):
+
+    global id
+    id = CustomUser.objects.get(username=your_username).get_id()
+
+
+def task_handler(request, task_number, key):
+
+    msg = 'Не спеши, как нам отслеживать твой прогресс?' if not isinstance(id, int) else ''
+    code = return_task_solution(request, task_number)
+
+    context = {
+        'msg': msg,
+        'code': code,
+        }
+
+    if request.method == 'GET' and key == 'application/json;charset=utf-8':
+        code = return_task_solution(request, task_number)
+        context = {
+            'code': code, 
+            }
+    else:
+        add_complete_task(request)
+
+    return context
+
+
+def add_complete_task(request):
+
+    token = parse_json_from_GET_requests(request)
+
+    if isinstance(id, int):
+        user = CustomUser.objects.all()[id]
+        if token:
+            if token['complete'] == 'yes':
+                task_number = str(token["task"])
+                code_completed_task = token['ideValue']
+                if task_number not in user.completed_tasks.split('_'):
+                    add_number_completed_task_and_solution_in_bd(user, task_number, code_completed_task)
+                else:
+                    replace_solution_in_db(user, task_number, code_completed_task)
+
+
+def parse_json_from_GET_requests(request):
+
+    try:
+        parsed_json = json.loads(request.body.decode("utf-8-sig"))
+        return parsed_json
+    except ValueError:
+        pass
+
+
+def return_task_solution(request, task):
+
+    if isinstance(id, int):
+        user = CustomUser.objects.all()[id]
+        task_view_in_bd = str(task)
+        if task_view_in_bd in user.completed_tasks:
+            task_number = user.completed_tasks[1:].split('_').index(task_view_in_bd)
+            return user.code_of_completed_tasks.split('___')[task_number]
+
+
+def add_number_completed_task_and_solution_in_bd(user, task_number, solution_task):
+
+    user.completed_tasks += f'{task_number}_'
+    user.code_of_completed_tasks += f'{solution_task}___'
+    user.save()
+
+
+def replace_solution_in_db(user, task_number, solution_task):
+    
+    index_solution_in_db = user.completed_tasks[1:].split('_').index(str(task_number))
+    solution_tasks = user.code_of_completed_tasks.split('___')
+    solution_tasks[index_solution_in_db] = solution_task
+    user.code_of_completed_tasks = '___'.join(solution_tasks)
+    user.save() 

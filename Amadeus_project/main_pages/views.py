@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from main_pages.forms import *
-from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth import logout
 from main_pages.services import *
 from django.http import HttpResponse
 import json
@@ -28,112 +28,36 @@ def course(request):
 def user_login(request):
 
     form = LoginForm(request.POST if request.POST else None)
+    form = user_authorization(request, form)
 
-    if form.is_valid():
-        cd = form.cleaned_data
-        user = authenticate(username=cd['username'], password=cd['password'])
-        if user is not None:
-            if user.is_active:
-                get_user_id(user.username)
-                login(request, user)
-                return redirect('home_page')
-        else:
-            form.message = 'Неверный логин или пароль.'
-    else:
-        form = LoginForm()
-    
-    return render(request, 'main_pages/login.html', {'form': form})
-
-
-def regist(request):
-    form = CustomUserForm(request.POST if request.POST else None)
-
-    if form.is_valid():
-        user = user_create_and_save_account_in_bd(form)
-        login(request, user)
-        get_user_id(user.username)
-        return redirect('home_page')
-    
     context = {
         'form': form,
     }
 
+    if form == True:
+        return redirect('home_page')
+    
+    return render(request, 'main_pages/login.html', context)
+
+
+def regist(request):
+
+    form = CustomUserForm(request.POST if request.POST else None)
+    context = user_registration(request, form)
+
+    if context == True:
+        return redirect('home_page')
+
     return render(request, 'main_pages/regist.html', context)
 
 
-def task_handler(request, task_number=1, special_task=None):
+def task(request, task_number=1):
 
-    msg = 'Не спеши, как нам отслеживать твой прогресс?' if not isinstance(id, int) else ''
     key = request.headers['Content-Type']
-    key = request.headers['Content-Type']
+
+    context = task_handler(request, task_number, key)
 
     if request.method == 'GET' and key == 'application/json;charset=utf-8':
-        code = return_task_solution(request, task_number)
-        context = {'code': code}
         return HttpResponse(json.dumps(context))
-    else:
-        add_complete_task(request)
-
-    context = {
-        'msg': msg,
-        }
 
     return render(request, f'main_pages/task{task_number}.html', context)
-
-
-
-# костыль конечно но пока так
-# потом перепишем
-def add_complete_task(request):
-    token = data_fill(request)
-
-    if isinstance(id, int):
-        user = CustomUser.objects.all()[id]
-        if token:
-            if token['complete'] == 'yes':
-                task_number = str(token["task"])
-                code_complete_task = token['ideValue']
-                if task_number not in user.completed_tasks.split('_'):
-                    user.completed_tasks += f'{task_number}_'
-                    user.code_of_completed_tasks += f'{code_complete_task}___'
-                    user.save()
-                else:
-                    index_solution_in_db = user.completed_tasks[1:].split('_').index(str(task_number))
-                    solution_tasks = user.code_of_completed_tasks.split('___')
-                    solution_tasks[index_solution_in_db] = code_complete_task
-                    user.code_of_completed_tasks = '___'.join(solution_tasks)
-                    user.save() 
-
-    return
-
-
-def get_user_id(your_username):
-    global id
-    id = CustomUser.objects.get(username=your_username).get_id()
-
-
-def data_fill(request):
-    try:
-        data = json.loads(request.body.decode("utf-8-sig"))  # Загрузка JSON
-        return data
-    except ValueError:
-        pass
-
-
-
-def return_task_solution(request, task):
-
-    if isinstance(id, int):
-        user = CustomUser.objects.all()[id]
-        task_view_in_bd = str(task)
-        if task_view_in_bd in user.completed_tasks:
-            task_number = user.completed_tasks[1:].split('_').index(task_view_in_bd)
-            return user.code_of_completed_tasks.split('___')[task_number]
-
-
-def parse_headers(request):
-    try:
-        data = json.loads(request.headers.decode("utf-8-sig"))  # Загрузка JSON
-        return data
-    except ValueError:
-        pass
