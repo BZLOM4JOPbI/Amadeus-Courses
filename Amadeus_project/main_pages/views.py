@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from main_pages.forms import *
 from django.contrib.auth import authenticate, login, logout
 from main_pages.services import *
+from django.http import HttpResponse
 import json
 
 
@@ -63,19 +64,18 @@ def regist(request):
 def task_handler(request, task_number=1, special_task=None):
 
     msg = 'Не спеши, как нам отслеживать твой прогресс?' if not isinstance(id, int) else ''
-    code = ''
-
+    key = request.headers['Content-Type']
     key = request.headers['Content-Type']
 
-    if request.GET and key == 'application/json;charset=utf-8':
-        print('fdsfg')
-        return render(request, f'main_pages/task{task_number}.html')
+    if request.method == 'GET' and key == 'application/json;charset=utf-8':
+        code = return_task_solution(request, task_number)
+        context = {'code': code}
+        return HttpResponse(json.dumps(context))
     else:
         add_complete_task(request)
 
     context = {
         'msg': msg,
-        'code': code,
         }
 
     return render(request, f'main_pages/task{task_number}.html', context)
@@ -93,7 +93,6 @@ def add_complete_task(request):
             if token['complete'] == 'yes':
                 task_number = str(token["task"])
                 code_complete_task = token['ideValue']
-                print(user.completed_tasks)
                 if task_number not in user.completed_tasks.split('_'):
                     user.completed_tasks += f'{task_number}_'
                     user.code_of_completed_tasks += f'{code_complete_task}___'
@@ -128,8 +127,6 @@ def return_task_solution(request, task):
         user = CustomUser.objects.all()[id]
         task_view_in_bd = str(task)
         if task_view_in_bd in user.completed_tasks:
-            print(user.completed_tasks[1:].split('_'))
-            print(user.completed_tasks)
             task_number = user.completed_tasks[1:].split('_').index(task_view_in_bd)
             return user.code_of_completed_tasks.split('___')[task_number]
 
