@@ -128,6 +128,12 @@ body, html {
 #hamburgerMenu > div {
     animation: increaseOpacity 0.7s;
 }
+#hamburgerMenu > .navBtnWrap {
+    display: flex;
+}
+#hamburgerMenu > .accountBtnWrap {
+    display: flex;
+}
 @media screen and (max-width: 750px) {
     .accountBtnWrap {
         display: none;
@@ -146,10 +152,6 @@ body, html {
     }
     .hambBtn {
         display: block;
-    }
-    .hambWrap {
-        width: 100%;
-        height: 100%;
     }
     .form {
         border-width: 0px;
@@ -677,38 +679,7 @@ font-family: 'Roboto'; */
     display: inline-block;
 }
 /* */
-/* @media screen and (prefers-color-scheme: dark) {
-    body, html {
-    background-color: var(--main-color);
-    }
-    * {
-        color: #fff;
-        border-color: #fff !important;
-    }
-    .underline {
-    border-color: #fff;
-    background-color: #fff;
-    }
-    .Btn {
-        color: black;
-    }
 
-} */
-/* @media screen and (prefers-color-scheme: dark) {
-    :root {
-        --main-color: #fff;
-        --primary-color: #1b1b1b;
-    }
-    .mainTitle {
-        color: var(--main-color);
-    }
-    .mainSubtitle {
-        color: var(--main-color);
-    }
-    p > input {
-        background-color: var(--primary-color);
-    }
-} */
 /* animation */
 @keyframes increaseWidth {
     0% {
