@@ -147,6 +147,6 @@ try {
 } catch (err) {
     //pass
 }   
-const sendRequestBtn = document.querySelector('.BtnGetRequest');
-// const button = document.getElementById('Btn');
-sendRequestBtn.addEventListener('click', () => sendRequest('/Amadeus_project/main_pages/views', 'GET', ).then(data => console.log(data)), true)
+// const sendRequestBtn = document.querySelector('.BtnGetRequest');
+
+sendRequest('/Amadeus_project/main_pages/views', 'GET', ).then(data => ide.setValue(data.code))
