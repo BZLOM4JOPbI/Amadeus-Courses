@@ -109,8 +109,9 @@ def get_user_id(your_username):
     id = CustomUser.objects.get(username=your_username).get_id()
 
 
-def task_handler(request, key, task_number):
-
+def task_handler(request, task_number):
+    global task_n
+    task_n = task_number
     msg = 'Не спеши, как нам отслеживать твой прогресс?' if not isinstance(id, int) else ''
     code = return_task_solution(request, task_number)
 
@@ -119,20 +120,11 @@ def task_handler(request, key, task_number):
         'code': code,
         }
 
-    if request.method == 'GET' and key == 'application/json;charset=utf-8':
-        code = return_task_solution(request, task_number)
-        context= {
-            'code': code, 
-            }
-        return context
-    else:
-        add_complete_task(request)
-
     return context
 
 
-def add_complete_task(request):
-
+def add_complete_task(request, task_number):
+    print(task_number)
     token = parse_json_from_GET_requests(request)
 
     if isinstance(id, int):
@@ -147,28 +139,8 @@ def add_complete_task(request):
                     replace_solution_in_db(user, task_number, code_completed_task)
 
 
-def parse_json_from_GET_requests(request):
-
-    try:
-        parsed_json = json.loads(request.body.decode("utf-8-sig"))
-        return parsed_json
-    except ValueError:
-        pass
-
-
-def return_task_solution(request, task):
-
-    if isinstance(id, int):
-        user = CustomUser.objects.all()[id]
-        task_view_in_bd = str(task)
-        if task_view_in_bd in user.completed_tasks:
-            task_number = user.completed_tasks[1:].split('_').index(task_view_in_bd)
-            print(user.code_of_completed_tasks.split('___')[task_number])
-            return user.code_of_completed_tasks.split('___')[task_number]
-
-
-def add_number_completed_task_and_solution_in_bd(user, task_number, solution_task):
-
+def add_number_completed_task_and_solution_in_bd(user, task_number, solution_task='ff'):
+    print(task_number)
     user.completed_tasks += f'{task_number}_'
     user.code_of_completed_tasks += f'{solution_task}___'
     user.save()
@@ -181,3 +153,36 @@ def replace_solution_in_db(user, task_number, solution_task):
     solution_tasks[index_solution_in_db] = solution_task
     user.code_of_completed_tasks = '___'.join(solution_tasks)
     user.save() 
+
+
+def return_task_solution(request, task=1):
+
+    if isinstance(id, int):
+        user = CustomUser.objects.all()[id]
+        task_view_in_bd = str(task)
+        if task_view_in_bd in user.completed_tasks:
+            task_number = user.completed_tasks[1:].split('_').index(task_view_in_bd)
+            print(user.code_of_completed_tasks.split('___')[task_number])
+            return user.code_of_completed_tasks.split('___')[task_number]
+
+def return_response(request):
+
+    if request.method == 'GET':
+        code = return_task_solution(request, task_n)
+        context= {
+            'code': code, 
+            }
+        return HttpResponse(json.dumps(context))
+    elif request.method == 'POST':
+        print('dnsdl')
+        add_complete_task(request, task_n)
+    return 
+
+
+def parse_json_from_GET_requests(request):
+
+    try:
+        parsed_json = json.loads(request.body.decode("utf-8-sig"))
+        return parsed_json
+    except ValueError:
+        pass
