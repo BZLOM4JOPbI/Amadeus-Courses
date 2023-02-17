@@ -149,5 +149,5 @@ try {
 }   
 // const sendRequestBtn = document.querySelector('.BtnGetRequest');
 
-() => sendRequest('/Amadeus_project/main_pages/views', 'GET', ).then(data => console.log(data.code))
+sendRequest('/Amadeus_project/main_pages/views', 'GET', ).then(data => console.log(data.code))
 // ide.setValue(data.code)

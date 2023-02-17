@@ -272,6 +272,9 @@ input[type='submit']:disabled {
     text-decoration: none;
 
 }
+p:has(input[type='password']) {
+    position: relative;
+}
 @media screen and (max-width: 750px) {
     .form{
         border-color: var(--primary-color);
