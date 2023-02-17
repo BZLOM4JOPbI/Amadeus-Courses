@@ -51,7 +51,7 @@ def regist(request):
     return render(request, 'main_pages/regist.html', context)
 
 
-def task(request, task_number=1):
+def task(request, task_number):
 
     key = request.headers['Content-Type']
 
