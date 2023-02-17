@@ -54,9 +54,8 @@ def regist(request):
 def task(request, task_number):
 
     key = request.headers['Content-Type']
-
-    context = task_handler(request, task_number, key)
-
+    context = task_handler(request, key, task_number)
+    print(request.headers)
     if request.method == 'GET' and key == 'application/json;charset=utf-8':
         return HttpResponse(json.dumps(context))
 

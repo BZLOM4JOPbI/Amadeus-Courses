@@ -5,6 +5,7 @@ from typing import Optional
 from django.core.exceptions import ValidationError
 from main_pages.models import *
 from django.contrib.auth import authenticate, login, logout
+from django.http import HttpResponse
 import json
 
 
@@ -108,7 +109,7 @@ def get_user_id(your_username):
     id = CustomUser.objects.get(username=your_username).get_id()
 
 
-def task_handler(request, task_number, key):
+def task_handler(request, key, task_number):
 
     msg = 'Не спеши, как нам отслеживать твой прогресс?' if not isinstance(id, int) else ''
     code = return_task_solution(request, task_number)
@@ -120,9 +121,10 @@ def task_handler(request, task_number, key):
 
     if request.method == 'GET' and key == 'application/json;charset=utf-8':
         code = return_task_solution(request, task_number)
-        context = {
+        context= {
             'code': code, 
             }
+        return context
     else:
         add_complete_task(request)
 
@@ -161,6 +163,7 @@ def return_task_solution(request, task):
         task_view_in_bd = str(task)
         if task_view_in_bd in user.completed_tasks:
             task_number = user.completed_tasks[1:].split('_').index(task_view_in_bd)
+            print(user.code_of_completed_tasks.split('___')[task_number])
             return user.code_of_completed_tasks.split('___')[task_number]
 
 
