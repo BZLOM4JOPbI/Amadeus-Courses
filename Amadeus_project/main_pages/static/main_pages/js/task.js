@@ -6,19 +6,22 @@ const rightTestValue = {
     '1' : 'Смузихлеб Иван - лучший фронт'
 };
 //
-const completeBtn = document.querySelector('.completeBtn');
-const ideContainer = document.querySelector('.editorContainer');
-const ideBtnsGoup = document.querySelector('.ideBtnWrap');
-const tastCompleteResult = document.createElement('div')
-tastCompleteResult.className = 'notification';
-
-
-
+// Файл на бэк
 const messageTaskComplete = { 
     complete: 'yes',
     task: keyOfTestValue,
 }
-
+//
+// Элементы для task`ов
+const completeBtn = document.querySelector('.completeBtn');
+const ideContainer = document.querySelector('.editorContainer');
+const ideBtnsGoup = document.querySelector('.ideBtnWrap');
+//
+// Результат решения
+const tastCompleteResult = document.createElement('div')
+tastCompleteResult.className = 'notification';
+//
+// Вытягиваем токен из кукей
 function getCookie(name) {
     let cookieValue = null;
     if (document.cookie && document.cookie !== '') {
@@ -33,6 +36,8 @@ function getCookie(name) {
     }
     return cookieValue;
 }
+//
+// Функция для запросов запрос
 const sendRequest = async (url, method, body = null) => {
     console.log('Запрос отправлен');
     const csrftoken = getCookie('csrftoken');
@@ -45,7 +50,8 @@ const sendRequest = async (url, method, body = null) => {
         return response.json()
     })
 }
-
+//
+// Завершение task`а
 const completeTask = async () => {
     messageTaskComplete.ideValue = ide.getValue();
     addLogs(getCodeResult());
@@ -65,4 +71,4 @@ completeBtn.addEventListener('click', completeTask);
 sendRequest('/Amadeus_project/main_pages/views', 'GET', )
     .then(data => ide.setValue(data.code))
     .catch(err => console.log(err))
-
+//
