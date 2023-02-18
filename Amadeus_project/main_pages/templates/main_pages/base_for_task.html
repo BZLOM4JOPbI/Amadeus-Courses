@@ -7,4 +7,12 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.14.0/ext-language_tools.min.js" type ="text/javascript" charset="utf-8"></script>
     <script src="{% static 'main_pages/js/ide.js' %}"></script>
     <script src="{% static 'main_pages/js/task.js' %}"></script>
+    {% if user.is_authenticated and '_2_' in user.completed_tasks %}
+    <script>
+    sendRequest('/Amadeus_project/main_pages/views', 'GET', )
+    .then(data => ide.setValue(data.code))
+        // .then(data => data.code ? ide.setValue(data.code) : console.log(data.code))
+        .catch(err => console.log(err))
+    </script>
+    {% endif %}
 {% endblock %}

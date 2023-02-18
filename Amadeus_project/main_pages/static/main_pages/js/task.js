@@ -43,8 +43,7 @@ const sendRequest = async (url, method, body = null) => {
     const csrftoken = getCookie('csrftoken');
     return fetch(url, {
         method: method,
-        body: body,
-        // body: method === 'POST' ?  JSON.stringify(body) : null,
+        body: method === 'POST' ?  JSON.stringify(body) : null,
         headers: { 'Content-Type': 'application/json;charset=utf-8', 'X-CSRFToken': csrftoken },
     }).then(response => {
         return response.json()
@@ -68,7 +67,7 @@ const completeTask = async () => {
     return
 }   
 completeBtn.addEventListener('click', completeTask);
-sendRequest('/Amadeus_project/main_pages/views', 'GET', )
-    .then(data => ide.setValue(data.code))
-    .catch(err => console.log(err))
+// sendRequest('/Amadeus_project/main_pages/views', 'GET', )
+//     .then(data => ide.setValue(data.code))
+//     .catch(err => console.log(err))
 //
