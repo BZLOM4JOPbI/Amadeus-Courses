@@ -245,6 +245,7 @@ input {
     padding: 6px 9px;
     border: 1.5px solid var(--main-color);
     box-sizing: border-box;
+    pointer-events: auto;
 }
 input[type='submit'] {
     background-color: var(--accent-color);
@@ -277,37 +278,27 @@ input[type='submit']:disabled {
 p:has(input[name$='password']) {
     position: relative;
 }
-.eyeOnPass {
-    width: 30px;
+p:has(input[name$='password'])::before {
     position: absolute;
-    right: 5px;
-    top: 50%;
-    transform: translate(0, -33%);
+    content: '';
+    background-repeat: no-repeat;
     cursor: pointer;
+    top: 50%;
+    pointer-events: auto;
 }
 .eyeOpen::before {
-    content: '';
     width: 30px;
     height: 30px;
     background-image: url('/static/main_pages/img/eye-regular.svg');
-    background-repeat: no-repeat;
-    position: absolute;
     right: 5px;
-    top: 50%;
     transform: translate(0, -33%);
-    cursor: pointer;
 }
 .eyeClose::before {
-    content: '';
     width: 34px;
     height: 34px;
     background-image: url('/static/main_pages/img/eye-slash-regular.svg');
-    background-repeat: no-repeat;
-    position: absolute;
     right: 3px;
-    top: 50%;
     transform: translate(0, -30%);
-    cursor: pointer;
 }
 @media screen and (max-width: 750px) {
     .form{
@@ -322,6 +313,7 @@ p:has(input[name$='password']) {
 }
 .form > p {
     width: 100%;
+    pointer-events: none;
 }
 .test {
     margin: 0 auto;

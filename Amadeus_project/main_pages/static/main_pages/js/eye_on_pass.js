@@ -1,4 +1,4 @@
-const formPassWrap = document.querySelectorAll('p:has(input[type="password"]');
+const formPassWrap = document.querySelectorAll('p:has(input[name$="password"])');
 for (pass of formPassWrap) {
     pass.classList.add('eyeOpen')
     pass.addEventListener('click', (event) => {
@@ -11,3 +11,10 @@ for (pass of formPassWrap) {
         event.target.childNodes[3].type = 'text';
     })
 }
+// for (eye of document.querySelectorAll('p:has(input[type="password"]::before)')) {
+
+//     eye.addEventListener('click', (event) => {
+//         event.target.parentNode.classList.toggle('eyeOpen');
+//         event.target.parentNode.classList.toggle('eyeClose');
+//     })
+// }
