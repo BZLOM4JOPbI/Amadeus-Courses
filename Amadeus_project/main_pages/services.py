@@ -110,21 +110,20 @@ def get_user_id(your_username):
 
 
 def task_handler(request, task_number):
+    
     global task_n
     task_n = task_number
     msg = 'Не спеши, как нам отслеживать твой прогресс?' if not isinstance(id, int) else ''
-    code = return_task_solution(request, task_number)
 
     context = {
         'msg': msg,
-        'code': code,
         }
 
     return context
 
 
 def add_complete_task(request, task_number):
-    print(task_number)
+
     token = parse_json_from_GET_requests(request)
 
     if isinstance(id, int):
@@ -140,7 +139,6 @@ def add_complete_task(request, task_number):
 
 
 def add_number_completed_task_and_solution_in_bd(user, task_number, solution_task='ff'):
-    print(task_number)
     user.completed_tasks += f'{task_number}_'
     user.code_of_completed_tasks += f'{solution_task}___'
     user.save()
@@ -162,7 +160,6 @@ def return_task_solution(request, task=1):
         task_view_in_bd = str(task)
         if task_view_in_bd in user.completed_tasks:
             task_number = user.completed_tasks[1:].split('_').index(task_view_in_bd)
-            print(user.code_of_completed_tasks.split('___')[task_number])
             return user.code_of_completed_tasks.split('___')[task_number]
 
 def return_response(request):
@@ -174,9 +171,8 @@ def return_response(request):
             }
         return HttpResponse(json.dumps(context))
     elif request.method == 'POST':
-        print('dnsdl')
         add_complete_task(request, task_n)
-    return 
+        return HttpResponse(json.dumps({}))
 
 
 def parse_json_from_GET_requests(request):
