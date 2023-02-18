@@ -39,7 +39,6 @@ function getCookie(name) {
 //
 // Функция для запросов запрос
 const sendRequest = async (url, method, body = null) => {
-    console.log('Запрос отправлен');
     const csrftoken = getCookie('csrftoken');
     return fetch(url, {
         method: method,
@@ -67,6 +66,7 @@ const completeTask = async () => {
     return
 }   
 completeBtn.addEventListener('click', completeTask);
+//
 // sendRequest('/Amadeus_project/main_pages/views', 'GET', )
 //     .then(data => ide.setValue(data.code))
 //     .catch(err => console.log(err))
