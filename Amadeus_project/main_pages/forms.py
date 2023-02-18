@@ -38,7 +38,7 @@ class CustomUserForm(ModelForm):
         username = self.cleaned_data['username'].strip()
         if CustomUser.objects.filter(username__iexact=username).exists():
             raise ValidationError('Это имя уже используется!')
-        check_username_chars(username=username, char_code=177)
+        check_username_chars(username=username)
         return username
 
     # Проверка пароля на валидность

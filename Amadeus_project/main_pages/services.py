@@ -9,15 +9,16 @@ from django.http import HttpResponse
 import json
 
 
-def check_username_chars(username: str, *, char_code: int=177) -> None:
+def check_username_chars(username: str) -> None:
     # в перспективе можно заменить регуляркой
-    if username.isalnum():
-        for char in set(username):
-            if ord(char) > char_code:
-                raise ValidationError('Используйте латинские буквы!')
-    else:
-        raise ValidationError('Используйте цифры от 0-9, "_" и "-".')
-
+    error_msg = 'Используйте латинские буквы, цифры от 0-9, "_" и "-"!'
+    for char in set(username):
+        if 'a' <= char.lower() <= 'z':
+            continue
+        elif char in '_-' or char.isdigit():  
+            continue     
+        else:    
+            raise ValidationError(error_msg)
 
 def check_password_correct(password: str, confirm_password: str) -> None:
 
