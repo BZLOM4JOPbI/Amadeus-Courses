@@ -8,6 +8,10 @@ from django.contrib.auth import authenticate, login, logout
 from django.http import HttpResponse
 import json
 
+def logout_user_account(request):
+    global id
+    id = None
+    logout(request)
 
 def check_username_chars(username: str) -> None:
     # в перспективе можно заменить регуляркой

@@ -7,9 +7,7 @@ import json
 
 
 def logout_user(request):
-    global id
-    id = None
-    logout(request)
+    logout_user_account(request)
     return redirect("home_page")
 
 
