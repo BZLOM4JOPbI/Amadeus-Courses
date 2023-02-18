@@ -14,9 +14,7 @@ const hambClick = () => {
         hamburgerMenu.removeChild(accountButtons);
         return
     }
-    navButtons.style.display = 'flex';
     hamburgerMenu.appendChild(navButtons);
-    accountButtons.style.display = 'flex';
     hamburgerMenu.appendChild(accountButtons);
     document.querySelectorAll('#changeColorTheme')[1].addEventListener('click', changeThemeFun);
     if (localStorage.getItem('nightTheme')) {

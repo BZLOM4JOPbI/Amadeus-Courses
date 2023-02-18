@@ -20,3 +20,9 @@
 .form input {
     background-color: var(--primary-color);
 }
+.eyeClose::before {
+    filter: invert(100%);
+}
+.eyeOpen::before {
+    filter: invert(100%);
+}
