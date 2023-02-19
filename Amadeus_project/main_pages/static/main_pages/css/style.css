@@ -89,6 +89,7 @@ body, html {
 .userName {
     text-decoration: underline;
     text-decoration-color: var(--accent-color);
+    width: fit-content;
 }
 .accountBtnWrap {
     display: flex;
@@ -122,8 +123,9 @@ body, html {
     cursor: pointer;
 }
 #hamburgerMenu {
-    align-items: baseline;
+    align-items: center;
     justify-content: space-between;
+    margin-bottom: 25px;
 }
 #hamburgerMenu > div {
     animation: increaseOpacity 0.7s;
@@ -132,7 +134,11 @@ body, html {
     display: flex;
 }
 #hamburgerMenu > .accountBtnWrap {
+    /* flex-direction: column; */
     display: flex;
+}
+.flex-col {
+    flex-direction: column;
 }
 @media screen and (max-width: 750px) {
     .accountBtnWrap {
@@ -145,7 +151,7 @@ body, html {
     }
     .navBtnWrap {
         display: none;
-        margin: 0 0 25px;
+        margin: 0;
     }
     .navBtnWrap > .navBtn {
         margin: 0 15px 0 0;
@@ -491,6 +497,7 @@ p:has(input[name$='password'])::before {
     bottom: 0px;
     left: -.5px;
     right: -.5px;
+    width: 100%;
 }
 .consoleLogs {
     display: block;

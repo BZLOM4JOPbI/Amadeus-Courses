@@ -14,7 +14,7 @@
     <link rel="stylesheet" type="text/css" id="cssDarkTheme">
     <link rel="apple-touch-icon" sizes="180x180" href=" {% static 'main_pages/img/favicon/apple-touch-icon.png' %}">
     <link rel="icon" type="image/png" sizes="32x32" href=" {% static 'main_pages/img/favicon/favicon-32x32.png' %}">
-    <link rel="icon" type="image/png" sizes="16x16" href=" {% static 'main_pages/img/favicon/favicon-16x316.png' %}">
+    <link rel="icon" type="image/png" sizes="16x16" href=" {% static 'main_pages/img/favicon/favicon-16x16.png' %}">
     <link rel="manifest" href=" {% static 'main_pages/img/favicon/site.webmanifest' %}">
     <link rel="mask-icon" href=" {% static 'main_pages/img/favicon/safari-pinned-tap.svg' %}" color="#5bbad5">
     <meta name="msapplication-TileColor" content="#00a300">
@@ -43,7 +43,7 @@
                         </label>
                     </div>
                     <img src=" {% static 'main_pages/img/bars-solid.svg' %}" alt="" class="hambBtn">
-                    <div class="accountBtnWrap">
+                    <div class="accountBtnWrap {% if user.is_authenticated %}flex-col{% endif %}">
                         {% if user.is_authenticated %}
                             <h4 class="userName">Welcome, {{ user.username }}!</h4>
                             <a class="Btn" href="{% url 'logout' %}">Выйти</a>
