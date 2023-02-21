@@ -1,1 +1,4 @@
 venv
+Amadeus_project/db.sqlite3
+.vercel
+Amadeus_project/Amadeus_project/config.py

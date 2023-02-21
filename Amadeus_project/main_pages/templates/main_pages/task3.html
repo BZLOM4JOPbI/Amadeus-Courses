@@ -1,0 +1,85 @@
+{% extends 'main_pages/base_for_task.html' %}
+
+{% load static %}
+
+
+{% block title %}
+Задание 3
+{% endblock %}
+
+
+{% block content %}
+    <main class="mainWrap">
+        <div class="container" style="flex-direction: column">
+            <article class="courseInner">
+                <h4 class="courseTitle">Операторы в JavaScript</h4>
+                <hr class="underline" noshade="true">
+                <div class="courseTextContainer">
+                    <p class="courseText">Операторы &ndash; это символы между значениями, которые позволяют выполнять различные операции, такие как сложение, вычитание, умножение и другие. В JavaScript есть десятки операторов, поэтому давайте сосредоточимся на тех, которые вы, вероятно, будете использовать чаще всего.</p>
+                    <p class="courseText">Оператор ' + ' складывает два числа.</p>
+                    <code>
+                        console.log(1 + 2); // Выведет число 3
+                    </code>
+                    <p class="courseText">Оператор ' - ' вычитает одно число из другого.</p>
+                    <code>
+                        console.log(30 - 10); // Выведет число 20
+                    </code>
+                    <p class="courseText">Оператор ' * ' умножает два числа. Обратите внимание, что это звездочка, а не символ обычно используемый в математике.</p>
+                    <code>
+                        console.log(4 * 6); // Выведет число 24
+                    </code>
+                    <p class="courseText">Оператор ' / ' делит одно число на другое. Обратите внимание, что это косая черта, а не символ обычно используемый в математике.</p>
+                    <code>
+                        console.log(32 / 4) // Выведет число 8
+                    </code> 
+                    <p class="courseText">Выражения в программировании выполняются, следуя приоритету операторов. Из приорите получается, что в примере снизу сначала выполняется умножение между двумя последними числами, хотя сложение записано первым.</p>
+                    <code>
+                        console.log(25 - 5 * 2) // Выведет число 15, а не 40
+                    </code>
+                    <p class="courseText">Для большего контроля над вычислениями используется группировка выражений.</p>
+                    <p class="courseText">Оператор ' () ' группирует выражения, изменяя приоритет операторов. Добавление оператора группировки к предыдущему примеру приводит к тому, что сначала вычисляется 25 - 5.</p>  
+                    <code>
+                        console.log((25 - 5) * 2) // Теперь выведет число 40
+                    </code>
+                    <p class="courseText">Оператор ' + ' при применении к строкам менят свое поведение и конкатенирует их. Другими словами, он может "склеивать" их.</p>
+                    <code>
+                        console.log('Front' + 'end') // Выведет строку 'Frontend'
+                    </code>
+                    <p class="courseText">Символы пробела также нужно учитывать</p>
+                    <code>
+                        console.log('Доброе' + ' ' 'утро') // Выведет 'Доброе утро'
+                    </code>
+                    <p class="courseText">Оператор ' = ' присваивает значения <a href="{% url 'task' task_number=3 %}">переменным</a>.</p>
+                    <code>
+                        let option = 'Font size';
+                    </code>
+                    <h6 class="task">Задание</h6>
+                    <p class="courseText">В редакторе кода находиться выражение. Подставьте на место нижних подчеркиваний(_) арифмитические операторы так, чтобы функция вывела число 38</p>
+                </div>
+                <div class="editorContainer">
+                    <div class="editorInner">
+                        <div id="editor"></div>
+                    </div>
+                    {% if msg %}
+                        <p class="changePage">{{ msg }} <a class="userName" href="{% url 'regist_user' %}">Регистрация</a></p>
+                    {% endif %}
+                    <div class="ideBtnWrap">
+                        <div class="ideBtnFun">
+                            <button class="resultBtn Btn">Тест</button>
+                            <button class="completeBtn Btn accentBtn" {% if msg %} disabled="true" {% endif %}>Завершить</button>
+                            <button class="resetBtn Btn">Сброс</button>
+                        </div>
+                        <div class="ideNavBtn">
+                            <button class="Btn"><a href="{% url 'task' task_number=2 %}">Предыдущий шаг</a></button>
+                            <button class="Btn"><a href="{% url 'task' task_number=4 %}">Следующий шаг</a></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="console">
+                    <ul class="consoleLogs"></ul>
+                    <button class="Btn">Сброс</button>
+                </div>
+            </article>
+        </div>
+    </main>
+{% endblock %}

@@ -1,0 +1,62 @@
+{% extends 'main_pages/base_for_task.html' %}
+
+{% load static %}
+
+
+{% block title %}
+    Задание 2
+{% endblock %}
+
+
+{% block content %}
+    <main class="mainWrap">
+        <div class="container" style="flex-direction: column">
+            <article class="courseInner">
+                <h4 class="courseTitle">Первое погружение в JavaScript</h4>
+                <hr class="underline" noshade="true">
+                <div class="courseTextContainer">
+                    <p class="courseText">Изначально JavaScript был создан, чтобы «сделать веб-страницы живыми».</p>
+                    <p class="courseText">Программы на этом языке называются скриптами. Они могут встраиваться в HTML и выполняться автоматически при загрузке веб-страницы.</p>
+                    <p class="courseText">JavaScript невероятно универсален и дружелюбен к новичкам. Тем не менее, с JavaScript немного более сложно освоиться, чем с HTML и CSS. Вам придётся начать с малого, продолжая изучение небольшими шагами. Для начала мы покажем вам некоторые основы JavaScript, чтобы создать в консоли вывод "Hello, World!".</p>
+                    <p class="courseText"></p>
+                    <h6 class="task">Задание</h6>
+                    <code>
+                        console.log();
+                    </code>
+                    <p class="courseText">Функция console.log используется для вывода любого сообщения, которое необходимо отобразить. Эта функция дает вам доступ к консоли браузера, что позволяет вам выводить строки, массивы и объекты, которые помогают отлаживать код.</p>
+                    <code>
+                        console.log('Привет, мир!');  // Выведет строку внутри ковычек
+                    </code>
+                    <p class="courseText">По традиции изучение нового языка программирования следует начинать с 'Hello, World!'.</p>
+                    <p class="courseText">Продублируйте код снизу в редактор кода. Использование одинарных и двойных ковычек равнозначно, но проверка задания чувствительная к регистру и лишним пробелам, так что набирать следует символ в символ. После отправьте решение на проверку. Строка в ковычках появится в качетсве вывода в консоли.</p>
+                    <code>
+                        console.log('Hello, World!');
+                    </code>
+                </div>
+                <div class="editorContainer">
+                    <div class="editorInner">
+                        <div id="editor"></div>
+                    </div>
+                        {% if msg %}
+                            <p class="changePage">{{ msg }} <a class="userName" href="{% url 'regist_user' %}">Регистрация</a></p>
+                        {% endif %}
+                    <div class="ideBtnWrap">
+                        <div class="ideBtnFun">
+                            <button class="resultBtn Btn">Тест</button>
+                            <button class="completeBtn Btn accentBtn" {% if msg %} disabled="true" {% endif %}>Завершить</button>
+                            <button class="resetBtn Btn">Сброс</button>
+                        </div>
+                        <div class="ideNavBtn">
+                            <button class="Btn"><a href="{% url 'task' task_number=1 %}">Предыдущий шаг</a></button>
+                            <button class="Btn"><a href="{% url 'task' task_number=3 %}">Следующий шаг</a></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="console">
+                    <ul class="consoleLogs"></ul>
+                    <button class="Btn">Сброс</button>
+                </div>
+            </article>
+        </div>
+    </main>
+{% endblock %}

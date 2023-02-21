@@ -1,0 +1,62 @@
+{% extends 'main_pages/base.html' %}
+
+{% load static %}
+
+
+{% block title %}
+Курсы Amadeus
+{% endblock %}
+
+
+{% block content %}
+    <main class="mainWrap">
+        <div class="container">
+            <div class="mainInner">
+                <section class="codeBG" style="background-image: url({% static 'main_pages/img/blackbg.png' %});">
+                    <div class="blur">
+                        <div class="bannerInner">
+                            <h1 class="mainTitle">Доступные курсы по программированию</h1>
+                            <h4 class="mainSubtitle">Хобби может легко стать любимой работой</h4>
+                        </div>
+                    </div>
+                </section>
+                <h4 class="taskList">Задачи</h4>
+                <div class="cardGrid">
+                    <div class="card task4">
+                        <h5 class="taskTitle">О нас</h6>
+                        <h6 class="taskDesc"></h6>
+                            {% if '_1_' in user.completed_tasks %}
+                                <p class="taskStatus">решено</p>
+                            {% endif %}
+                        <a href="{% url 'task' task_number=1 %}" class="Btn">Решить</a>
+                    </div>
+                    <div class="card task1">
+                        <h5 class="taskTitle">Погружение</h6>
+                        <h6 class="taskDesc">Вы когда-нибудь пытались научиться читать, писать или говорить на незнакомом языке? Любое изучение начинается с азов и терпеливого прохождения практики</h6>
+                            {% if '_2_' in user.completed_tasks %}
+                                <p class="taskStatus">решено</p>
+                            {% endif %}
+                        <a href="{% url 'task' task_number=2 %}" class="Btn">Решить</a>
+                    </div>
+                    <div class="card task2">
+                        <h5 class="taskTitle">Операторы</h6>
+                        <h6 class="taskDesc">Оператор способен манипулировать значениями, что позволяет выполнять определенные математические и логических вычисления на данных. В JS они используются для сравнения значений, выполнения арифметических операций и т.д.</h6>
+                            {% if '_3_' in user.completed_tasks %}
+                                <p class="taskStatus">решено</p>
+                            {% endif %}
+                        <a href="{% url 'task' task_number=3 %}" class="Btn">Решить</a>
+                    </div>
+                    <div class="card task3">
+                        <h5 class="taskTitle">Переменные</h6>
+                        <h6 class="taskDesc">Переменные являются неотъемлемой частью программирования. Они используются для хранения данных и информации в программе. Мы можем легко понять концепцию переменной, если представим ее как «коробку» для данных</h6>
+                            {% if '_4_' in user.completed_tasks %}
+                                <p class="taskStatus">решено</p>
+                            {% endif %}
+                        <a href="{% url 'task' task_number=4 %}" class="Btn">Решить</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+{% endblock %}
+{% block index_card %}<script src="{% static 'main_pages/js/card_anim.js' %}"></script>{% endblock %}
