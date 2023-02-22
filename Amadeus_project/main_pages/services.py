@@ -93,7 +93,7 @@ def user_create_and_save_account_in_bd(form):
     return user
 
 def user_authorization(request, form):
-
+    print(request.headers)
     if form.is_valid():
         cd = form.cleaned_data
         user = authenticate(username=cd['username'], password=cd['password'])
