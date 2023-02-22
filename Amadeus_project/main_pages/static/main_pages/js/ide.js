@@ -74,4 +74,4 @@ const addLogs = (input) => {
 resetConsole.addEventListener('click', (event) => {
     consoleLogs.innerHTML = '';
 })
-//
+// ваы
