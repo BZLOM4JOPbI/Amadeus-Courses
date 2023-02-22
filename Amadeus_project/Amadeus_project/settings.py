@@ -22,7 +22,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-a_#rjw9b$=4r12cm!xi!24mu43bm49zhk3z^vgkd5ehr2h=7yvk@&'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
@@ -138,5 +138,5 @@ LOGIN_REDIRECT_URL = "/"
 LOGOUT_REDIRECT_URL = "/"
 
 
-CSRF_TRUSTED_ORIGINS = ['https://amadeus-courses-production.up.railway.app']
+CSRF_TRUSTED_ORIGINS = ['https://amadeus-courses.up.railway.app']
 
