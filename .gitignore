@@ -1,4 +1,9 @@
 venv
+<<<<<<< HEAD
 Amadeus_project/db.sqlite3
 .vercel
 Amadeus_project/Amadeus_project/config.py
+=======
+djangoenv
+.gitignore
+>>>>>>> db424a4 (dasd)
