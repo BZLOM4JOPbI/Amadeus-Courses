@@ -210,9 +210,9 @@ input:checked + .slider:before {
     .inHam {
         display: none !important;
     }
-    .accountBtnWrap {
+    /* .accountBtnWrap {
         flex-direction: row !important;
-    }
+    } */
 }
 /**/
 
