@@ -1,6 +1,6 @@
 const cardsArr = document.querySelectorAll('.card');
 const decreaseSize = (event) => {
-    event.target.style.animation = 'decreaseScale .3s';
+    event.target.style.animation = 'decreaseScale .2s';
 }
 for (let card of cardsArr) {
     card.addEventListener('mouseleave', decreaseSize);

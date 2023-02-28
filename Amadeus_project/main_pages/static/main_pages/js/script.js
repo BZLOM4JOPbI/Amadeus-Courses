@@ -36,7 +36,7 @@ const themeDark = document.getElementById('cssDarkTheme');
 const changeThemeFun = (event) => {
     if (localStorage.getItem('nightTheme')) {
         localStorage.removeItem('nightTheme');
-        themeDark.setAttribute('href', '');
+        themeDark.setAttribute('href', '/static/main_pages/css/light_style.css');
         try {
             ide.setTheme('ace/theme/clouds');
         } catch {
@@ -54,7 +54,6 @@ const changeThemeFun = (event) => {
 }
 
 themeChangeBtn.addEventListener('click', changeThemeFun);
-
 
 if (localStorage.getItem('nightTheme')) {
     themeChangeBtn.checked = 'True';

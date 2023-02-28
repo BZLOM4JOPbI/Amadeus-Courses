@@ -1,24 +1,12 @@
 :root {
-    --main-color: #fff;
-    --primary-color: #1b1b1b;
-}
-.mainTitle {
-    color: #fff;
-}
-.mainSubtitle {
-    color: var(--main-color);
-}
-.console {
-    background-color: #000;
-}
-.consoleLogs li {
-    color: var(--main-color);
+    --main-color: #f3fff1 !important;
+    --primary-color: #1b1b1b !important;
 }
 .hambBtn {
     filter: invert(100%);
 }
 .form input {
-    background-color: var(--primary-color);
+    background-color: var(--primary-color) !important;
 }
 .eyeClose::before {
     filter: invert(100%);
